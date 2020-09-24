@@ -168,11 +168,100 @@ java是一门完全是一门面向对象的编程语言。
 ## 类的定义
 
 - 成员变量+局部变量
--  
 
-  
+- 成员变量没有手动赋值的时候，系统默认赋值。
+
+  | 类型         | 默认值 |
+  | ------------ | :----- |
+  | byte         | 0      |
+  | short        | 0      |
+  | int          | 0      |
+  | long         | 0L     |
+  | float        | 0.0F   |
+  | double       | 0.0    |
+  | boolean      | false  |
+  | char         | \u0000 |
+  | 引用数据类型 | null   |
+
+- 成员变量经过类的实例化后，变成实例变量，不能通过类名访问实例变量。
+- 
+
+  ## 对象的创建
+
+-  
 
 ## 类的JVM内存
 
-- 
+- 凡是通过new运算符创建的对象，都储存在堆内存当中，new运算符的作用就是在堆内存中开辟一块内存空间。
+
+- 无论是局部变量的类变量还是全局变量的类变量，其实例对象都保存在堆中，变量保存的是其在堆内的地址。于是称对象为引用类型。
+
+- 对象和引用的区别？
+
+  对象是通过new出来的，在堆内存中储存。引用是：但凡是变量，并且该变量中保存了内存地址指向了堆内存当中的对象的。
+
+-  对象与引用的内存分配图：![image-20200924213029973](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924213029973.png)
+
+- 中文是可以做类名和变量名的。 
+
+- 关于类的嵌套
+
+  <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924223811784.png" alt="image-20200924223811784" style="zoom:50%;" />
+
+  - 第一步，实例化u1对象
+
+  <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924222757133.png" alt="image-20200924222757133" style="zoom: 50%;" />
+
+  - 对对象赋值
+
+     <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924230532660.png" alt="image-20200924230532660" style="zoom:50%;" />
+
+## 类的使用
+
+- 成员变量中的实例变量，必须通过引用变量来访问，不能以类.
+
+```java
+class T{
+	A a;	
+	public static void main(String[] args){
+		D d=new D();
+		C c=new C();
+		B b=new B();
+		A a=new A();
+		T t=new T();  //T已经实例化了
+		
+		c.d =d;
+		b.c =c;
+		a.b =b;
+		t.a =a;
+		
+		//利用t访问i，哪怕是在本类，也只能通过实例变量来访问
+		System.out.println(t.a.b.c.d.i);
+	}
+}
+class A{
+	B b;
+}
+class B{
+	C c;
+}
+class C{
+	D d;
+}
+class D{
+	int i;
+}
+```
+
+- 空指针异常
+
+  
+
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924233427464.png" alt="image-20200924233427464" style="zoom: 80%;" />
+
+注：==垃圾回收机制主要回收的是堆的数据。==
+
+# 方法的参数传递
+
+总的来说，方法传递的都是变量存的值，==记住：无论是基本数据类型的变量，还是引用变量，都是复制了一份变量存的值，其中，对于基本数据类型的变量，存的是实际的基本数据类型的值；对于引用变量存的是地址。== 
 
