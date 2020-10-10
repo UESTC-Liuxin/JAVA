@@ -195,20 +195,18 @@ java是一门完全是一门面向对象的编程语言。
     
     - ==静态变量在类加载时初始化，不需要new对象，静态变量的空间就开出来了，静态变量储存在**方法区**。==
     
-    - 静态变脸的内存图
+    - 静态变量的内存图。
     
-       
-
+  
 - 实例
   - 实例变量：
   - 会占用两份内存
   - ![image-20200927131332390](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200927131332390.png)
 
-  
+- this指针
 
-  ## 对象的创建
+  就是实例对象本身，保存在实例对象中。this通常可以省略，除了以下的情况：成员变量和形参或者局部参数同名，java具有就近原则。
 
--  
 
 ## 类的JVM内存
 
@@ -216,7 +214,7 @@ java是一门完全是一门面向对象的编程语言。
 
 - 无论是局部变量的类变量还是全局变量的类变量，其实例对象都保存在堆中，变量保存的是其在堆内的地址。于是称对象为引用类型。
 
-- 对象和引用的区别？
+- 对象和引用的区别？ 
 
   对象是通过new出来的，在堆内存中储存。引用是：但凡是变量，并且该变量中保存了内存地址指向了堆内存当中的对象的。
 
@@ -292,7 +290,7 @@ class D{
 
 ## 实例方法
 
--  
+-  实例方法可以操作实例变量，实例方法已经静态变量，静态方法。
 
 ## 构造方法
 
@@ -300,13 +298,56 @@ class D{
 - 成员变量在构造函数中得到默认值赋值或者根据参数赋值
 - 构造方法两个作用：创建对象；给属性赋值
 - 方法的函数签名，只能由方法名和入口参数确定，不能由形式参数名字区别
-- 只能用new来调用
+- 只能用new来调用。
 
-## 
+# 静态/实例代码块
+
+##  静态代码块
+
+```java
+public class StaticCode{
+	static{
+		System.out.println("execute to here");
+	}		
+	public static void main(String[] args){
+		;
+	}
+}
+```
+
+  ==静态代码块在类加载的时候执行，并且在main方法之前执行，一般按照自上而下的顺序执行，只执行一次。==
+
+静态代码块的作用：可用于记录类加载的日志，记录在类加载的时间等。
+
+## 实例代码块
+
+```java
+public class StaticCode{
+	static int i=100;
+	static{
+		System.out.println(i+"execute to static code");//可以访问实例变量
+	}	
+	
+	{
+		System.out.println("execute to incetance code");//
+	}
+	
+	public StaticCode(){
+		System.out.println("execute to Construct code");//
+	}
+	public static void main(String[] args){
+		StaticCode s1=new StaticCode();
+		StaticCode s2=new StaticCode();
+		
+	}
+}
+```
+
+==实例代码块在实例化的时候执行，实例化多少次，就会执行多少次。并且执行在构造方法之前。==
 
 
 
-# 封装、重载、多态
+# 封装、重载、多态、继承
 
 ## 封装
 
@@ -322,9 +363,80 @@ class D{
 
   - public 返回值类型 get+属性名首字母大写(无参)
   - public void set+属性名首字母大写(一个参数)
-  -  
 
+## 继承
 
+继承关键字：**extends**
 
-  
+继承的相关特性：
+
+- java中的继承支持单继承，不支持多继承，c++支持多继承，这也是java体现简单性的一点。
+- 虽然java不支持多继承，但是有间接继承。C继承B,B继承A。
+- Java中规定，子类继承父类，除构造方法不能继承之外，其余都可以继承。只是private属性不能在子类中直接访问。
+
+```java
+public class Inherit{
+	public static void main(String[] args){
+		CreditAccount c = new CreditAccount(100);
+		c.printInfo();
+	}
+	
+}
+
+/**
+*/
+
+class Account{
+	private String accID;
+	private String name;
+	
+	public Account(String accID,String name){
+		setAccID(accID);
+		setName(name);
+	}
+	public Account(){
+		
+	}
+	
+	public void setAccID(String accID){
+		this.accID=accID;
+	}
+	
+	public String getAccID(){
+		return this.accID;
+	}
+	
+	public void setName(String name){
+		this.name=name;
+	}
+	public String getName(){
+		return this.name;
+	}
+}
+/**
+
+*/
+class CreditAccount extends Account{//继承于Account
+	private int creditScorce;
+	
+	public CreditAccount(int creditScorce){
+		setCreditScore(creditScorce);
+	}
+	public CreditAccount(){
+		
+	}
+	
+	public void setCreditScore(int creditScorce){
+		this.creditScorce=creditScorce;
+	}
+	public int getCreditScorce(){
+		return this.creditScorce;
+	}
+	
+	public void printInfo(){
+		System.out.println("accID:"+getAccID()+";\ncreditScorce:"+getCreditScorce());
+	}
+	 
+}
+```
 
