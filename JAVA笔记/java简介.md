@@ -300,6 +300,68 @@ class D{
 - 方法的函数签名，只能由方法名和入口参数确定，不能由形式参数名字区别
 - 只能用new来调用。
 
+## 方法的参数传递
+
+[深入理解Java中的方法的参数传递机制](https://www.cnblogs.com/sum-41/p/10799555.html)
+
+在java中，不存在真正的引用传递的情况，对于引用数据类型，其真实的储存空间都是在堆上，变量名都只保存了堆上的地址，在实参传递入方法的时候，实际上创建了一个引用的拷贝，对此引用的对象操作会造成对象的改变，但是改变引用指向的对象，并不会对实参造成任何影响。
+
+分析下列代码：
+
+```java
+public class HelloWorld {
+    public static void main(String[] args){
+        A a=new A(0);
+        System.out.println("before change a:"+a.value+" addr:"+System.identityHashCode(a));
+        changeValue(a);
+        System.out.println("after change value a:"+a.value+" addr:"+System.identityHashCode(a));
+        changeObj(a);
+        System.out.println("after change obj a:"+a.value+" addr:"+System.identityHashCode(a));
+    }
+    //只是改变对方的值
+    static void changeValue(A a){
+        a.value=10;
+        System.out.println("addr:"+System.identityHashCode(a));
+    }
+
+    static void changeObj(A a){
+        A b=new A(20);
+        a=b;
+        System.out.println("addr:"+System.identityHashCode(a));
+    }
+
+
+}
+
+class A{
+    public int value;
+    public A(int value){
+        this.value=value;
+    }
+}
+```
+
+输出：
+
+```bash
+before change a:0 addr:189568618
+addr:189568618
+after change value a:10 addr:189568618
+addr:186370029
+after change obj a:10 addr:189568618
+
+Process finished with exit code 0
+
+```
+
+可以看到，对于实参a，引用的地址永远没有发生改变，只有重新创了个对象，赋值给内部变量a时，a的地址发生了改变，这时与实参a指向了不同的地址。
+
+内存图：
+
+![image-20201011115315436](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201011115315436.png)
+
+从图中可以看出，实参中的a对对象A的引用从未改变，方法内产生了对引用的拷贝，可改变指向哪一个引用对象。
+
 # 静态/实例代码块
 
 ##  静态代码块
