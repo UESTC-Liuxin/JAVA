@@ -435,6 +435,7 @@ public class StaticCode{
 - java中的继承支持单继承，不支持多继承，c++支持多继承，这也是java体现简单性的一点。
 - 虽然java不支持多继承，但是有间接继承。C继承B,B继承A。
 - Java中规定，子类继承父类，除构造方法不能继承之外，其余都可以继承。只是private属性不能在子类中直接访问。
+- **子类实例化并不会造成父类被实例化，这跟python有区别。**
 
 ```java
 public class Inherit{
@@ -502,3 +503,179 @@ class CreditAccount extends Account{//继承于Account
 }
 ```
 
+
+
+## 重载
+
+同一个类，函数签名不同构成重载，函数签名不包括返回类型。（函数名是大小写敏感的）
+
+## 覆盖
+
+子类继承父类后，有一些行为必须要进行针对性改进。直接将继承过来的方法重新在子类中重新写一遍就可以了。
+
+条件：
+
+- 子类覆写的方法的访问权限不能更低。
+
+- 同时抛出的异常不能更多。
+
+- 构造方法不能够被覆盖
+
+**object类**
+
+- toString()方法，（println对象，会自动调用toString()方法）
+
+  ```java
+  public class HelloWorld {
+      public static void main(String[] args) {
+          Object obj=new Object();
+          System.out.println(obj.toString());
+          System.out.println(obj);
+      }
+  }
+  ```
+
+  ```bash
+  java.lang.Object@10f87f48
+  java.lang.Object@10f87f48
+  ```
+
+  其中10f87f48是对象堆地址的hash码。
+  
+  通常我们需要进行覆盖。
+
+```java
+class Person extends Object{
+    private String name;
+    public Person(){
+
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+}
+```
+
+## 多态
+
+多态：多种型态
+
+- 向上转型
+
+  ```java
+  public class Polymorphism {
+      public static void main(String[] args) {
+          Animal a =new Bird();//这就是向上转型，就是子转向父
+          a.move();
+      }
+  }
+  
+  class Animal{
+      public void move(){
+          System.out.println("animal is moving");
+      }
+  
+  }
+  class Bird extends Animal{
+      @Override
+      public void move() {
+          System.out.println("Bird is flying!");//方法覆盖
+      }
+  }
+  ```
+
+  java程序分为编译阶段和运行阶段。
+
+  1. 先来分析编译阶段：对于编译器来说，编译器只知道a是Animal类型，所以编译器在检查语法的时候，会到Animal.class文件中找Animal.move()方法，找到了之后会绑定move()方法。编译通过。静态绑定成功。（==编译阶段绑定==）
+2. 再来分析运行阶段：运行阶段的时候，实际上在堆内存中创建的java对象是Bird对象，所以move的时候，真正参与move的对象是一只猫，所以运行阶段会动态执行Cat对象的move()方法。这个过程属于运行阶段绑定。（==运行阶段绑定属于动态绑定==）
+  3. 多态指的是编译阶段和运行阶段具有不同的形态。
+  4. ==综上所述，要成功实现多态，必须要完成静态绑定和动态绑定，在向上转型的时候，调用的方法，必须要是父类和子类都有的**属性和方法**。==
+
+  示例：
+  
+  ```java
+  public class Polymorphism {
+      public static void main(String[] args) {
+          Animal a =new Bird();
+          Bird b=new Bird();
+          a.move();
+          System.out.println(b.category);
+          System.out.println(a.category);
+      }
+  }
+  
+  
+  class Animal{
+      public void move(){
+          System.out.println("animal is moving");
+      }
+  
+  }
+  
+  
+  class Bird extends Animal{
+      public String category="Bird";
+      @Override
+      public void move() {
+          System.out.println("Bird is flying!");//方法覆盖
+      }
+  }
+  ```
+  
+  此代码不能通过编译。因为编译的时候Animal对象a找不到category属性。
+
+
+
+- 向下转型（**存在风险**）
+
+  ```java
+  public class Polymorphism {
+      public static void main(String[] args) {
+  
+  /*向上转型
+          Animal a =new Bird();
+          Bird b=new Bird();
+          a.move();
+          System.out.println(b.category);
+          System.out.println(a.category);
+  */
+          Animal a=new Animal();
+          Bird b=(Bird)a;//这里就是向下转换
+          System.out.println(b.category);
+  
+      }
+  }
+  ```
+  
+  正如上面所述，多态必须要通过静态绑定和动态绑定，上述代码，编译不会报错，因为Bird对象是存在category的，但是实际对象是一个Animal对象，没有category属性，在运行时会报错：
+  
+  ```bash
+  Exception in thread "main" java.lang.ClassCastException: class Animal cannot be cast to class Bird (Animal and Bird are in unnamed module of loader 'app')
+  	at Polymorphism.main(Polymorphism.java:12
+  ```
+  
+  **instanceof运算符**
+  
+  ```java
+          Animal a=new Animal();
+          if(a instanceof Bird){
+              Bird b=(Bird)a;
+              System.out.println(b.category);
+          }
+  ```
+  
+  注意：instanceof不能在强制转换过后进行判断，强制转换后，instanceof只能判断为强制转换后的类型。
+  
+  
