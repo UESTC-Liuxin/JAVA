@@ -604,7 +604,7 @@ class Person extends Object{
   4. ==综上所述，要成功实现多态，必须要完成静态绑定和动态绑定，在向上转型的时候，调用的方法，必须要是父类和子类都有的**属性和方法**。==
 
   示例：
-  
+
   ```java
   public class Polymorphism {
       public static void main(String[] args) {
@@ -633,7 +633,7 @@ class Person extends Object{
       }
   }
   ```
-  
+
   此代码不能通过编译。因为编译的时候Animal对象a找不到category属性。
 
 
@@ -658,16 +658,16 @@ class Person extends Object{
       }
   }
   ```
-  
+
   正如上面所述，多态必须要通过静态绑定和动态绑定，上述代码，编译不会报错，因为Bird对象是存在category的，但是实际对象是一个Animal对象，没有category属性，在运行时会报错：
-  
+
   ```bash
   Exception in thread "main" java.lang.ClassCastException: class Animal cannot be cast to class Bird (Animal and Bird are in unnamed module of loader 'app')
   	at Polymorphism.main(Polymorphism.java:12
   ```
-  
-  **instanceof运算符**
-  
+
+**instanceof运算符**
+
   ```java
           Animal a=new Animal();
           if(a instanceof Bird){
@@ -675,7 +675,71 @@ class Person extends Object{
               System.out.println(b.category);
           }
   ```
-  
+
   注意：instanceof不能在强制转换过后进行判断，强制转换后，instanceof只能判断为强制转换后的类型。
+
+  同时，instanceof在实际运行的时候，向上转型能够被识别位正确的obj类型。
+
+  ```java
+          Animal a =new Bird();
+          if(a instanceof Bird){
+              Bird b=(Bird)a;
+              System.out.println(b.category);
+          }
+  ```
+
+**多态的作用**
+
+- 为了在软件和开发和维护中遵守OCP原则，降低程序的耦合度，提高程序的扩展力；
+
+  代码举例：
+
+  ```java
+  public class Polymorphism {
+      public static void main(String[] args) {
+          Observer observer=new Observer();
+          Cat cat=new Cat();
+          Bird bird =new Bird();
+          observer.decribe(cat); //利用多态机制可以保证类似功能的扩展
+          observer.decribe(bird);
   
   
+      }
+  }
+  class Animal{
+      public void move(){}
+  
+  }
+  
+  class Cat extends Animal{
+      public String category="Cat";
+      public void move(){
+          System.out.println("Cat is crawling!");
+      }
+  }
+  
+  class Bird extends Animal{
+      public String category="Bird";
+      @Override
+      public void move(){
+          System.out.println("Bird is flying!");//方法覆盖
+      }
+  }
+  
+  
+  class Observer{
+      public void decribe(Animal animal){
+          animal.move();
+      }
+  }
+  ```
+
+  在Observer.decribe()方法中，参数带入父类，利用多态机制就可以传入不同的对象，完成功能的扩展。
+
+  面向Animal类编程，Observer类对Bird和Cat的耦合度就降低了。
+
+
+
+## 总结
+
+封装、继承、覆盖、多态是环环相扣的，为了提高代码的复用力，增加扩展性。
