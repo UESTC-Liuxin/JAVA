@@ -433,9 +433,35 @@ public class StaticCode{
 继承的相关特性：
 
 - java中的继承支持单继承，不支持多继承，c++支持多继承，这也是java体现简单性的一点。
+
 - 虽然java不支持多继承，但是有间接继承。C继承B,B继承A。
+
 - Java中规定，子类继承父类，除构造方法不能继承之外，其余都可以继承。只是private属性不能在子类中直接访问。
-- **子类实例化并不会造成父类被实例化，这跟python有区别。**
+
+- **子类实例化会造成父类被实例化，父类的构造方法会被先执行。同时，对于父类的带参构造方法，继承的时候必须手动调用父类构造方法**
+
+  比如：
+
+  ```java
+  class A{
+  //    public A(){
+  //        System.out.println("A is called");
+  //    }
+      public A(int i){
+          System.out.println("A is called");
+      }
+  }
+  
+  class B extends A{
+      public B(){
+          System.out.println("B is called");
+      }
+  }
+  ```
+
+  父类只有一个带参构造函数，所以必须要显式的调用父类的构造方法。
+
+  继承举例：
 
 ```java
 public class Inherit{
@@ -502,8 +528,6 @@ class CreditAccount extends Account{//继承于Account
 	 
 }
 ```
-
-
 
 ## 重载
 
@@ -572,33 +596,34 @@ class Person extends Object{
 
 多态：多种型态
 
-- 向上转型
+1. 向上转型
 
-  ```java
-  public class Polymorphism {
-      public static void main(String[] args) {
-          Animal a =new Bird();//这就是向上转型，就是子转向父
-          a.move();
-      }
-  }
-  
-  class Animal{
-      public void move(){
-          System.out.println("animal is moving");
-      }
-  
-  }
-  class Bird extends Animal{
-      @Override
-      public void move() {
-          System.out.println("Bird is flying!");//方法覆盖
-      }
-  }
-  ```
+```java
+public class Polymorphism {
+    public static void main(String[] args) {
+        Animal a =new Bird();//这就是向上转型，就是子转向父
+        a.move();
+    }
+}
 
-  java程序分为编译阶段和运行阶段。
+class Animal{
+    public void move(){
+        System.out.println("animal is moving");
+    }
 
-  1. 先来分析编译阶段：对于编译器来说，编译器只知道a是Animal类型，所以编译器在检查语法的时候，会到Animal.class文件中找Animal.move()方法，找到了之后会绑定move()方法。编译通过。静态绑定成功。（==编译阶段绑定==）
+}
+class Bird extends Animal{
+    @Override
+    public void move() {
+        System.out.println("Bird is flying!");//方法覆盖
+    }
+}
+```
+
+java程序分为编译阶段和运行阶段。
+
+1. 先来分析编译阶段：对于编译器来说，编译器只知道a是Animal类型，所以编译器在检查语法的时候，会到Animal.class文件中找Animal.move()方法，找到了之后会绑定move()方法。编译通过。静态绑定成功。（==编译阶段绑定==）
+
 2. 再来分析运行阶段：运行阶段的时候，实际上在堆内存中创建的java对象是Bird对象，所以move的时候，真正参与move的对象是一只猫，所以运行阶段会动态执行Cat对象的move()方法。这个过程属于运行阶段绑定。（==运行阶段绑定属于动态绑定==）
   3. 多态指的是编译阶段和运行阶段具有不同的形态。
   4. ==综上所述，要成功实现多态，必须要完成静态绑定和动态绑定，在向上转型的时候，调用的方法，必须要是父类和子类都有的**属性和方法**。==
@@ -636,37 +661,35 @@ class Person extends Object{
 
   此代码不能通过编译。因为编译的时候Animal对象a找不到category属性。
 
+2. 向下转型（**存在风险**）
 
+```java
+public class Polymorphism {
+    public static void main(String[] args) {
 
-- 向下转型（**存在风险**）
+/*向上转型
+        Animal a =new Bird();
+        Bird b=new Bird();
+        a.move();
+        System.out.println(b.category);
+        System.out.println(a.category);
+*/
+        Animal a=new Animal();
+        Bird b=(Bird)a;//这里就是向下转换
+        System.out.println(b.category);
 
-  ```java
-  public class Polymorphism {
-      public static void main(String[] args) {
-  
-  /*向上转型
-          Animal a =new Bird();
-          Bird b=new Bird();
-          a.move();
-          System.out.println(b.category);
-          System.out.println(a.category);
-  */
-          Animal a=new Animal();
-          Bird b=(Bird)a;//这里就是向下转换
-          System.out.println(b.category);
-  
-      }
-  }
-  ```
+    }
+}
+```
 
-  正如上面所述，多态必须要通过静态绑定和动态绑定，上述代码，编译不会报错，因为Bird对象是存在category的，但是实际对象是一个Animal对象，没有category属性，在运行时会报错：
+正如上面所述，多态必须要通过静态绑定和动态绑定，上述代码，编译不会报错，因为Bird对象是存在category的，但是实际对象是一个Animal对象，没有category属性，在运行时会报错：
 
-  ```bash
-  Exception in thread "main" java.lang.ClassCastException: class Animal cannot be cast to class Bird (Animal and Bird are in unnamed module of loader 'app')
-  	at Polymorphism.main(Polymorphism.java:12
-  ```
+```bash
+Exception in thread "main" java.lang.ClassCastException: class Animal cannot be cast to class Bird (Animal and Bird are in unnamed module of loader 'app')
+	at Polymorphism.main(Polymorphism.java:12
+```
 
-**instanceof运算符**
+- **instanceof运算符**
 
   ```java
           Animal a=new Animal();
@@ -688,58 +711,177 @@ class Person extends Object{
           }
   ```
 
-**多态的作用**
+- **多态的作用**
+  - 为了在软件和开发和维护中遵守OCP原则，降低程序的耦合度，提高程序的扩展力；
+  - 代码举例：
 
-- 为了在软件和开发和维护中遵守OCP原则，降低程序的耦合度，提高程序的扩展力；
+```java
+public class Polymorphism {
+    public static void main(String[] args) {
+        Observer observer=new Observer();
+        Cat cat=new Cat();
+        Bird bird =new Bird();
+        observer.decribe(cat); //利用多态机制可以保证类似功能的扩展
+        observer.decribe(bird);
 
-  代码举例：
+
+    }
+}
+class Animal{
+    public void move(){}
+
+}
+
+class Cat extends Animal{
+    public String category="Cat";
+    public void move(){
+        System.out.println("Cat is crawling!");
+    }
+}
+
+class Bird extends Animal{
+    public String category="Bird";
+    @Override
+    public void move(){
+        System.out.println("Bird is flying!");//方法覆盖
+    }
+}
+
+
+class Observer{
+    public void decribe(Animal animal){
+        animal.move();
+    }
+}
+```
+
+在Observer.decribe()方法中，参数带入父类，利用多态机制就可以传入不同的对象，完成功能的扩展。
+
+面向Animal类编程，Observer类对Bird和Cat的耦合度就降低了。
+
+- 静态方法不存在覆盖
 
   ```java
   public class Polymorphism {
       public static void main(String[] args) {
+          
+          Animal a =new Bird();
+          Animal b =new Cat();
           Observer observer=new Observer();
-          Cat cat=new Cat();
-          Bird bird =new Bird();
-          observer.decribe(cat); //利用多态机制可以保证类似功能的扩展
-          observer.decribe(bird);
-  
+          observer.observe(a);
+          observer.observe(a);
   
       }
   }
+  
   class Animal{
-      public void move(){}
-  
-  }
-  
-  class Cat extends Animal{
-      public String category="Cat";
       public void move(){
-          System.out.println("Cat is crawling!");
+          System.out.println("animal is moving");
       }
+  
+      public static void eat(){
+          System.out.println("animal is eating!");
+      }
+  
   }
+  
   
   class Bird extends Animal{
       public String category="Bird";
-      @Override
-      public void move(){
+  
+      public void move() {
           System.out.println("Bird is flying!");//方法覆盖
+      }
+      public static void eat(){
+          System.out.println("Bird is eating!");
+      }
+  }
+  class Cat extends Animal{
+      public String category="Cat";
+  
+      public void move() {
+          System.out.println("Cat is flying!");//方法覆盖
+      }
+      public static void eat(){
+          System.out.println("Cat is eating!");
       }
   }
   
-  
   class Observer{
-      public void decribe(Animal animal){
+      public void observe(Animal animal){
           animal.move();
+          animal.eat();
       }
   }
   ```
 
-  在Observer.decribe()方法中，参数带入父类，利用多态机制就可以传入不同的对象，完成功能的扩展。
+  输出：
 
-  面向Animal类编程，Observer类对Bird和Cat的耦合度就降低了。
+  ```bash
+  Bird is flying!
+  animal is eating!
+  Bird is flying!
+  animal is eating!
+  ```
 
+  静态方法跟实例对象无关，所以还是执行的Animal.ear()。
 
+- 私有方法无法覆盖
 
-## 总结
+## 补充 
 
-封装、继承、覆盖、多态是环环相扣的，为了提高代码的复用力，增加扩展性。
+**super指针** 
+
+- super能出现在实例方法和构造方法中。
+
+- super的语法是"super."和"super（）"
+
+- super不能使用在静态方法中；
+
+- super只能出现在构造方法的第一行，通过当前的构造方法去调用"父类"中的构造方法，目的是；创建子类对象的时候，先初始化父类型特征。
+
+- 父类只有带参构造方法时，必须要用super显式地调用父类的构造方法。
+
+- super调用背后的原因：
+
+  <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201016012202172.png" alt="image-20201016012202172" style="zoom:50%;" />
+
+- super可越过子类，调用父类的属性与方法。
+
+  ```java
+  class A{
+  //    public A(){
+  //        System.out.println("A is called");
+  //    }
+      public A(int i){
+          System.out.println("A is called");
+      }
+      public void test(){
+          System.out.println("A is tested");
+      }
+  }
+  
+  class B extends A{
+      public B(){
+          super(9);
+          System.out.println("B is called");
+          super.test();
+      }
+      public void test(){
+          System.out.println("B is tested");
+      }
+  }
+  ```
+
+  ```bash
+  A is called
+  B is called
+  A is test
+  ed
+  ```
+
+- super指针和this指针不同，不是对自身对象的引用。super只是代表父类的那一部分特征。它引用当前对象的直接父类中的成员（用来访问直接父类中被隐藏的父类中成员数据或函数，基类与派生类中有相同成员定义时如：super.变量名  super.成员函数据名（实参）
+
+  
+
+##  
