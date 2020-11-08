@@ -20,22 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f20e41f9-4e48-48d5-9167-01373434900d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/HotelWiring.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/IdentifyingInfected.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/Inherit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/Main2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/MosaicDecoration1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/MosaicDecorationII.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/Palindromes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/TheDefensiveWalls.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/functionSignature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JAVA笔记/java简介.md" beforeDir="false" afterPath="$PROJECT_DIR$/../JAVA笔记/java简介.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/FinalTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/ObstractTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JAVA笔记/java简介.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/.idea/leetcode/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/.idea/leetcode/editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/src/main/java/leetcode/editor/cn/RomanToInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/main/java/leetcode/editor/cn/RomanToInteger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/main/java/leetcode/editor/cn/DecodeWays.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/main/java/leetcode/editor/cn/DecodeWays.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/src/main/java/leetcode/editor/cn/all.json" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/main/java/leetcode/editor/cn/all.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/src/main/java/leetcode/editor/cn/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/main/java/leetcode/editor/cn/translation.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaNote/src/Polymorphism.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/Polymorphism.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/HotelWiring.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/IdentifyingInfected.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/Main2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/MosaicDecoration1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/MosaicDecorationII.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/Palindromes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/Polymorphism.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/TheDefensiveWalls.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,12 +77,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="14" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../leetcode" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
-  <component name="RunManager" selected="Application.TheDefensiveWalls">
+  <component name="RunManager" selected="Application.HouseRobber">
+    <configuration name="FinalTestB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FinalTestB" />
+      <module name="JavaNote" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HotelWiring" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HotelWiring" />
       <module name="JavaNote" />
@@ -88,15 +98,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main2" />
-      <module name="JavaNote" />
+    <configuration name="HouseRobber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.HouseRobber" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="leetcode.editor.cn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Palindromes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Palindromes" />
+    <configuration name="ObstractTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ObstractTest" />
       <module name="JavaNote" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -109,20 +124,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <module name="JavaNote" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TheDefensiveWalls" />
-        <item itemvalue="Application.Palindromes" />
+        <item itemvalue="Application.HouseRobber" />
+        <item itemvalue="Application.ObstractTest" />
+        <item itemvalue="Application.FinalTestB" />
         <item itemvalue="Application.HotelWiring" />
-        <item itemvalue="Application.Main2" />
-        <item itemvalue="Application.test" />
+        <item itemvalue="Application.TheDefensiveWalls" />
       </list>
     </recent_temporary>
   </component>
@@ -154,38 +162,40 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="#Project_Structure/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602481279783" />
-    <state x="511" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1602536613744">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2431" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1604505759585">
+      <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="511" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602536613744" />
+    <state x="2431" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604505759585" />
     <state x="544" y="301" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1602480892782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="544" y="301" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602480892782" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602841757761">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2469" y="167" key="FileChooserDialogImpl" timestamp="1604810407828">
+      <screen x="1920" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602841757761" />
-    <state width="1492" height="261" key="GridCell.Tab.0.bottom" timestamp="1603544289929">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1603714282366" />
+    <state x="2469" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604810407828" />
+    <state width="1492" height="210" key="GridCell.Tab.0.bottom" timestamp="1604625751682">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1492" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602812516391" />
-    <state width="1492" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603544289929" />
-    <state width="1492" height="261" key="GridCell.Tab.0.center" timestamp="1603544289929">
+    <state width="1492" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604625751682" />
+    <state width="1492" height="210" key="GridCell.Tab.0.center" timestamp="1604625751682">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1492" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602812516391" />
-    <state width="1492" height="261" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603544289929" />
-    <state width="1492" height="261" key="GridCell.Tab.0.left" timestamp="1603544289929">
+    <state width="1492" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604625751682" />
+    <state width="1492" height="210" key="GridCell.Tab.0.left" timestamp="1604625751682">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1492" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602812516391" />
-    <state width="1492" height="261" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603544289929" />
-    <state width="1492" height="261" key="GridCell.Tab.0.right" timestamp="1603544289929">
+    <state width="1492" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604625751682" />
+    <state width="1492" height="210" key="GridCell.Tab.0.right" timestamp="1604625751682">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1492" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602812516391" />
-    <state width="1492" height="261" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603544289929" />
+    <state width="1492" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604625751682" />
     <state width="1492" height="261" key="GridCell.Tab.1.bottom" timestamp="1603544289930">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
@@ -206,6 +216,14 @@
     </state>
     <state width="1492" height="261" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602696460212" />
     <state width="1492" height="261" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603544289929" />
+    <state x="2190" y="56" key="SettingsEditor" timestamp="1604500496198">
+      <screen x="1920" y="0" width="1536" height="824" />
+    </state>
+    <state x="2190" y="56" key="SettingsEditor/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604500496198" />
+    <state x="2155" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604500287901">
+      <screen x="1920" y="0" width="1536" height="824" />
+    </state>
+    <state x="2155" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604500287901" />
     <state x="320" y="42" key="new project wizard" timestamp="1602481274705">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -220,15 +238,6 @@
     <state x="2351" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603519694155" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/JavaNote/src/TheDefensiveWalls.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="nodeRalation[i][j]" />

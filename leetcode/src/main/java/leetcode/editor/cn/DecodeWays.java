@@ -60,7 +60,7 @@ package leetcode.editor.cn;
 public class DecodeWays{
     public static void main(String[] args) {
         Solution solution = new DecodeWays().new Solution();
-        System.out.println(solution.numDecodings("12"));
+        System.out.println(solution.numDecodings("2101"));
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)
@@ -68,12 +68,24 @@ class Solution {
     public int numDecodings(String s) {
         int dp[] =new int[s.length()];
         char[] charArray = s.toCharArray();
-        dp[0]=1;
-
+        if(charArray[0]=='0'){
+            dp[0]=0;
+        }
+        else
+            dp[0]=1;
         for(int i=1;i<charArray.length;i++){
-            int ten=Integer.valueOf(charArray[i-1]);
-            int digits=Integer.valueOf(charArray[i]);
-            int addValue=(ten*10+digits)>=26?1:2;
+            int ten=Integer.valueOf(charArray[i-1])-48;
+            int digits=Integer.valueOf(charArray[i])-48;
+            int sum=ten*10+digits;
+            int addValue=0;
+            if(sum<=26 && digits!=0){
+                addValue=1;
+            }
+            else if(digits==0){
+                return 0;
+            }
+            else
+                addValue=0;
             dp[i]=dp[i-1]+addValue;
         }
         return dp[s.length()-1];

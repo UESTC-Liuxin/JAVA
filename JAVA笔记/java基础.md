@@ -34,25 +34,25 @@
 
 主要靠jvm，不同平台的jvm是不一样的，但留给开发者的接口是一样的。
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200911220747319.png" alt="image-20200911220747319" style="zoom:50%;" />
+![image-20200911220747319](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200911220747319.png)
 
 - JDK、JRE、JVM三者之间的关系
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200911221422751.png" alt="image-20200911221422751" style="zoom:50%;" />
+<img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200911221422751.png" alt="image-20200911221422751" style="zoom:50%;" />
 
 - java的加载与执行
 
 java->编译->.class 字节码(字节码也是可移植的，一次编译多地运行)
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200911224324806.png" alt="image-20200911224324806" style="zoom:50%;" />
+<img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200911224324806.png" alt="image-20200911224324806" style="zoom: 67%;" />
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200911222827188.png" alt="image-20200911222827188" style="zoom:50%;" />  
+<img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200911222827188.png" alt="image-20200911222827188" style="zoom:67%;" />  
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200914211105579.png" alt="image-20200914211105579" style="zoom:50%;" />
+![image-20200914211105579](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200914211105579.png)
 
 执行顺序：启动JVM->启动classloader->找到字节码->
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200914212148476.png" alt="image-20200914212148476" style="zoom:50%;" />
+![image-20200914212148476](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200914212148476.png)
 
 # java基础语法规定
 
@@ -147,7 +147,7 @@ JVM下主要存在3个区：栈内存、堆区、方法区。但其实还有其�
 
 - 堆区
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200922233922917.png" alt="image-20200922233922917" style="zoom:50%;" />
+<img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200922233922917.png" alt="image-20200922233922917" style="zoom: 50%;" />
 
  # 面向对象编程
 
@@ -201,7 +201,7 @@ java是一门完全是一门面向对象的编程语言。
 - 实例
   - 实例变量：
   - 会占用两份内存
-  - ![image-20200927131332390](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200927131332390.png)
+  - ![image-20200927131332390](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200927131332390.png)
 
 - this指针
 
@@ -218,21 +218,21 @@ java是一门完全是一门面向对象的编程语言。
 
   对象是通过new出来的，在堆内存中储存。引用是：但凡是变量，并且该变量中保存了内存地址指向了堆内存当中的对象的。
 
--  对象与引用的内存分配图：![image-20200924213029973](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924213029973.png)
+-  对象与引用的内存分配图：![image-20200924213029973](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200924213029973.png)
 
 - 中文是可以做类名和变量名的。 
 
 - 关于类的嵌套
 
-  <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924223811784.png" alt="image-20200924223811784" style="zoom:50%;" />
+  <img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200924223811784.png" alt="image-20200924223811784" style="zoom:50%;" />
 
   - 第一步，实例化u1对象
 
-  <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924222757133.png" alt="image-20200924222757133" style="zoom: 50%;" />
+  <img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200924222757133.png" alt="image-20200924222757133" style="zoom:50%;" />
 
   - 对对象赋值
 
-     <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924230532660.png" alt="image-20200924230532660" style="zoom:50%;" />
+     <img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200924230532660.png" alt="image-20200924230532660" style="zoom:50%;" />
 
 ## 类的使用
 
@@ -275,7 +275,7 @@ class D{
 
   
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200924233427464.png" alt="image-20200924233427464" style="zoom: 80%;" />
+![image-20200924233427464](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20200924233427464.png)
 
 注：==垃圾回收机制主要回收的是堆的数据。==
 
@@ -358,7 +358,7 @@ Process finished with exit code 0
 
 内存图：
 
-![image-20201011115315436](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201011115315436.png)
+![image-20201011115315436](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20201011115315436.png)
 
 从图中可以看出，实参中的a对对象A的引用从未改变，方法内产生了对引用的拷贝，可改变指向哪一个引用对象。
 
@@ -844,7 +844,7 @@ class Observer{
 
 - super调用背后的原因：
 
-  <img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201016012202172.png" alt="image-20201016012202172" style="zoom:50%;" />
+  <img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20201016012202172.png" alt="image-20201016012202172" style="zoom:50%;" />
 
 - super可越过子类，调用父类的属性与方法。
 
