@@ -64,7 +64,7 @@ final是一个关键字，表示最终的，不可变的
 
  类和类之间具体共同特征，将这些共同特征提取出来，形成的就是抽象类。
 
-## 抽象类属于什么类型
+## 抽象类属于什么类型？
 
 抽象类，也属于引用数据类型。
 
@@ -75,6 +75,8 @@ final是一个关键字，表示最终的，不可变的
 	类体
 }
 ```
+
+## 注意事项
 
 抽象类无法实例化，只能被继承。抽象类虽然不能被实例化，但是抽象类可以有构造方法，此构造方法供子类使用。==注意：构造方法是不能被继承的。==
 
@@ -92,7 +94,91 @@ class CreditAccount extends Account{
 }
 ```
 
-抽象方法只能出现在抽象类中，但是抽象类可以不用出现抽象方法。
+抽象方法只能出现在抽象类中，但是抽象类可以不用出现抽象方法。==抽象方法不能有函数体，必须在子类中进行实现。==
+
+**面试题**
+
+java语言中凡是没有方法体的方法都是抽象方法。不对，错误的。
+
+Object类中很多方法都没有方法体，都是以“；”结尾的，但他们都不是抽象方法，例如：
+
+```java
+public native int hashCode();
+```
+
+这个方法底层调用了C++写的动态链接库程序。前面修饰符列表中没有:abstract。有一个native。表示调用JVM本地程序。
+
+# 接口
+
+## 基础语法
+
+- 接口也是一种引用数据类型，接口是完全抽象的，抽象类是半抽象的。
+
+```java
+[修饰符列表] interface 接口名{
+	类体
+}
+```
+
+- 接口支持多继承，一个接口允许继承多个接口。
+
+```JAVA
+interface InterfaceC extends InterfaceA,InterfaceB{
+
+}
+```
+
+- 接口里的方法都是public abstract的，因此不用写。。。，同时一定**不能有方法体**。
+
+- 接口里的变量都是常量，无法定义真正的变量。所有变量都会被默认加上`public static final`
+
+- 接口中所有成员都是public的。
+
+- 类与接口之间叫实现。
+
+  ```java
+  interface MyMath{
+   double PI=3.1415926;
+   int add(int a,int b);
+  }
+  class MathTest implements MyMath{
+      //实现接口中的方法,必须加public,因为方法重写必须访问权限只能变宽，不能变严
+      public int add(int a,int b){
+          return 0;
+      }
+  }
+  ```
+
+- 接口也存在多态。
+
+  ```java
+  public class InterfaceTest {
+      public static void main(String[] args) {
+          MyMath myMath = new MathTest();
+          System.out.println(myMath.add(1,2));
+      }
+  }
+  ```
+
+- 类可以进行多实现。
+
+  ```java
+  class InfoProcessTest implements MyMath,MyDigitalProcess{
+      //实现接口中的方法
+      public int add(int a,int b){
+          return a+b;
+      }
+  
+  }
+  ```
+
+- 接口与接口之间在进行强制类型转换的时候，没有继承关系，也可以强转，但是运行时可能会出现ClassCastException异常。
+
+- 当实现了多个接口，使用多态时，只能调用向上转型中的方法。
+
+  
+
+## 具体作用
 
 
 

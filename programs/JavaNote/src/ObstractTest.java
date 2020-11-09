@@ -8,9 +8,16 @@ abstract class Account{
 
     }
 
+    public abstract void move();
+
 }
 class CreditAccount extends Account{
     public void test(){
         super.test();
+    }
+
+    @Override
+    public void move() {
+        System.out.println("override");
     }
 }
