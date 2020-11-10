@@ -27,7 +27,6 @@ package leetcode.editor.cn;
 // 👍 633 👎 0
 
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Triangle{

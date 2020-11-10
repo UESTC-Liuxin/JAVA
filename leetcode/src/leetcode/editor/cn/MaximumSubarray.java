@@ -15,8 +15,6 @@ package leetcode.editor.cn;
 // Related Topics 数组 分治算法 动态规划 
 // 👍 2519 👎 0
 
-import java.util.ArrayList;
-
 
 /*
 这道题用动态规划，常规思路，将dp[n]设置为最佳结果，但是这样很难实现，无法兼顾连续数组的条件

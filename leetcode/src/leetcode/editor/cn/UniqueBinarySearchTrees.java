@@ -17,8 +17,6 @@ package leetcode.editor.cn;
 // Related Topics 树 动态规划 
 // 👍 855 👎 0
 
-import java.util.ArrayList;
-
 public class UniqueBinarySearchTrees{
     public static void main(String[] args) {
         Solution solution = new UniqueBinarySearchTrees().new Solution();

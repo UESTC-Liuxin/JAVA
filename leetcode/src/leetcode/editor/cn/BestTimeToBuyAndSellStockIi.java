@@ -42,8 +42,6 @@ package leetcode.editor.cn;
 // Related Topics 贪心算法 数组 
 // 👍 886 👎 0
 
-import java.awt.event.MouseAdapter;
-
 public class BestTimeToBuyAndSellStockIi{
     public static void main(String[] args) {
         Solution solution = new BestTimeToBuyAndSellStockIi().new Solution();

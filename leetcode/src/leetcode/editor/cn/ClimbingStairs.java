@@ -27,7 +27,6 @@ package leetcode.editor.cn;
 // 👍 1280 👎 0
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class ClimbingStairs{
     public static void main(String[] args) {

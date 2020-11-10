@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e35b8bb1-40b0-4832-a6e9-4f9bd9858040" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/all.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JAVA笔记/java基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/../JAVA笔记/java基础.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JAVA笔记/java进阶.md" beforeDir="false" afterPath="$PROJECT_DIR$/../JAVA笔记/java进阶.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/leetcode/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leetcode刷题笔记.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HelloWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/BestTimeToBuyAndSellStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/BestTimeToBuyAndSellStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/BestTimeToBuyAndSellStockIi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/BestTimeToBuyAndSellStockIi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/ClimbingStairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/ClimbingStairs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/DecodeWays.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/DecodeWays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/HouseRobber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/HouseRobber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/LongestIncreasingSubsequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/LongestIncreasingSubsequence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/LongestPalindromicSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/LongestPalindromicSubstring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/MaximumSubarray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/MaximumSubarray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/MaximumSubarray.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/MaximumSubarray.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/MinimumPathSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/MinimumPathSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/MinimumWindowSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/MinimumWindowSubstring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/ReverseString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/ReverseString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/RomanToInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/RomanToInteger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/UniqueBinarySearchTrees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/UniqueBinarySearchTrees.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/UniqueBinarySearchTreesIi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/UniqueBinarySearchTreesIi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/all.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/leetcode/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/leetcode/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/JavaNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/JavaNote.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/src.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/FinalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/FinalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/Inherit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/Inherit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/InterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/InterfaceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/JavaNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/JavaNote.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/ObstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/ObstractTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/OverrideTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/OverrideTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/functionSignature.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/functionSignature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/src.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/out/production/JavaNote/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../programs/out/production/JavaNote/JavaNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/out/production/JavaNote/JavaNote.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\Program Files\JetBrains\IntelliJ IDEA Educational Edition 2020.2.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1k5G1UPh1WEPtllRUbuRGioU02W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="leetcode.id" />
+  </component>
+  <component name="RunManager" selected="Application.CoinChange">
+    <configuration name="BestTimeToBuyAndSellStockIi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.BestTimeToBuyAndSellStockIi" />
+      <module name="leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="leetcode.editor.cn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClimbingStairs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.ClimbingStairs" />
+      <module name="leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="leetcode.editor.cn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoinChange" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.CoinChange" />
+      <module name="leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="leetcode.editor.cn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NextPermutation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.NextPermutation" />
+      <module name="leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="leetcode.editor.cn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringToIntegerAtoi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.StringToIntegerAtoi" />
+      <module name="leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="leetcode.editor.cn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CoinChange" />
+        <item itemvalue="Application.ClimbingStairs" />
+        <item itemvalue="Application.StringToIntegerAtoi" />
+        <item itemvalue="Application.BestTimeToBuyAndSellStockIi" />
+        <item itemvalue="Application.NextPermutation" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e35b8bb1-40b0-4832-a6e9-4f9bd9858040" name="Default Changelist" comment="" />
+      <created>1604982825439</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604982825439</updated>
+      <workItem from="1605011892707" duration="96000" />
+      <workItem from="1605012781570" duration="5051000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2607" y="362" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1605012924838">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2607" y="362" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605012924838" />
+    <state x="2713" y="302" width="313" height="548" key="EnvironmentVariablesDialog" timestamp="1605012931246">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2713" y="302" width="313" height="548" key="EnvironmentVariablesDialog/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605012931246" />
+    <state x="2140" y="473" width="424" height="491" key="FileChooserDialogImpl" timestamp="1605013745634">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2140" y="473" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605013745634" />
+    <state x="771" y="284" width="424" height="525" key="FileChooserDialogImpl/1920.0.1920.1080/67.27.1853.1053@67.27.1853.1053" timestamp="1605011975988" />
+    <state width="1866" height="334" key="GridCell.Tab.0.bottom" timestamp="1605017392525">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1492" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604983003850" />
+    <state width="1866" height="334" key="GridCell.Tab.0.bottom/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605017392525" />
+    <state width="1866" height="334" key="GridCell.Tab.0.center" timestamp="1605017392525">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1492" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604983003850" />
+    <state width="1866" height="334" key="GridCell.Tab.0.center/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605017392525" />
+    <state width="1866" height="334" key="GridCell.Tab.0.left" timestamp="1605017392524">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1492" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604983003850" />
+    <state width="1866" height="334" key="GridCell.Tab.0.left/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605017392524" />
+    <state width="1866" height="334" key="GridCell.Tab.0.right" timestamp="1605017392525">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1492" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604983003850" />
+    <state width="1866" height="334" key="GridCell.Tab.0.right/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605017392525" />
+    <state width="1866" height="334" key="GridCell.Tab.1.bottom" timestamp="1605017392525">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1866" height="334" key="GridCell.Tab.1.bottom/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605017392525" />
+    <state width="1866" height="334" key="GridCell.Tab.1.center" timestamp="1605017392525">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1866" height="334" key="GridCell.Tab.1.center/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605017392525" />
+    <state width="1866" height="334" key="GridCell.Tab.1.left" timestamp="1605017392525">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1866" height="334" key="GridCell.Tab.1.left/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605017392525" />
+    <state width="1866" height="334" key="GridCell.Tab.1.right" timestamp="1605017392525">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1866" height="334" key="GridCell.Tab.1.right/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605017392525" />
+    <state x="2171" y="86" width="1580" height="880" key="SettingsEditor" timestamp="1605013748205">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2190" y="56" key="SettingsEditor/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604982852033" />
+    <state x="2171" y="86" width="1580" height="880" key="SettingsEditor/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605013748205" />
+    <state x="270" y="82" width="1436" height="923" key="new project wizard" timestamp="1605011986567">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="270" y="82" width="1436" height="923" key="new project wizard/1920.0.1920.1080/67.27.1853.1053@67.27.1853.1053" timestamp="1605011986567" />
+  </component>
+</project>

@@ -308,6 +308,3 @@ class Solution {
 | [53.最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) | 2020/10/1之前 | 2020/11/3  | 动态规划 | 2    |
 | [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/) | 2020/11/4     | 2020/11/4  | 动态规划 | 1    |
 | [198.打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 2020/11/8     | 2020/11/8  | 动态规划 | 1    |
-
-
-
