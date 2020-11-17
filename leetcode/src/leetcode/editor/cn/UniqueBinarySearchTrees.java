@@ -39,47 +39,21 @@ public class UniqueBinarySearchTrees{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 
-/*  递归版本
+
     public int numTrees(int n) {
         int[] G=new int[n+1];//为什么要n+1个，因为n+1个的最大索引才是n
-        countG(n,G);
+        return countG(n,G);
+    }
+    public int countG(int n,int[] G){
+        if(n<2) return 1;
+        if(G[n]!=0)
+            return G[n];
+        for(int i=1;i<=n;i++){
+            G[n]+=countG(i-1,G)*countG(n-i,G);
+        }
         return G[n];
     }
 
-    public void countG(int n,int[] G){
-        if(n<2){
-            G[n]=1;
-        }
-        else{
-            for(int i=1;i<=n;i++){
-                if(G[n]==0){
-                    countG(i-1,G);
-                    countG(n-i,G);
-                }
-                G[n]+=G[i-1]*G[n-i];
-            }
-        }
-        return;
-    }*/
-    /*
-    迭代版本：递归方式是从上向下生长，迭代就是要从下向上生长
-    F[1,1]=1=G[1]
-
-    F[1,2]=G[0]*G[1]
-    F[2,2]=G[1]*G[0]
-    G[2]=F[1,2]+F[2,2]
-    ...
-    */
-    public int numTrees(int n) {
-        int[] G=new int[n+1];//为什么要n+1个，因为n+1个的最大索引才是n
-        G[0]=1;
-        G[1]=1;
-        for(int i=2;i<=n;i++)//i为F[,]长度
-            for(int j=1;j<=i;j++){//j为F[,]的索引
-                G[i]+=G[j-1]*G[i-j];
-            }
-        return G[n];
-    }
 
 
 }

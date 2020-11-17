@@ -18,9 +18,14 @@ interface MyDigitalProcess{
     double multiSigmma(double a);
 
 }
-class InfoProcessTest implements MyMath,MyDigitalProcess{
+
+
+class BaseProcess{
+
+}
+class InfoProcessTest extends  BaseProcess implements MyMath,MyDigitalProcess{
     //实现接口中的方法
-    public int add(int a,int b){
+    public int add(int a,int b) {
         return a+b;
     }
 

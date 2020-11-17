@@ -176,11 +176,170 @@ interface InterfaceC extends InterfaceA,InterfaceB{
 
 - 当实现了多个接口，使用多态时，只能调用向上转型中的方法。
 
+- 继承和实现同时存在的时候怎么写？
+
+  继承和实现同时有的时候，继承在前，接口在后。extends在前，implements在后
   
+  ```java
+  class InfoProcessTest extends  BaseProcess implements MyMath,MyDigitalProcess{
+      //实现接口中的方法
+      public int add(int a,int b) {
+          return a+b;
+      }
+  
+      public double multiSigmma(double a){
+          return a*sigmma;
+          
+      }
+  }
+  ```
 
 ## 具体作用
 
+接口在开发中的作用，类似与多态在开发中的作用。
 
+多态：面向对象时，不要面向对象编程。降低程序的耦合度。提高程序的扩展力。
+
+面向抽象编程就可以修改为：面向接口编程。
+
+具体作用：
+
+```java
+public class InterfaceTest2 {
+
+    public static void main(String[] args) {
+        ChineseCooker chineseCooker =new ChineseCooker();
+        Customer customer =new Customer(chineseCooker);
+        customer.order();
+
+    }
+}
+//提供了两个实现
+class WestCooker implements FoodMenu{
+    public void doSomeNoodles(){
+        System.out.println("do some noodles by WestCooker!");
+    }
+    public void doSomeRices(){
+
+    }
+}
+class ChineseCooker implements FoodMenu{
+    public void doSomeNoodles(){
+        System.out.println("do some noodles by ChineseCooker!");
+    }
+    public void doSomeRices(){
+        
+    }
+}
+
+//菜单就是接口
+interface FoodMenu{
+    void doSomeNoodles();
+    void doSomeRices();
+}
+
+class Customer{
+    private FoodMenu foodMenu;
+    public Customer(){ }
+    
+    //利用多态，可以解耦
+    public Customer(FoodMenu foodMenu) {
+        this.foodMenu = foodMenu;
+    }
+    public void setFoodMenu(FoodMenu foodMenu) {
+        this.foodMenu = foodMenu;
+    }
+    public FoodMenu getFoodMenu() {
+        return foodMenu;
+    }
+    public void order(){
+        foodMenu.doSomeNoodles();
+    }
+}
+```
+
+总结一句话：利用接口可以将功能进行解耦，比如：当我们定义好了FoodMenu，Customer和WestCooker就可以交给不同的人完成。
+
+
+
+## 抽象类与接口的区别
+
+- 抽象类是半抽象的。
+
+- 接口是完全抽象的。
+- 抽象类中有构造方法。
+- 接口中没有构造方法。
+- 接口和接口之间支持多继承
+- 类与类之间只能单继承
+- 一个类可以同时实现多个接口
+- 一个抽象类只能继承一个类（单继承）
+- 接口中只允许出现常量和抽象方法
+-  **抽象类出现较少，接口一般都是对“行为”进行抽象**
+
+# 类与类之间的关系
+
+1. **继承**
+2. **关联关系 （类内变量）**
+3. **实现关系（接口）**
+
+# 包机制
+
+关于java与语言的package与import机制
+
+1. 为什么要使用package？
+
+   package是java中的包机制。包机制的作用是为了方便程序的管理。不同功能的类分别存放在不同的包下。（**按照功能划分的，不同的软件包具有不同的功能**。
+
+2. packge怎么用？
+
+   packge是一个关键字，后面加包名：
+
+   ```java
+   packge com.java.AA
+   ```
+
+   这句话只允许出现在java源代码的第一行。
+
+3. 命名规范？
+
+   公司域名倒叙+项目名+模块名+功能名。
+
+4. 怎么编译？运行？
+
+   假如包的路径是com.uestc.javase.packageTest
+
+   类名不再是Test，而是com.uestc.javase.packageTest.Test
+
+   编译：
+
+   javac -d .Test.java
+
+   解释一下：
+
+   - javac 负责编译的命名。
+   - -d 带包编译
+   - 代表编译之后生成的东西方法哦当前目录下（点代表当前目录）
+   - Test.java 被编译的java文件名。
+
+   运行：
+   
+   java com.uestc.javase.packageTest.Test
+   
+   ==注意：这尼玛，，，jdk15不行，弄了半天。==
+   
+  5.  import什么时候用
+
+     A类与B类不在同一package之中。
+
+6. java.lang下的包不需要导，默认导
+
+
+
+# 访问控制符
+
+
+
+![](https://i.loli.net/2020/11/16/Lyj4Fc6JAgRdYun.png)   
 
 # 附录
 
