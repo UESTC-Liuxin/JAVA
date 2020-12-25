@@ -16,15 +16,47 @@ package leetcode.editor.cn;
 public class NextPermutation{
     public static void main(String[] args) {
         Solution solution = new NextPermutation().new Solution();
+        solution.nextPermutation(new int[]{1,2,3});
         
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public void nextPermutation(int[] nums) {
-
+        if (nums.length < 2)
+            return;
+        for (int i = nums.length - 1; i >= 1; i--) {
+            //寻找相邻升序
+            if (nums[i] > nums[i - 1]) {
+                for (int j = nums.length - 1; j >=i; j--) {
+                    //从后往前寻找第一个大于nums[i-1]的数字
+                    //进行交换
+                    if (nums[j] >nums[i - 1]) {
+                        int temp = nums[j];
+                        nums[j] = nums[i - 1];
+                        nums[i - 1] = temp;
+                        reverse(nums, i, nums.length - 1);
+                        return;
+                    }
+                }//end of for
+            }//end of if
+        }//end of for
+        //直接没找到，直接反转
+        reverse(nums, 0, nums.length - 1);
     }
+
+    public void reverse(int[] nums,int start, int end){
+        int temp;
+        for(int i=start,j=end;i<j;i++,j--) {
+            temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+    }
+
 }
+
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

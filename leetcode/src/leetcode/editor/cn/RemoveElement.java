@@ -59,7 +59,15 @@ public class RemoveElement{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int removeElement(int[] nums, int val) {
-        return 0;
+        int leftPoint=0,rightPoint=0;
+        for(;rightPoint<nums.length;rightPoint++){
+            if(val!=nums[rightPoint]){
+                nums[leftPoint]=nums[rightPoint];
+                leftPoint++;
+            }
+        }
+
+        return leftPoint;
 
     }
 }

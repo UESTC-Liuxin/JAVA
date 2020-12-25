@@ -2,6 +2,951 @@
 
 ## 数据结构
 
+### 数组
+
+**数组是存放在连续内存空间上的相同类型数据的集合。**正是**因为数组的在内存空间的地址是连续的，所以我们在删除或者增添元素的时候，就难免要移动其他元素的地址**
+
+数组的增删操作至少都是O(n)的，所以，需要中间节点的增删操作时，尽量不选择数组
+
+另外，二维数组的地址，数组与数组间不是连续的地址。
+
+二位数组中其实是一个线性数组存放着 其他数组的首地址。
+
+<img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20201215215617274.png" alt="image-20201215215617274" style="zoom:80%;" />
+
+[35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)
+
+一眼望去二分法，二分法模板代码：
+
+```java
+while (left <= right) {
+    int mid = ((right - left) >> 1) + left;
+    if (target <nums[mid]) {
+    	//do something here
+        right = mid - 1;
+    } 
+    else if(target>nums[mid]) {
+        left = mid + 1;
+    }
+    else
+        return mid;
+}
+```
+
+程序的结束条件有两个，逐一分析：
+
+插入条件：$nums[pos-1]<target<nums[pos]$，返回pos
+
+找到目标返回：$nums[pos]==target$，返回pos
+
+```java
+    public int searchInsert(int[] nums, int target) {
+        Arrays.sort(nums);//先行排序，用二分法
+        int left=0;
+        int right=nums.length-1;
+        //要确定边界条件：当左右边界收缩到一点，这个时候还是需要判断是不是与目标值相等
+        while (left <=right) {
+            int mid = ((right - left) >> 1) + left;
+            if (target <nums[mid]) {
+                right = mid - 1;
+            }
+            else if(target>nums[mid]) {
+                left = mid + 1;
+            }
+            else
+                return mid;
+        }
+        //包含了4种情况：target比最左端值小，[left,right]=[0,-1],返回right+1
+        //target比最右端值大，[left,right]=[N,N-1],返回right+1
+        //target插入数组中的位置 ,如果当mid=left=right时，target>nums[mid],left>mid,这时插在righ+1
+        //      反之，right<mid,这时插到left处，left=right+1
+        return right+1;
+
+    }
+```
+
+[27. 移除元素](https://leetcode-cn.com/problems/remove-element/)
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/ciaqDnJprwv4rN7Lc7cH7s9Xs5Gfgibnf7kT8a6hE8xVSviaeZHuIqUAx3HRef0dDvg5roSXCIulV2XcjOnxKwYVA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
+利用双指针，快指针寻找往后第一个不等于val的值，慢指针记录当前被删除的空位。
+
+```java
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int leftPoint=0,rightPoint=0;
+        for(;rightPoint<nums.length;rightPoint++){
+            if(val!=nums[rightPoint]){
+                nums[leftPoint]=nums[rightPoint];
+                leftPoint++;
+            }
+        }
+
+        return leftPoint;
+
+    }
+}
+```
+
+[209. 长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
+
+这道题一看到就是用双重循环的滑窗法进行，先固定窗的宽度进行遍历，再改变窗的宽度，时间复杂度为O(n)
+
+**双指针法**
+
+但是这道题有个更加简单的方法，这道题实际上有个关键的点，就是窗口在不断增大的过程中，当突然sum满足了，这个时候就可以进行一个收缩。但是收缩的方向呢，不能向左收缩，因为向左收缩就回到上一步了，因此只有左边界向右收缩。如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_gif/ciaqDnJprwv6MwIsdYLFnPSXSJ3WgSPQRf3oaBEAYc57vWs1aSc4YMjmMSawj3QQxd4A81P4XYF6sibPK0lZ1ic4w/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
+窗口内的和已经满足条件时，一直收缩直到不再满足条件。
+
+```java
+class Solution {
+    public int minSubArrayLen(int s, int[] nums) {
+        int minLength=nums.length+1;
+        int sum=0;
+        for(int fastPoint=0,slowPoint=0;fastPoint<nums.length;fastPoint++){
+            sum+=nums[fastPoint];//fastPoint每向前移动一次就对sum加一次
+            while(sum>=s){
+                //slowPoint的移动
+                int length=fastPoint-slowPoint+1;//记录窗口的宽度
+                minLength=Math.min(length,minLength);
+                sum-=nums[slowPoint++]; //slowpoint移动前减掉当前的值
+            }
+        }
+        if(minLength>nums.length) return 0;
+        return minLength;
+    }
+}
+```
+
+**二分查找法**
+
+ 我们申请一个临时数组 sums，其中 sums[i] 表示的是原数组 nums 前 i 个元素的和，题中说了 “给定一个含有 n 个 正整数 的数组”，既然是正整数，那么相加的和会越来越大，也就是sums数组中的元素是递增的。我们只需要找到 sums[k]-sums[j]>=s，那么 k-j 就是满足的连续子数组，但不一定是最小的，所以我们要继续找，直到找到最小的为止。怎么找呢，我们可以使用两个 for 循环来枚举，但这又和第一种暴力求解一样了，所以我们可以换种思路，求 sums[k]-sums[j]>=s 我们可以求 sums[j]+s<=sums[k]，那这样就好办了，因为数组sums中的元素是递增的，也就是排序的，我们只需要求出 sum[j]+s 的值，然后使用二分法查找即可找到这个 k。
+
+Java
+
+```java
+public int minSubArrayLen(int s, int[] nums) {
+    int length = nums.length;
+    int min = Integer.MAX_VALUE;
+    int[] sums = new int[length + 1];
+    for (int i = 1; i <= length; i++) {
+        sums[i] = sums[i - 1] + nums[i - 1];
+    }
+    for (int i = 0; i <= length; i++) {
+        int target = s + sums[i];
+        int index = Arrays.binarySearch(sums, target);
+        if (index < 0)
+            index = ~index;
+        if (index <= length) {
+            min = Math.min(min, index - i);
+        }
+    }
+    return min == Integer.MAX_VALUE ? 0 : min;
+}
+```
+注意这里的函数 int index = Arrays.binarySearch(sums, target);如果找到就会返回值的下标，如果没找到就会返回一个负数，这个负数取反之后就是查找的值应该在数组中的位置
+举个例子，比如排序数组 [2，5，7，10，15，18，20] 如果我们查找 18，因为有这个数会返回 18 的下标 5，如果我们查找 9，因为没这个数会返回 -4（至于这个是怎么得到的，大家可以看下源码，这里不再过多展开讨论），我们对他取反之后就是3，也就是说如果我们在数组中添加一个 9，他在数组的下标是 3，也就是第 4 个位置（也可以这么理解，只要取反之后不是数组的长度，那么他就是原数组中第一个比他大的值的下标）
+
+[54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/)
+
+这道题最简单的就是模拟过程了，也就是让程序去模仿我们画圈的一个过程，但是模拟过程，必须要掌握一个恒定的定律，前开后闭，或者前闭后开。这句话的意思是什么呢？举个例子：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ciaqDnJprwv75lvFebqBLu3d5uGMdAw1edpy4wAhTOucI7Bl63R2IQZwbpHlNzjXLhq4uVqA0jCzD8esO1KBOEA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+比如这个矩阵，第一次遍历的方向是从左到右，但是当我们走到右上角这个点的时候，我们需要选择这个点是属于从左到右的遍历还是属于从上到下的遍历。
+
+如果我们选择前闭后开的方式：（存在问题）
+
+假如我们原本是一个3\*3的矩阵，那么在循环中的起点应该是4\*矩阵的最左边开始也就是从3\*3中的（0，-1）开始，会造成数据索引越界，因此需要在最开头做一个判断。
+
+<img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20201217142538305.png" alt="image-20201217142538305" style="zoom:80%;" />
+
+同时，在最后的一个像素点访问的时候，由于我们设置的是前开后闭，最后一个像素点为了让使后闭，造成了最后这个点无法进入遍历中。
+
+<img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20201217144030658.png" alt="image-20201217144030658" style="zoom:80%;" />
+
+因此需要做很多判断。
+
+但是选择前开后闭就没有那么多顾虑：
+
+<img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20201217144534100.png" alt="image-20201217144534100" style="zoom:80%;" />
+
+这个3\*3的每一圈都形成一个完全闭合的内循环。不需要对开始和结束的条件进行任何判断。
+
+前闭后开代码：
+
+```java
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int l = -1, r = matrix[0].length - 1, t = 0, b = matrix.length - 1;
+        List<Integer> list = new ArrayList<>();
+        int total = matrix.length * matrix[0].length;
+        int num = 0;
+
+        while (num<total) {
+
+            for (int i = l; i <r && num<total; i++) { //从左到右
+                if(i==-1)
+                    continue;
+                list.add(matrix[t][i]);
+                num++;
+            }
+            l++;
+            for (int i = t; i <b && num<total; i++) { //从上到下
+                list.add(matrix[i][r]);
+                num++;
+            }
+            t++;
+            for (int i = r; i > l && num<total; i--) { //从右到左
+                list.add(matrix[b][i]);
+                num++;
+            }
+            r--;
+            for (int i = b; i >t  && num<total; i--) { //从下到上
+                list.add(matrix[i][l]);
+                num++;
+            }
+            b--;
+        }
+        return list;
+
+    }
+}
+```
+
+[26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+
+这道题显然的快慢指针法，快指针检测与当前值与上一个只不相同的位置，慢指针保留有效值的位置，当检测到了不同值，将慢指针下移一位填补下一个有效值。
+
+```java
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int slowPoint=-1;
+        int preVal=Integer.MAX_VALUE;
+        for(int fastPoint=0;fastPoint<nums.length;fastPoint++){
+            if(preVal!=nums[fastPoint]){//当发现不相等的数字
+                slowPoint++;
+                preVal=nums[fastPoint]=nums[slowPoint]=nums[fastPoint];
+            }
+
+        }
+        return slowPoint+1;//返回长度
+
+    }
+}
+```
+
+
+
+
+
+```java
+//leetcode submit region begin(Prohibit modification and deletion)
+class Solution {
+    public void nextPermutation(int[] nums) {
+        if (nums.length < 2)
+            return;
+        for (int i = nums.length - 1; i >= 1; i--) {
+            //寻找相邻升序
+            if (nums[i] > nums[i - 1]) {
+                for (int j = nums.length - 1; j >=i; j--) {
+                    //从后往前寻找第一个大于nums[i-1]的数字
+                    //进行交换
+                    if (nums[j] >nums[i - 1]) {
+                        int temp = nums[j];
+                        nums[j] = nums[i - 1];
+                        nums[i - 1] = temp;
+                        reverse(nums, i, nums.length - 1);
+                        return;
+                    }
+                }//end of for
+            }//end of if
+        }//end of for
+        //直接没找到，直接反转
+        reverse(nums, 0, nums.length - 1);
+    }
+
+    public void reverse(int[] nums,int start, int end){
+        int temp;
+        for(int i=start,j=end;i<j;i++,j--) {
+            temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+    }
+
+}
+```
+
+[31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/)
+
+首先弄清楚什么叫做字典序，字典序指的就是对于一个序列，此序列自由排列，对各种自由排列的情况进行按照序列的元素的从左到右的正序排序：
+
+比如[1,2,4,3]这个序列，按照从小到大的字典序就是：1234,1243,1324,1342,1423,1432,4123,...,4321。
+
+按照我们人的思想：对于一个排列，我们是怎么找到下一个比它大的排列的呢？
+
+比如：13542的下一个排列，我们知道，最后三位是一个降序，那么最后两位已经是这三个数字所能构成的最大的排列了。要想得到一个比这更大的数，只能考虑更往前一位，3542，看到这儿，我们发现35是一个升序，那么至少把5换到3的前面一定可以找到比3542更大的排列。
+
+那么要怎么换才是比3542大又最靠近3542的排列呢？
+
+可以发现，如果将3和5交换，是5342，将3和4交换，是4532，将3与2交换是2543。那么只有与4交换才可能是最合适的，注意：==现在542肯定是一个降序的，所以只需要从后往前找，在5和2之间，找到一个比3大的(这是从后往前找，找到的第一个就是4)，直接与4进行交换==
+
+交换完了我们发现4532是以4开头最大的，因为532是降序（一定是降序，因为我们交换的标准就是一个差值），只需要翻转532，得到235，最后4235就是3542的下一个排列了。
+
+代码：
+
+```java
+//leetcode submit region begin(Prohibit modification and deletion)
+class Solution {
+    public void nextPermutation(int[] nums) {
+        if (nums.length < 2)
+            return;
+        for (int i = nums.length - 1; i >= 1; i--) {
+            //寻找相邻升序
+            if (nums[i] > nums[i - 1]) {
+                for (int j = nums.length - 1; j >=i; j--) {
+                    //从后往前寻找第一个大于nums[i-1]的数字
+                    //进行交换
+                    if (nums[j] >nums[i - 1]) {
+                        int temp = nums[j];
+                        nums[j] = nums[i - 1];
+                        nums[i - 1] = temp;
+                        reverse(nums, i, nums.length - 1);
+                        return;
+                    }
+                }//end of for
+            }//end of if
+        }//end of for
+        //直接没找到，直接反转
+        reverse(nums, 0, nums.length - 1);
+    }
+
+    public void reverse(int[] nums,int start, int end){
+        int temp;
+        for(int i=start,j=end;i<j;i++,j--) {
+            temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+    }
+
+}
+```
+
+[283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
+
+这道题跟那一道删除2的题是一样的，只是最后把后面的几位填上0就好了。没什么好说的。
+
+[383. 赎金信](https://leetcode-cn.com/problems/ransom-note/)
+
+这道题建立一个哈希表就可以了，直接用哈希表对magazine进行统计，在第二次循环中找一个删一个，完成判断。
+
+```java
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        HashMap<Character,Integer> hashMap = new HashMap<>();
+        char[] m=magazine.toCharArray();
+        char[] r=ransomNote.toCharArray();
+        if(m.length<r.length)
+            return false;
+        //先往里填充
+        for (char c:m){
+            int count=1;
+            if(hashMap.containsKey(c)){
+                count=hashMap.get(c)+1;
+            }
+            hashMap.put(c,count);
+        }
+
+        //再挨个遍历查询
+        for(char c:r){
+            int count=0;
+            if(hashMap.containsKey(c)&&(count=hashMap.get(c))!=0){
+                hashMap.put(c,count-1);
+            }
+            else return false;
+        }
+        return true;
+
+    }
+}
+```
+
+[40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/)
+
+这道题用回溯法很简单，但是这道题有个关键的地方就是，他不能重复，也就是说，对于[1,1,2] target=3来说，常规的回溯法，我们回找到第一次会找到1,2（其中1是第一个1。）还会找到一个[1,2] (其中1是第二个1)。
+
+所谓去重，其实就是使用过的元素不能重复选取。 这么一说好像很简单！
+
+都知道组合问题可以抽象为树形结构，那么“使用过”在这个树形结构上是有两个维度的，一个维度是同一树枝上使用过，一个维度是同一树层上使用过。没有理解这两个层面上的“使用过” 是造成大家没有彻底理解去重的根本原因。
+
+那么问题来了，我们是要同一树层上使用过，还是统一树枝上使用过呢？
+
+回看一下题目，元素在同一个组合内是可以重复的，怎么重复都没事，但两个组合不能相同。
+
+所以我们要去重的是同一树层上的“使用过”，同一树枝上的都是一个组合里的元素，不用去重。
+
+为了理解去重我们来举一个例子，candidates = [1, 1, 2], target = 3，（方便起见candidates已经排序了）
+
+选择过程树形结构如图所示：
+
+![40.组合总和II.png](https://pic.leetcode-cn.com/1604390529-inLFJH-40.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8CII.png)
+
+==所以这里只要保证同一层不取到以前取到过的值就好了。==
+
+```java
+class Solution {
+    int[] candidates;
+    List<List<Integer>> combines;
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);    //先进行一个排序，方便后面我们排除重复
+        this.candidates=candidates;
+        this.combines= new LinkedList<List<Integer>>();
+        backTrace(0,0,target,new LinkedList<Integer>());
+        return this.combines;
+    }
+
+    public void backTrace(int startIndex,int sum,int target,List<Integer> combine){
+        if (target<sum) return;
+        if (target==sum){
+            this.combines.add(new LinkedList<>(combine));
+            return;
+        }
+        int pre=-1;   //记录上一个值是什么
+        for(int i=startIndex;i<this.candidates.length;i++){
+            if(pre==this.candidates[i])
+                continue;
+            pre=this.candidates[i];
+            combine.add(pre);
+            backTrace(i+1,sum+pre,target,combine);
+            combine.remove(combine.size()-1);
+        }
+    }
+}
+```
+
+### 链表
+
+链表嘛，单向链表，双向链表，循环链表。
+
+链表技巧：
+
+- 设置虚拟头节点。
+- 每次next之后都要记得把当前指向下移
+- to be continue...
+
+[203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/)
+
+```java
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        //创建虚拟头结点
+        ListNode dummyNode=new ListNode(0);
+        //pre记录上一个不为val的节点，cur记录当前节点
+        ListNode pre = dummyNode,cur=head;
+        while(cur!=null){
+            if(cur.val!=val){
+                pre.next=cur;
+                pre=pre.next;
+            }
+            cur=cur.next;
+        }
+        pre.next=null;
+        return dummyNode.next;
+    }
+}
+```
+
+[206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+
+这道题最简单直观的方式就是递归，因为递归就是一个触底反弹的过程，而我们新的链表的结点添加就在反弹这个过程实现。
+
+返回的条件就是结点的下一个结点为null，证明已经到了尾结点，这个时候就需要将尾结点当做新的链表的结点，并将新的链表的下一个结点的地址进行返回。
+
+每次执行完递归函数了，还需要将这层的结点重新添加到新的链表结构上。
+
+为了节省内存消耗，可尝试在原列表上面进行，具体过程如下：
+
+```java
+class Solution {
+    ListNode dummyNode;
+    public ListNode reverseList(ListNode head) {
+        this.dummyNode =new ListNode(0);
+        if(head==null) return null;
+        recurAdd(head);
+        head.next=null;
+        return this.dummyNode.next;
+    }
+
+    public ListNode recurAdd(ListNode searchNode){
+        if(searchNode.next==null){
+            dummyNode.next=searchNode;
+            return dummyNode.next;
+        }
+        ListNode cur=recurAdd(searchNode.next);
+        cur.next=searchNode;
+        return cur.next;
+    }
+}
+```
+
+链表的链接变化情况如下：
+
+```java
+原本的链表序
+head--->node1--->node2--->node3--->node4--->null 
+到了尾结点，把尾结点赋给dummyNode.next，并返回node4.next,这个时候node4还指向的是null
+head--->node1--->node2--->node3--->node4(dummyNode.next)--->null   
+返回上一层递归后，要将返回的node4.next重新指向node3,这个时候node3和node4相互连接
+head--->node1--->node2--->node3<--->node4(dummyNode.next)
+再返回上一层时，node3.next又改为指向node2...
+head--->node1--->node2<--->node3<---node4(dummyNode.next)
+.....到了最后返回的时候的指向情况
+head<--->node1--->node2<--->node3<---node4(dummyNode.next)
+这个时候还不能直接返回，需要把head.next指向null才行
+```
+
+除了上面的方法，还有一个就是交换法：
+
+简单说来就是存下上一个结点，并改变当前结点指向上一节点。
+
+```java
+private ListNode reverseList(ListNode head){
+    ListNode prev = null;
+    ListNode curr = head;
+    while (curr != null) {
+        ListNode nextTemp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nextTemp;
+    }
+    return prev;
+}
+```
+
+[707. 设计链表](https://leetcode-cn.com/problems/design-linked-list/)
+
+这道题主要就是链表的增删查改操作。
+
+- 使用虚拟节点，在遍历的时候，==cur指向的永远都是index的上一个节点。==
+- 可以选择使用双向链表与单向列表，双向链表有两个好处，插头和插尾的时间复杂度都是O(1)，并且查找的复杂度最多为O(n/2).
+
+单向链表的实现方式：
+
+```java
+class MyLinkedList {
+        ListNode dummyNode;
+        private int size;
+
+    /** Initialize your data structure here. */
+    public MyLinkedList() {
+        this.dummyNode =new ListNode(0);
+        this.size=0;
+    }
+    
+    /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
+    public int get(int index) {
+        if(index>=size || index<0) return -1;
+        ListNode cur=dummyNode;
+        for(int i=0;i<index;i++){
+            cur=cur.next;
+        }
+        return cur.next.val;
+    }
+    
+    /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
+    public void addAtHead(int val) {
+        //添加头结点
+        addAtIndex(0,val);
+    }
+    
+    /** Append a node of value val to the last element of the linked list. */
+    public void addAtTail(int val) {
+        addAtIndex(size,val);
+    }
+    
+    /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
+    public void addAtIndex(int index, int val) {
+        if(index>size || index<0) return;
+        ListNode temp=new ListNode(val);
+        ListNode cur=dummyNode;
+        for(int i=0;i<index;i++){
+            cur=cur.next;
+        }
+        temp.next=cur.next;
+        cur.next =temp;
+        size++;
+    }
+    
+    /** Delete the index-th node in the linked list, if the index is valid. */
+    public void deleteAtIndex(int index) {
+        if(index>=size || index<0) return;
+        ListNode cur=dummyNode;
+        for(int i=0;i<index;i++){
+            cur=cur.next;
+        }
+        cur.next=cur.next.next;//直接跳过这个点
+        size--;
+    }
+}
+```
+
+[141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+
+这道题非常巧妙，判断一个链表有没有环，主要是依靠什么呢？
+
+一种方案就是用哈希表记录所有节点被访问的次数，只要被访问了两次就证明其有环，但是其空间复杂度为O(n)。
+
+还有一种就是如果有环，那么一定是同一个地方会走两遍，这个时候如果用两个指针，一个走得快，一个走得慢，当走得慢的指针进入环只有，一定会被在某一个时刻被走得快的人追上。基于此思想来设计程序。
+
+```java
+    public boolean hasCycle(ListNode head) {
+        ListNode dummyNode=new ListNode(0);
+        ListNode slowNode=dummyNode;
+        ListNode fastNode=dummyNode;
+        slowNode.next=head;
+        while(fastNode.next!=null && fastNode.next.next!=null)
+        {
+            fastNode=fastNode.next.next;
+            slowNode=slowNode.next;
+            if(fastNode==slowNode) return true;
+        }
+        return false;
+    }
+```
+
+[142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
+
+这道题是上一道题的变形，如果我们知道有一个环，那么什么时候才是这个环的入口呢？
+
+这个时候就需要建立一些状态的表达式：
+
+<img src="https://assets.leetcode-cn.com/solution-static/142/142_fig1.png" alt="fig1" style="zoom: 33%;" />
+
+**第一次相遇时：**
+
+首先看这个环：用快慢指针，slow，fast，速度是1:2。那么它们相遇的时候，slow=k，fast一定走了2k步。
+
+并且，fast一定比slow多走了n圈；fast-slow=k=(b+c)n;
+
+**这个时候我们分析一个情况：**
+
+那么如果从a出发，走a+(b+c)n步,是不是一定还在a点。
+
+而且对于slow来说，slow=k=(b+c)n，那么slow是不是再走a步也可以达到a点。
+
+**第二次相遇**
+
+我们根据上述情况，从第一次相遇时开始，一个指针从头开始走，走a步，另一个指针从相遇点以同样的速度开始走，走a步。那么它们一定能在环的入口处相遇，相遇点即所求。
+
+```java
+    public ListNode detectCycle(ListNode head) {
+        ListNode dummyNode=new ListNode(0);
+        ListNode slowNode=dummyNode;
+        ListNode fastNode=dummyNode;
+        slowNode.next=head;
+        while(fastNode.next!=null && fastNode.next.next!=null)
+        {
+            fastNode=fastNode.next.next;
+            slowNode=slowNode.next;
+            if(fastNode==slowNode){//当第一次相遇
+                fastNode=head;
+                slowNode=slowNode.next;//必须先走一步
+                while (fastNode!=slowNode){
+                    slowNode=slowNode.next;
+                    fastNode=fastNode.next;
+                }
+                return fastNode;
+            }
+        }
+        return null;
+    }
+```
+
+[143. 重排链表](https://leetcode-cn.com/problems/reorder-list/)
+
+第一种用递归，我觉得不是很好写，因为递归就是一个从下返回上的过程。
+
+第二种就是，先用快慢指针找到中结点，断开为前后两个链表，把后链表反转；再与前列表合并。
+
+时间复杂度O(n)，空间复杂度O(1)
+
+```java
+class Solution {
+    public void reorderList(ListNode head) {
+        ListNode prevHead=head;
+        if(head!=null&&head.next!=null&&head.next.next!=null){
+            ListNode middleNode=findMiddleNode(head);
+            ListNode reveredHead=reverseList(middleNode.next);
+            middleNode.next=null;
+            ListNode temp1;
+            ListNode temp2;
+            while (prevHead!=null&&reveredHead!=null){
+                temp1=prevHead.next;
+                temp2=reveredHead.next;
+
+                prevHead.next=reveredHead;
+                reveredHead.next=temp1;
+
+                prevHead=temp1;
+                reveredHead=temp2;
+            }
+        }
+    }
+
+    /**
+     * 找出中结点,对于偶数个结点，返回中左点
+     * @param head
+     * @return
+     */
+    private ListNode findMiddleNode(ListNode head){
+        ListNode fastNode=head;
+        ListNode slowNode=head;
+        while(fastNode.next!=null&&fastNode.next.next!=null){
+            fastNode=fastNode.next.next;
+            slowNode=slowNode.next;
+        }
+        return slowNode;
+    }
+
+    /**
+     * 反转链表
+     * @param head
+     * @return
+     */
+    private ListNode reverseList(ListNode head){
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode nextTemp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextTemp;
+        }
+        return prev;
+    }
+}
+```
+
+[21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+
+原本的做法就是利用迭代，但是时间复杂度和空间复杂度都不算优秀。
+
+利用递归，如果在同一条链表的大小在整个排列中连续的话，就直接next,每次向上层返回的是已经排好序的链表的头结点
+
+```java
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(null ==l1) return l2;
+        if(null ==l2) return l1;
+
+        if(l1.val<l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        }
+        else{
+            l2.next =mergeTwoLists(l1,l2.next);
+            return l2;
+        }
+
+    }
+}
+```
+
+[148. 排序链表](https://leetcode-cn.com/problems/sort-list/)
+
+纵观各排序算法，时间复杂度O(nlogn)和O(1)，根据时间复杂度自然想到二分法，先考虑归并排序。
+
+但是归并在数组中的空间复杂度存在一个问题，就是空间复杂度O(n)。如果是递归的话，还有logn的递归空间。
+
+所以一定只能用迭代，并且链表不用单独开辟空间所以空间复杂度就可以实现O(1)。
+
+<img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/8c47e58b6247676f3ef14e617a4686bc258cc573e36fcf67c1b0712fa7ed1699-Picture2.png" alt="Picture2.png" style="zoom:50%;" />
+
+迭代算法在进行归并的时候，自下而上，先是长度为1的两个子链进行比较，再是长度为2的....直到长度>n/2。
+
+对于数组来说，只需要计算每次的偏移量，传入左边界，右边界，中点的下标就行了。但是对于链表来说则需要一直next找到特定节点，并进行切分，突然后再进行合并。
+
+切分的代码：
+
+```java
+    /**
+     *从头结点处开始，切一个长度为step的
+     * @param head
+     * @param step
+     * @return
+     */
+    public ListNode split(ListNode head,int step){
+        if(null==head) return null;
+        ListNode cur=head;
+        for(int i=1;i<step&&cur.next!=null;i++){
+            cur=cur.next;
+        }
+        ListNode right=cur.next;
+        cur.next=null;
+        return right;
+    }
+```
+
+合并的代码：
+
+```java
+    /**
+     * 合并两个链表
+     * @param l1
+     * @param l2
+     * @return
+     */
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(null ==l1) return l2;
+        if(null ==l2) return l1;
+
+        if(l1.val<l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        }
+        else{
+            l2.next =mergeTwoLists(l1,l2.next);
+            return l2;
+        }
+    }
+```
+
+获取链表长度:
+
+```java
+    /**
+     * 获取链表长度
+     * @param head
+     * @return
+     */
+    private int getLength(ListNode head){
+        int length=0;
+        while (head!=null){
+            length++;
+            head=head.next;
+        }
+        return length;
+    }
+```
+
+归并的代码：
+
+```java
+    public ListNode sortList(ListNode head) {
+        ListNode dummyNode=new ListNode(0);
+        dummyNode.next=head;
+        int len=getLength(head);
+        //外循环，按照每次单个子链的长度进行迭代
+        for(int step=1;step<len;step*=2){
+            //nextlefthead用于存储下一对需要排序拼接的子链对的最左节点
+            ListNode nextleftHead=dummyNode.next;
+            //prev利用记录上一次合并后的尾结点，用于连接尾链
+            ListNode prev=dummyNode;
+            while (null != nextleftHead){
+                ListNode leftHead=nextleftHead;
+                //先找到右子链的起始结点
+                ListNode rightHead=split(leftHead,step);
+                //再把左右子链断掉
+                nextleftHead=split(rightHead,step);
+                //再结合左右子链,并连接到上一个结点
+                prev.next=mergeTwoLists(leftHead,rightHead);
+                while (null!=prev.next)
+                    prev=prev.next;
+            }
+        }
+        return dummyNode.next;
+
+    }
+```
+
+[24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+
+有一说一，我觉得这道题实在不配称为中等，虽然逻辑可能有点绕，但真的很好理解。
+
+其实就是，记录前一个结点，然后把当前结点与下一个结点互换，注意互换时的一个next的连接好了
+
+举个例子：
+
+```bash
+开局一条链表
+1--->2--->3-->4
+我们先建立一个虚拟结点，方便我们记录最后的头结点
+-1--->1--->2--->3-->4
+然后我们想要交换1和2
+先把-1和2连接起来，让2变成头结点
+-1--->2<--->1 同时2还连接后面    2--->3-->4
+然后把1连接上3
+-1--->2--->1--->3-->4
+```
+
+
+
+```java
+    public ListNode swapPairs(ListNode head) {
+        ListNode dummyNode=new ListNode(-1);
+        ListNode prev=dummyNode;
+        dummyNode.next=head;
+        while(prev.next!=null&&prev.next.next!=null){
+            ListNode temp=prev.next;
+            prev.next = temp.next;
+            temp.next = prev.next.next;
+            prev.next.next=temp;
+            prev=temp;
+
+        }
+        return dummyNode.next;
+        
+    }
+```
+
+[61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/)
+
+想到旋转就想到环，先构建一个环，只需要在必要的地方断开就实现了题目的要求。
+
+当构建好了一个环，就要考虑在什么地方断掉环，取哪一个结点为头结点。
+
+先考虑k<n的情况：
+
+![image-20201225114758145](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20201225114758145.png)
+
+
+
+当n>=k，直接进行取余，就得到实际需要移动的次数。
+
+```java
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        ListNode cur=head;
+        int n=0;
+        if(head==null ||head.next ==null || k<1) return head;
+        //先连接成环
+        n=1;
+        while (null !=cur.next) {
+            cur = cur.next;
+            n++;
+        }
+        cur.next=head;
+        //再重新回到头结点
+        cur=head;
+
+        //确定实际需要移动的位置
+        k=(k>=n)?k%n:k;
+        //n-k是移动到实际的头结点位置，但是需要在上一个结点的地方断开
+        for (int step=0;step<n-k-1;step++){
+            cur=cur.next;
+        }
+        head=cur.next;
+        cur.next=null;
+        return head;
+
+    }
+}
+```
+
 ### 树
 
 #### 二叉树
@@ -19,7 +964,21 @@
 
 这道题的关键就是理清楚，每种遍历方式以及他们之间的联系。
 
-对于前序遍历来说：第一个点一定是根节点，而左子树和右子树就暂时无法确定。
+中必须包含虚函数，并且派生类中一定要对基类中的虚函数进行重写。
+●通过基类对象的指针或者引用调用虚函数。
+
+重写 ：
+（a）基类中将被重写的函数必须为虚函数（上面的检测用例已经证实过了）
+（b）基类和派生类中虚函数的原型必须保持一致（返回值类型，函数名称以及参数列表），协变和析构函数（基类和派生类的析构函数是不一样的）除外
+（c）访问限定符可以不同
+那么问题又来了，什么是协变？
+协变：基类（或者派生类）的虚函数返回基类（派生类）的指针（引用）
+总结一道面试题：那些函数不能定义为虚函数？
+经检验下面的几个函数都不能定义为虚函数：
+1）友元函数，它不是类的成员函数
+2）全局函数
+3）静态成员函数，它没有this指针
+3）构造函数，拷贝构造函数，以及赋值运算符重载（可以但是一般不建议作为虚函数）对于前序遍历来说：第一个点一定是根节点，而左子树和右子树就暂时无法确定。
 
 而对于中序遍历来说，根节点的左边一定是左子树（如果有），右边一定是右子树。比如对于上面的例子而言，中序遍历顺序是0,2,3,4,5,6,7,8,9。在中序序列中，６的左边的数字都是左子树，６的右边都是右子树。
 
@@ -60,7 +1019,39 @@ class Solution {
     //key=前序遍历数字 ，value=此数字在中序遍历中的index
     Map<Integer,Integer> map =new HashMap<>();
 
-    int[] preorder;
+    int[] preorder;中必须包含虚函数，并且派生类中一定要对基类中的虚函数进行重写。
+●通过基类对象的指针或者引用调用虚函数。
+
+重写 ：
+（a）基类中将被重写的函数必须为虚函数（上面的检测用例已经证实过了）
+（b）基类和派生类中虚函数的原型必须保持一致（返回值类型，函数名称以及参数列表），协变和析构函数（基类和派生类的析构函数是不一样的）除外
+（c）访问限定符可以不同
+那么问题又来了，什么是协变？
+协变：基类（或者派生类）的虚函数返回基类（派生类）的指针（引用）
+总结一道面试题：那些函数不能定义为虚函数？
+经检验下面的几个函数都不能定义为虚函数：
+1）友元函数，它不是类的成员函数
+2）全局函数
+3）静态成员函数，它没有this指针
+3）构造函数，拷贝构造函数，以及赋值运算符重载（可以但是一般不建议作为虚函数）
+
+中必须包含虚函数，并且派生类中一定要对基类中的虚函数进行重写。
+●通过基类对象的指针或者引用调用虚函数。
+
+重写 ：
+（a）基类中将被重写的函数必须为虚函数（上面的检测用例已经证实过了）
+（b）基类和派生类中虚函数的原型必须保持一致（返回值类型，函数名称以及参数列表），协变和析构函数（基类和派生类的析构函数是不一样的）除外
+（c）访问限定符可以不同
+那么问题又来了，什么是协变？
+协变：基类（或者派生类）的虚函数返回基类（派生类）的指针（引用）
+总结一道面试题：那些函数不能定义为虚函数？
+经检验下面的几个函数都不能定义为虚函数：
+1）友元函数，它不是类的成员函数
+2）全局函数
+3）静态成员函数，它没有this指针
+3）构造函数，拷贝构造函数，以及赋值运算符重载（可以但是一般不建议作为虚函数）
+
+
     public TreeNode buildTree(int[] preorder, int[] inorder) {
 
         this.preorder=preorder;
@@ -83,13 +1074,180 @@ class Solution {
 }
 ```
 
+[剑指 Offer 55 - I. 二叉树的深度](https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/)
 
+有一个结论很重要：**一棵树的深度** 等于 **左子树的深度** 与 **右子树的深度** 中的 **最大值** +1。
+
+这就是递归思路，递归的终止条件就是当前子树的根节点为null；
+
+==其实仔细回想起来，这里面的核心思想就是后序遍历，在递归往回传的过程就是一个后序遍历过程。==
+
+直接上代码：
+
+```java
+class Solution {
+    public int maxDepth(TreeNode root) {
+        return findDepth(root);
+
+    }
+    public int findDepth(TreeNode root){
+        if(root==null) return 0;
+        int left=findDepth(root.left);
+        int right=findDepth(root.right);
+        return Math.max(left,right)+1;
+    }
+}
+```
+
+[剑指 Offer 28. 对称的二叉树](https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/)
+
+```
+     1
+   /   \
+  2     2
+ / \    / \
+3  4 4   3
+```
+
+这道题，与之前的题有些不同，以前的题就是在一个节点的左右分支进行递归，比较，都是在同一子树上进行的，但是这道题就是在不同的两个子树上进行递归的，因此递归的参数传的是两个子树根节点。
+
+**递归三部曲**
+
+1. 确定递归函数的参数和返回值
+
+   因为我们要比较的是根节点的两个子树是否是相互翻转的，进而判断这个树是不是对称树，所以要比较的是两个树，参数自然也是左子树节点和右子树节点。
+
+2. 确定终止条件
+
+   要比较两个节点数值相不相同，首先要把两个节点为空的情况弄清楚！否则后面比较数值的时候就会操作空指针了。
+
+   节点为空的情况有：（注意我们比较的其实不是左孩子和右孩子，所以如下我称之为左节点右节点）
+
+   - 左节点为空，右节点不为空，不对称，return false
+   - 左不为空，右为空，不对称 return false
+   - 左右都为空，对称，返回true
+   
+   此时已经排除掉了节点为空的情况，那么剩下的就是左右节点不为空：
+   
+   - 左右都不为空，比较节点数值，不相同就return false
+     此时左右节点不为空，且数值也不相同的情况我们也处理了。
+
+3. 确定单层递归的逻辑
+   此时才进入单层递归的逻辑，单层递归的逻辑就是处理 右节点都不为空，且数值相同的情况
+   - 比较二叉树外侧是否对称：传入的是左节点的左孩子，右节点的右孩子。
+   - 比较内测是否对称，传入左节点的右孩子，右节点的左孩子。
+   - 如果左右都对称就返回true ，有一侧不对称就返回false 。
+
+```java
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        if(root==null)
+            return true;
+        return recur(root.left,root.right);
+
+    }
+
+    boolean recur(TreeNode leftRoot,TreeNode rightRoot){
+        if(leftRoot==null&&rightRoot==null)
+            return true;
+        else if(leftRoot!=null&&rightRoot==null || leftRoot==null&&rightRoot!=null)
+            return false;
+        else if(leftRoot.val!=rightRoot.val)
+            return false;
+        else
+            return recur(leftRoot.left,rightRoot.right)&&
+                    recur(leftRoot.right,rightRoot.left);
+    }
+}
+```
+
+[226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
+
+这道题，关键就是翻转二字的理解，虽然直观上就是左右子树进行调换，同时要沿着两子子树的方向进行递归，并进行调换，但是仔细一想，如果对每个小的二叉树单元，遍历方式，后序遍历：
+
+比如：
+
+```
+    2						  2
+   / \  ———>	   / \ 
+ 4   3					 3   4
+```
+
+对每个二叉树单位都进行调换（注意：不是换val，是直接调换TreeNode），就能完成整个二叉树的翻转：
+
+1. 确定递归函数的参数和返回值
+
+   我们只需要对一个节点的左右子树进行翻转，因此，参数就是一个子树就好了，返回的应该也只是一个节点。
+
+2. 确定返回条件： 
+
+   - 如果root为空，直接就返回null，不再进行递归；
+
+   - 如果root不为空，就进行递归调换左右子树；
+
+3. 确定单层递归的逻辑：
+
+   直接对左右子树进行调换，然后返回左右子树调换过后的根节点。
+
+   代码：
+
+   ```java
+   class Solution {
+       public TreeNode invertTree(TreeNode root) {
+           return recur(root);
+   
+       }
+   
+       private TreeNode recur(TreeNode root){
+           if(root==null)
+               return null;
+           TreeNode node=root.left;
+           root.left=recur(root.right);
+           root.right=recur(node);
+           return root;
+       }
+   }
+   ```
+
+   
+
+#### 二叉平衡树
+
+[剑指 Offer 55 - II. 平衡二叉树](https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof/)
+
+这道题与[剑指 Offer 55 - I. 二叉树的深度](https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/)是连在一起的，是其的进一步升华，所谓平衡二叉树，就是任意一个节点的左右子树的深度相差不会大于1，因此，当`|left-right|>1`,就可以判断这棵树不是平衡二叉树。不用再继续遍历。
+
+修改一下上面的代码：
+
+```java
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        return recur(root)==-1?false:true;
+    }
+
+    private int recur(TreeNode root){
+        if(root==null) return 0;
+        int left=recur(root.left);
+        if(left==-1) return -1;
+        int right=recur(root.right);
+        if(right==-1) return -1;
+
+        if(Math.abs(left-right)>1)
+            return -1;
+
+        return Math.max(left,right)+1;
+
+    }
+}
+```
+
+于是我们的思想就是
 
 #### 二叉搜索树
 
 二叉搜索树：二叉搜索树的特点就是 `左子树的所有节点都小于当前节点，右子树的所有节点都大于当前节点，并且每棵子树都具有上述特点`
 
-![img](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/binarysearchtree_improved.png)S
+![img](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/binarysearchtree_improved.png)
 
  **[235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)**
 
@@ -160,9 +1318,58 @@ class Solution {
 
 ## 回溯算法
 
+所谓回溯，实际上就是在穷举的情况上，加了一些剪枝条件，没有剪枝条件的回溯就是一个完整的穷举。回溯并不是一个高效的算法，但是由于很多问题没有其余的方法，所以回溯用得也很多，具体问题包括：
 
+- 组合问题：N个数里面按一定规则找出k个数的集合
+- 排列问题：N个数按一定规则全排列，有几种排列方式
+- 切割问题：一个字符串按一定规则有img几种切割方式
+- 子集问题：一个N个数的集合里有多少符合条件的子集
+- 棋盘问题：N皇后，解数独等等
 
+所有的回溯问题，都是树型结构，利用递归进行树的节点的排列或者组合的遍历。递归是其特性。
 
+**回溯模板**
+
+- 回溯函数模板返回值以及参数
+
+  回溯函数的返回值一般都是void值。回溯的入口参数与具体的任务高度相关，一般是约束变量，终止条件，结果等。
+
+- 终止条件
+
+  终止条件一般是搜索到了叶子节点，也就是找到了满足条件的答案，此时，既需要保存答案，同时返回，终止递归。
+
+- 回溯搜索的遍历过程
+
+  for循环就是遍历集合区间，可以理解一个节点有多少个孩子，这个for循环就执行多少次。
+
+  backtracking这里自己调用自己，实现递归。
+
+  ![图片](https://mmbiz.qpic.cn/mmbiz_png/ciaqDnJprwv47tDrlOU9kYmYunXSDicd4XkQdQUp2YZSHbxkbktQdgRUZIfZiabbTP2WGjHDBJlvAzsTfF4aNDS0w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+  大家可以从图中看出**「for循环可以理解是横向遍历，backtracking（递归）就是纵向遍历」**，这样就把这棵树全遍历完了，一般来说，搜索叶子节点就是找的其中一个结果了。
+
+  分析完过程，回溯算法模板框架如下：
+
+  ```java
+  void backtracking(参数) {
+      if (终止条件) {
+          存放结果;
+          return;
+      }
+  
+      for (选择：本层集合中元素（树中节点孩子的数量就是集合的大小）) {
+          处理节点;
+          backtracking(路径，选择列表); // 递归
+          回溯，撤销处理结果
+      }
+  }
+  ```
+
+  **「这份模板很重要，后面做回溯法的题目都靠它了！」**
+
+  如果从来没有学过回溯算法的录友们，看到这里会有点懵，后面开始讲解具体题目的时候就会好一些了，已经做过回溯法题目的录友，看到这里应该会感同身受了。
+
+  
 
 ## 动态规划
 
@@ -214,7 +1421,7 @@ class Solution {
 }
 ```
 
- [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
+ [120. 三角形最小路径和img](https://leetcode-cn.com/problems/triangle/)
 
 这道题很明显可以用动态规划来做，分解子问题，最简单情况，[[1]]，最小路径和1，[[1],[2,3]]这个时候的最小路径和就是，看上一层的最小的路径和加上本层的值的最小值，就是这一层的最小路径和，注意边界条件，i=j=0,j=0,i==j 时候的情况。
 
@@ -596,7 +1803,7 @@ class Solution {
 
 这道题，一拿到感觉很复杂的情况，有四个转盘，每个转盘转一次有2种情况。但实际上，我们只需要分析转盘拨动一次会产生的情况，比如对于0000来说，转动一次，只能产生8种情况：1000,9000,0100,0900,0010,00900,0001,0009。
 
-如果不考虑死亡数字的情况，直接套用模板：
+https://github.com/UESTC-Liuxin/SkmtSeg.git如果不考虑死亡数字的情况，直接套用模板：
 
 ```java
 //向上拨动
@@ -726,20 +1933,336 @@ public int bfsFramework(String start,String target){
 
 
 
+# 背包问题特辑
+
+## 0-1背包问题
+
+题目描述：一个小偷面前有一堆（n个）财宝，每个财宝有重量`w`和价值`v`两种属性，而他的背包只能携带一定重量的财宝（Capacity），在已知所有财宝的重量和价值的情况下，如何选取财宝，可以最大限度的利用当前的背包容量，取得最大价值的财宝（或求出能够获取财宝价值的最大值）。
+
+在解决问题之前，为描述方便，首先定义一些变量：**Vi表示第 i 个物品的价值，Wi表示第 i 个物品的体积，定义V(i,j)：当前背包容量 j，前 i 个物品最佳组合对应的价值**，同时背包问题抽象化`（X1，X2，…，Xn，其中 Xi 取0或1，表示第 i 个物品选或不选）`。
+
+1. 建立模型，即求`max(V1X1+V2X2+…+VnXn)`；
+
+2. 寻找约束条件，`W1X1+W2X2+…+WnXn<capacity`；
+
+3. 寻找递推关系式，面对当前商品有两种可能性：
+
+   - **包的容量比该商品体积小，装不下，此时的价值与前i-1个的价值是一样的，即`V(i,j)=V(i-1,j)`；**
+
+   - **还有足够的容量可以装该商品，但装了也不一定达到当前最优价值，所以在装与不装之间选择最优的一个，即`V(i,j)=max｛V(i-1,j)，V(i-1,j-w(i))+v(i)｝`。**
+
+利用迭代法实现的过程就是对V(i,j)填表的过程，首先确定边界条件：首先，j=0的时候就是表明背包的容量为0，那么最大价值直接为0就好了；另外，当选择0个商品的时候，也是直接为0。
+
+状态转移条件：
+
+```java
+if(j<weights[i-1])
+    f[i][j]=f[i-1][j];
+else
+    f[i][j]=Math.max(f[i][j-1],f[i-1][j-weights[i-1]]+values[i-1]);
+```
+
+完整代码：
+
+```java
+class Solution{
+    public int knapsack(int[] weights,int[] values,int N,int C){
+        //F[i][j]表示在容量为j的前提下，前i个物品中能获得的最大的价值
+        int[][] f=new int[N+1][C+1];
+        for(int i=1;i<N+1;i++)
+            for (int j=1;j<(C+1);j++){
+                if(j<weights[i-1])
+                    f[i][j]=f[i-1][j];
+                else
+                    f[i][j]=Math.max(f[i][j-1],f[i-1][j-weights[i-1]]+values[i-1]);
+            }
+        return f[N][C];
+    }
+}
+```
+
+## 0-1背包的变种
+
+上述的方案有一个缺陷，虽然知道了怎么获得最大的价值，但是组合的具体形式是还是无法得到。如果要得到具体的组合形式，就需要利用回溯法。
+
+
+
+# 排序算法特辑
+
+![img](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/041642093368896.jpg)
+
+
+
+## 直接插入
+
+## 希尔排序
+
+## 直接选择
+
+## 堆排序
+
+## 交换排序
+
+## 归并排序
+
+归并排序的思想就是，把一个数组不停的左右二分，直到只有两个元素的时候，归并成一个有序列表，再两两归并起来。
+
+具体的示意如下：
+
+![这里写图片描述](https://img-blog.csdn.net/20160718104152455)
+
+![这里写图片描述](https://img-blog.csdn.net/20160718134747571)
+
+归并排序有两种做法，一种是递归，一种是迭代法。
+
+- 递归法
+
+  递归法主要有两个函数构成：
+
+  二分排序函数：
+
+  ```java
+      /**
+       * 递归函数：递归二分子数组，并进行子数组的合并
+       * @param srcArr:需要排序的数组
+       * @param left：左边界数组下标
+       * @param right：右边界数组下标，[left,right]
+       */
+      public static void sort(int[] srcArr,int left,int right){
+          if(left>=right) return;
+          int mid = (left+right)/2;
+          //二路归并排序里面有两个sort
+          sort(srcArr,left,mid);
+          sort(srcArr,mid+1,right);
+          merge(srcArr,left,mid,right);
+  
+      }
+  
+  ```
+
+  合并排序：
+
+  ```java
+      /**
+       * 对两个子数组按照顺序进行合并
+       * @param srcArr
+       * @param left
+       * @param mid
+       * @param right
+       */
+      public static void merge(int[] srcArr,int left,int mid,int right){
+          int[] tmp = new int[srcArr.length];
+          int r1 =mid + 1;//用于记录右子数组的下标
+          int tIndex = left;//赋值时的下标
+          int cIndex = left;
+  
+          //按照从小到大进行填充，填充完大概率某个数组还有剩
+          while(left <=mid && r1 <=right){
+              if(srcArr[left] <= srcArr[r1]){
+                  tmp[tIndex++]=srcArr[left++];
+              }
+              else
+                  tmp[tIndex++]=srcArr[r1++];
+          }
+          //处理剩下的数字
+          while (r1<=right){
+              tmp[tIndex++]=srcArr[r1++];
+          }
+          while (left<=mid){
+              tmp[tIndex++] =srcArr[left++];
+          }
+  
+          //将缓存数组拷贝到原数组
+          while (cIndex<=right){
+              srcArr[cIndex]=tmp[cIndex];
+              cIndex++;
+          }
+      }
+  ```
+
+  总的代码：
+  
+  ```java
+  public class MergeSort {
+      public static void main(String[] args) {
+          int[] srcArr=new int[]{26, 5, 98, 108, 28, 99, 100, 56, 34, 1 };
+          MergeSort.sort(srcArr,0,srcArr.length-1);
+          MergeSort.printArr(srcArr);
+      }
+  
+  
+      public static void printArr(int[] srcArr){
+          for(int i:srcArr){
+              System.out.print(String.valueOf(i)+" ");
+          }
+          System.out.println();
+      }
+      /**
+       * 递归函数：递归二分子数组，并进行子数组的合并
+       * @param srcArr:需要排序的数组
+       * @param left：左边界数组下标
+       * @param right：右边界数组下标，[left,right]
+       */
+      public static void sort(int[] srcArr,int left,int right){
+          if(left>=right) return;
+          int mid = (left+right)/2;
+          //二路归并排序里面有两个sort
+          sort(srcArr,left,mid);
+          sort(srcArr,mid+1,right);
+          merge(srcArr,left,mid,right);
+  
+      }
+  
+      /**
+       * 对两个子数组按照顺序进行合并
+       * @param srcArr
+       * @param left
+       * @param mid
+       * @param right
+       */
+      public static void merge(int[] srcArr,int left,int mid,int right){
+          int[] tmp = new int[srcArr.length];
+          int r1 =mid + 1;//用于记录右子数组的下标
+          int tIndex = left;//赋值时的下标
+          int cIndex = left;
+  
+          //按照从小到大进行填充，填充完大概率某个数组还有剩
+          while(left <=mid && r1 <=right){
+              if(srcArr[left] <= srcArr[r1]){
+                  tmp[tIndex++]=srcArr[left++];
+              }
+              else
+                  tmp[tIndex++]=srcArr[r1++];
+          }
+          //处理剩下的数字
+          while (r1<=right){
+              tmp[tIndex++]=srcArr[r1++];
+          }
+          while (left<=mid){
+              tmp[tIndex++] =srcArr[left++];
+          }
+  
+          //将缓存数组拷贝到原数组
+          while (cIndex<=right){
+              srcArr[cIndex]=tmp[cIndex];
+              cIndex++;
+          }
+      }
+  }
+  ```
+  
+- 迭代法，消除递归带来的logn的递归空间
+
+  递归的思路是自上而下（从整个数组出发，进行二分），那么迭代的思路就是自下而上（从相邻的两个数字先排序，再修改排序长度进行排序），也就是直接进行递归反弹的过程。
+
+  具体代码：
+
+  ```java
+  public class MergeSortIterion {
+      public static void main(String[] args) {
+          int[] srcArr=new int[]{26, 5, 98, 108, 28, 99, 100, 56, 34};
+          MergeSortIterion.MergeSort(srcArr);
+          MergeSort.printArr(srcArr);
+      }
+  
+      /**
+       *
+       * @param srcArr
+       */
+      public static void MergeSort(int[] srcArr){
+          for(int i=1;i<srcArr.length;i*=2){
+              //外层循环，i代表长度每一次合并前子数组的长度
+              int right;
+              for (int left=0;left<srcArr.length-i;left=right+1){
+                  //内循环，不断步进子数组
+                  int mid=left+i-1;
+                  right=mid+i;
+                  if(right>=srcArr.length) right=srcArr.length-1;
+                  merge(srcArr,left,mid,right);
+              }
+  
+          }
+  
+      }
+  
+      /**
+       * 对子数组进行合并
+       * @param srcArr
+       * @param left
+       * @param mid
+       * @param right
+       */
+      private static void merge(int[] srcArr,int left,int mid,int right){
+          int[] backupArr=new int[srcArr.length];
+          int tIndex=left;
+          int l=left,r=mid+1;
+          while (l<=mid&&r<=right){
+              if(srcArr[l]>srcArr[r])
+                  backupArr[tIndex++]=srcArr[r++];
+              else
+                  backupArr[tIndex++]=srcArr[l++];
+          }
+          while(l<=mid) backupArr[tIndex++]=srcArr[l++];
+          while (r<=right) backupArr[tIndex++]=srcArr[r++];
+          for(int i=left;i<=right;i++)
+              srcArr[i]=backupArr[i];
+      }
+  }
+  ```
+
+  
+
+## 基数排序
+
+
+
 # 附录（刷题时间表）
 
-| 题号-题目                                                    | 首刷时间        | 最后刷时间 | Tag        | 次数 |
-| :----------------------------------------------------------- | :-------------- | :--------- | ---------- | :--- |
-| [5.最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) | 2020/10/1之前   | 2020/11/3  | 动态规划   | 2    |
-| [53.最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) | 2020/10/1之前   | 2020/11/3  | 动态规划   | 2    |
-| [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/) | 2020/11/4       | 2020/11/4  | 动态规划   | 1    |
-| [198.打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 2020/11/8       | 2020/11/8  | 动态规划   | 1    |
-| [322.零钱兑换](https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/) | 2020/11/10      | 2020/11/10 | 动态规划   | 1    |
-| [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 2020/11/11      | 2020/11/11 | BFS        | 1    |
-| [752. 打开转盘锁](https://leetcode-cn.com/problems/open-the-lock/) | 2020/11/12      | 2020/11/12 | BFS        | 1    |
-| [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | 2020/11/12      | 2020/11/12 | 二叉搜索树 | 1    |
-| [17.电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 2020/10/1之前   | 2020/11/13 | BFS        | 2    |
-| [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) | 2020/10/15      | 2020/10/15 | BFS        | 1    |
-| [剑指 Offer 07. 重建二叉树](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/) | 2020/11/17      | 2020/11/17 | 树         | 1    |
-| [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees/) | 2020/10//17之前 | 2020/11/17 | 二叉搜索树 | 1    |
+| 题号-题目                                                    | 首刷时间       | 最后刷时间  | Tag                      | 次数 |
+| :----------------------------------------------------------- | :------------- | :---------- | ------------------------ | :--- |
+| [5.最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) | 2020/10/1之前  | 2020/11/3   | 动态规划                 | 2    |
+| [53.最大子序和](https://leetcode-cn.com/problems/maximum-subarray/) | 2020/10/1之前  | 2020/11/3   | 动态规划                 | 2    |
+| [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/) | 2020/11/4      | 2020/11/4   | 动态规划                 | 1    |
+| [198.打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 2020/11/8      | 2020/11/8   | 动态规划                 | 1    |
+| [322.零钱兑换](https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/) | 2020/11/10     | 2020/11/10  | 动态规划                 | 1    |
+| [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 2020/11/11     | 2020/11/11  | BFS                      | 1    |
+| [752. 打开转盘锁](https://leetcode-cn.com/problems/open-the-lock/) | 2020/11/12     | 2020/11/12  | BFS                      | 1    |
+| [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | 2020/11/12     | 2020/11/12  | 二叉搜索树               | 1    |
+| [17.电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 2020/10/1之前  | 2020/11/13  | BFS                      | 2    |
+| [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) | 2020/10/15     | 2020/10/15  | BFS                      | 1    |
+| [剑指 Offer 07. 重建二叉树](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/) | 2020/11/17     | 2020/11/17  | 树                       | 1    |
+| [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees/) | 2020/10/17之前 | 2020/11/17  | 二叉搜索树               | 1    |
+| [剑指 Offer 55 - I. 二叉树的深度](https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/) | 2020/11/18     | 2020/11/18  | 树，递归，DFS            | 1    |
+| [剑指 Offer 55 - II. 平衡二叉树](https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof/) | 2020/11/18     | 2020/11/18  | 树，递归，DFS            | 1    |
+| [剑指 Offer 28. 对称的二叉树](https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/) | 2020/11/19     | 2020/11/19  | 树，递归                 | 1    |
+| [剑指 Offer 32 - III. 从上到下打印二叉树 III](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/) | 2020/11/20     | 2020/11/20  | BFS                      | 1    |
+| [剑指 Offer 32 - II. 从上到下打印二叉树 II](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/) | 2020/11/20     | 2020/11/20  | BFS                      | 1    |
+| [剑指 Offer 04. 二维数组中的查找](https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/) | 2020/11/22     | 2020/11/22  | 数组                     | 1    |
+| [剑指 Offer 03. 数组中重复的数字](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/) | 2020/11/22     | 2020/11/22  | 数组                     | 1    |
+| 01背包                                                       | 2020/11/25     | 2020/11/25  | 动态规划                 | 1    |
+| [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/) | 2020/12/15     | 2020/12/15  | 数组，二分法             | 1    |
+| [27. 移除元素](https://leetcode-cn.com/problems/remove-element/) | 2020/12/15     | 2020/12/15  | 数组，双指针法           | 1    |
+| [209. 长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum/) | 2020/12/16     | 2020/12/16  | 数组，双指针法，二分法   | 1    |
+| [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/) | 2020/12/16     | 2020/12/16  | 数组，循环，模拟         | 1    |
+| [59. 螺旋矩阵 II](https://leetcode-cn.com/problems/spiral-matrix-ii/) | 2020/12/16     | 2020/12/16  | 数组，循环，模拟         | 1    |
+| [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | 2020/12/17     | 2020/12/17  | 数组，快慢指针           | 1    |
+| [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/) | 2020/12/17     | 2020/12/17  | 数组，模拟               | 1    |
+| [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/) | 2020/12/18     | 2020/12/18  | 数组，快慢指针           | 1    |
+| [383. 赎金信](https://leetcode-cn.com/problems/ransom-note/) | 2020/12/18     | 2020/12/18  | 数组，哈希计数           | 1    |
+| [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/) | 2020/12/18     | 2020/12/18  | 数组，回溯法             | 1    |
+| [203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/) | 2020/12/19     | 2020/12/19  | 链表                     | 1    |
+| [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) | 2020/12/19     | 2020/12/19  | 链表                     | 1    |
+| [707. 设计链表](https://leetcode-cn.com/problems/design-linked-list/) | 2020/12/20     | 2020/12/20  | 链表                     | 1    |
+| [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 2020/12/20     | 12020/12/20 | 链表，快慢指针           | 1    |
+| [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/) | 2020/12/20     | 2020/12/20  | 链表，快慢指针           | 1    |
+| [143. 重排链表](https://leetcode-cn.com/problems/reorder-list/) | 2020/12/21     | 2020/12/21  | 链表，快慢指针，翻转列表 | 1    |
+| 归并排序（递归）                                             | 2020/12/21     | 2020/12/21  | 数组，排序               | 1    |
+| 递归排序（迭代）                                             | 2020/12/22     | 2020/12/22  | 数组，排序               | 1    |
+| [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) | 2020/12/23     | 2020/12/23  | 链表，递归               | 1    |
+| [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) | 2020/12/23     | 2020/12/23  | 链表，归并排序，快慢指针 | 1    |
+| [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/) | 2020/12/24     | 2020/12/24  | 链表                     | 1    |
+| [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/) | 2020/12/24     | 2020/12/24  | 链表                     | 1    |
+| [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/) | 2020/12/24     | 2020/12/24  | 链表                     | 1    |
+| [202. 快乐数](https://leetcode-cn.com/problems/happy-number/) | 2020/12/25     | 2020/12/25  | 数组，快慢指针（哈希表） | 1    |
+| [349. 两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays/) | 2020/12/25     | 2020/12/25  | 数组，哈希表             |      |
 
