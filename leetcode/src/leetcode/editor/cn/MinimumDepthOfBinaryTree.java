@@ -35,6 +35,7 @@ package leetcode.editor.cn;
 import leetcode.editor.cn.utils.treeNode.TreeNode;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -47,23 +48,17 @@ public class MinimumDepthOfBinaryTree {
 class Solution {
     public int minDepth(TreeNode root) {
         if(root==null) return 0;
-        Queue<TreeNode> queue=new LinkedList<>();
-        queue.offer(root);
-        int depth=1; //记录第一层
-
-        while (!queue.isEmpty()){
-            int sz= queue.size();//计算深度相同的节点的个数
-            for(int i=0;i<sz;i++){
-                //取出队列最前一个节点，取完深度相同的节点
-                TreeNode cur = queue.poll();
-                if(cur.left==null && cur.right==null)//到达了终点
-                    return depth;
-                if(cur.left!=null)
-                    queue.offer(cur.left);
-                if(cur.right!=null)
-                    queue.offer(cur.right);
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        int depth=0;
+        while(!q.isEmpty()){
+            int size =q.size();
+            for(int i=0;i<size;i++){
+                TreeNode node = q.poll();
+                if(node.left != null) q.offer(node.left);
+                if(node.right != null ) q.offer(node.right);
+                if(node.left==null && node.right==null) return depth+1;
             }
-            //这一层找完了，都没有到target，要找下一层
             depth++;
         }
         return depth;

@@ -20,117 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e35b8bb1-40b0-4832-a6e9-4f9bd9858040" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/utils/treeNode/TreeNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/interview/network/socket/TCPClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/interview/network/socket/TCPServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/interview/network/socket/UDPClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/interview/network/socket/UDPServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Map/HashMapTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Map/MapTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Map/TreeSetTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/ArrayListTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/ContatinsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/GenericTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/GenericTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/LinkedListTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/ListTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/RemoveTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/VectorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collections/CollectionsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/inner/StaticInnerClassTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/BufferedReaderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/BufferedReaderTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/CopyTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/DataOutputStreamTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/FileInputStreamTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/FileInputStreamTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/FileInputStreamTest02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/FileOutputStreamTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/FileOutputStreamTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/FileReaderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/FileTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/FileTest02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/Logger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/PrintStreamTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/PropertiesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/Serialize_DeserializeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/io/copyDirTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/polymorphism/polymorphismTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/DeadLockTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/ThreadSafeTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/ThreadTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/ThreadTest02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/ThreadTest03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/ThreadTest04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/ThreadTest05.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/ThreadTest06.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/ThreadTest07.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/ThreadTest08.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/threads/TimerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../programs/JavaNote/userinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JAVA笔记/java进阶.md" beforeDir="false" afterPath="$PROJECT_DIR$/../JAVA笔记/java进阶.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/leetcode/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Leetcode笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/Leetcode笔记.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/leetcode/leetcode/editor/cn/all.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/leetcode/leetcode/editor/cn/all.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/leetcode/leetcode/editor/cn/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/leetcode/leetcode/editor/cn/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/CongShangDaoXiaDaYinErChaShuIiLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/CongShangDaoXiaDaYinErChaShuIiLcof.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/CongShangDaoXiaDaYinErChaShuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/CongShangDaoXiaDaYinErChaShuLcof.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/DecodeWays.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/DecodeWays.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/DuiChengDeErChaShuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/DuiChengDeErChaShuLcof.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/ErChaShuDeShenDuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/ErChaShuDeShenDuLcof.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/IntersectionOfTwoArraysIi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/IntersectionOfTwoArraysIi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/InvertBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/InvertBinaryTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/LowestCommonAncestorOfABinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/LowestCommonAncestorOfABinarySearchTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/MinimumDepthOfBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/MinimumDepthOfBinaryTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/PingHengErChaShuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/PingHengErChaShuLcof.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/ReverseString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/ReverseString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/UniqueBinarySearchTreesIi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/UniqueBinarySearchTreesIi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/ZhongJianErChaShuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/ZhongJianErChaShuLcof.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/all.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/all.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/com/test/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/CloneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/clone/CloneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/EqualsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/equalsTest/EqualsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/FinalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/finalTest/FinalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/HelloWorld.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/Inherit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/inner/Inherit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/InnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/inner/InnerClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/InterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/interfaceTest/InterfaceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/InterfaceTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/interfaceTest/InterfaceTest2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/ObstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/abstractTest/ObstractTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/OverrideTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/inherit/OverrideTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/functionSignature.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/Date/DateTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Date/DateTest01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/Date/DateTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Date/DateTest2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/Demical/DecimalFormatTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Demical/DecimalFormatTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/Integer/Integer2int2String.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Integer/Integer2int2String.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/Integer/IntegerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Integer/IntegerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/Integer/IntegerTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Integer/IntegerTest01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/Random/RandomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/Random/RandomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/ArrayTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/ArrayTest01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/ArrayTest03.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/ArrayTest03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/ArrayTest04.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/ArrayTest04.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/ArrayTest06.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/ArrayTest06.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/ArrayTest07.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/ArrayTest07.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/ArraysTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/ArraysTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/BinarySearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/Bubble.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/Bubble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/MyStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/MyStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/array/SelectSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/array/SelectSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/arrays/ArraysTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/arrays/ArraysTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/collection/CollectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/CollectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/collection/CollectionTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/collection/CollectionTest2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/exception/CustomException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/exception/CustomException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/exception/ExceptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/exception/ExceptionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/exception/ExceptionTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/exception/ExceptionTest01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/exception/ExceptionTest03.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/exception/ExceptionTest03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/exception/ExceptionTest04.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/exception/ExceptionTest04.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/exception/ExceptionTest05.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/exception/ExceptionTest05.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/exception/ExceptionTest06.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/exception/ExceptionTest06.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/myenum/EnumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/myenum/EnumTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/JavaNote/src/uestc/javase/string/StringTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/JavaNote/src/com/javase/string/StringTest01.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +223,7 @@
       <workItem from="1609159947240" duration="7899000" />
       <workItem from="1609242502965" duration="7000" />
       <workItem from="1609768906341" duration="8339000" />
-      <workItem from="1609855658635" duration="13087000" />
+      <workItem from="1609855658635" duration="14409000" />
     </task>
     <servers />
   </component>
@@ -465,9 +356,10 @@
     </state>
     <state x="2544" y="251" key="run.anything.popup/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1605179599079" />
     <state x="669" y="272" key="run.anything.popup/1920.0.1920.1080/67.27.1853.1053@67.27.1853.1053" timestamp="1605626334749" />
-    <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1609070263873">
+    <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1609904241279">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
+    <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1609904241279" />
     <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609070263873" />
   </component>
   <component name="XDebuggerManager">
