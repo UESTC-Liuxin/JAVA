@@ -66,27 +66,31 @@ public class DecodeWays{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int numDecodings(String s) {
-        int dp[] =new int[s.length()];
-        char[] charArray = s.toCharArray();
-        if(charArray[0]=='0'){
-            dp[0]=0;
-        }
-        else
-            dp[0]=1;
-        for(int i=1;i<charArray.length;i++){
-            int ten=Integer.valueOf(charArray[i-1])-48;
-            int digits=Integer.valueOf(charArray[i])-48;
-            int sum=ten*10+digits;
-            int addValue=0;
-            if(sum<=26 && digits!=0){
-                addValue=1;
+        int[] dp= new int[s.length()];
+        char[] chars=s.toCharArray();
+        //首字母为0直接错误返回
+        if(chars[0]=='0') return 0;
+        if(chars.length<2) return 1;
+        dp[0]=1;
+
+        if(chars[1]=='0' && chars[0]<='2') dp[1]=1;
+        else if(chars[1]=='0' && chars[0]>'2') return 0;
+        else if(chars[0]=='1') dp[1]=2;
+        else if(chars[0]=='2' && chars[1]>='1' && chars[1]<='6')
+            dp[1]=2;
+        else dp[1] = 1;
+
+        for(int i=2;i<chars.length;i++){
+            if(chars[i]=='0') {
+                if (chars[i - 1] == '1' || chars[i - 1] == '2')
+                    dp[i] = dp[i - 2];
+                else return 0;
             }
-            else if(digits==0){
-                return 0;
-            }
+            else if(chars[i-1]=='1') dp[i]=dp[i-1]+dp[i-2];
+            else if(chars[i-1]=='2' && chars[i]>='1'&& chars[i]<='6')
+                dp[i]=dp[i-1]+dp[i-2];
             else
-                addValue=0;
-            dp[i]=dp[i-1]+addValue;
+                dp[i]=dp[i-1];
         }
         return dp[s.length()-1];
     }

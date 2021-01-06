@@ -27,17 +27,13 @@ package leetcode.editor.cn;
 // 👍 69 👎 0
 
 
+import leetcode.editor.cn.utils.treeNode.TreeNode;
+
 public class ErChaShuDeShenDuLcof {
     public static void main(String[] args) {
         Solution solution = new ErChaShuDeShenDuLcof().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
 
 class Solution {
     public int maxDepth(TreeNode root) {

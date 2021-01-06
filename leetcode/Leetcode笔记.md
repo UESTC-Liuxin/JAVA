@@ -211,7 +211,24 @@ class Solution {
             b--;
         }
         return list;
+/*
+        if(nums1.length>nums2.length)//取短的数组开始
+            return intersect(nums2,nums1);
+        Map<Integer,Integer> map =new HashMap<>();//用于记录短数组每个数字出现的次数
+        int[] result = new int[nums1.length];
+        for(int i:nums1){
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
 
+        int index=0;
+        for(int i:nums2){
+            int count=map.getOrDefault(i,0);
+            if(count>0) {//当小于0，就不再添加
+                result[index++]=i;
+                map.put(i,map.get(i)-1);
+            }
+        }
+        return Arrays.copyOfRange(result,0,index);*/
     }
 }
 ```
@@ -964,22 +981,6 @@ class Solution {
 
 这道题的关键就是理清楚，每种遍历方式以及他们之间的联系。
 
-中必须包含虚函数，并且派生类中一定要对基类中的虚函数进行重写。
-●通过基类对象的指针或者引用调用虚函数。
-
-重写 ：
-（a）基类中将被重写的函数必须为虚函数（上面的检测用例已经证实过了）
-（b）基类和派生类中虚函数的原型必须保持一致（返回值类型，函数名称以及参数列表），协变和析构函数（基类和派生类的析构函数是不一样的）除外
-（c）访问限定符可以不同
-那么问题又来了，什么是协变？
-协变：基类（或者派生类）的虚函数返回基类（派生类）的指针（引用）
-总结一道面试题：那些函数不能定义为虚函数？
-经检验下面的几个函数都不能定义为虚函数：
-1）友元函数，它不是类的成员函数
-2）全局函数
-3）静态成员函数，它没有this指针
-3）构造函数，拷贝构造函数，以及赋值运算符重载（可以但是一般不建议作为虚函数）对于前序遍历来说：第一个点一定是根节点，而左子树和右子树就暂时无法确定。
-
 而对于中序遍历来说，根节点的左边一定是左子树（如果有），右边一定是右子树。比如对于上面的例子而言，中序遍历顺序是0,2,3,4,5,6,7,8,9。在中序序列中，６的左边的数字都是左子树，６的右边都是右子树。
 
 根据前序和中序，可以依次确定根节点->左子树->右子树。当然，这只是最简单的情况，对于根节点来说，我们很容易确定左子树和右子树的左右边界。
@@ -1019,41 +1020,8 @@ class Solution {
     //key=前序遍历数字 ，value=此数字在中序遍历中的index
     Map<Integer,Integer> map =new HashMap<>();
 
-    int[] preorder;中必须包含虚函数，并且派生类中一定要对基类中的虚函数进行重写。
-●通过基类对象的指针或者引用调用虚函数。
-
-重写 ：
-（a）基类中将被重写的函数必须为虚函数（上面的检测用例已经证实过了）
-（b）基类和派生类中虚函数的原型必须保持一致（返回值类型，函数名称以及参数列表），协变和析构函数（基类和派生类的析构函数是不一样的）除外
-（c）访问限定符可以不同
-那么问题又来了，什么是协变？
-协变：基类（或者派生类）的虚函数返回基类（派生类）的指针（引用）
-总结一道面试题：那些函数不能定义为虚函数？
-经检验下面的几个函数都不能定义为虚函数：
-1）友元函数，它不是类的成员函数
-2）全局函数
-3）静态成员函数，它没有this指针
-3）构造函数，拷贝构造函数，以及赋值运算符重载（可以但是一般不建议作为虚函数）
-
-中必须包含虚函数，并且派生类中一定要对基类中的虚函数进行重写。
-●通过基类对象的指针或者引用调用虚函数。
-
-重写 ：
-（a）基类中将被重写的函数必须为虚函数（上面的检测用例已经证实过了）
-（b）基类和派生类中虚函数的原型必须保持一致（返回值类型，函数名称以及参数列表），协变和析构函数（基类和派生类的析构函数是不一样的）除外
-（c）访问限定符可以不同
-那么问题又来了，什么是协变？
-协变：基类（或者派生类）的虚函数返回基类（派生类）的指针（引用）
-总结一道面试题：那些函数不能定义为虚函数？
-经检验下面的几个函数都不能定义为虚函数：
-1）友元函数，它不是类的成员函数
-2）全局函数
-3）静态成员函数，它没有this指针
-3）构造函数，拷贝构造函数，以及赋值运算符重载（可以但是一般不建议作为虚函数）
-
-
+    int[] preorder;
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-
         this.preorder=preorder;
         for(int i=0;i<preorder.length;i++){
             map.put(inorder[i],i);//记录每个数字在中序列表的索引，方便以根节点的值找到其中序的位置
@@ -1209,6 +1177,42 @@ class Solution {
    }
    ```
 
+   [129. 求根到叶子节点数字之和](https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/)
+   
+   dfs或者回溯法
+   
+   ```java
+   class Solution {
+       int allSum=0;
+       public int sumNumbers(TreeNode root) {
+           List<Integer> temp= new ArrayList<>();
+           if(null == root) return 0;
+           backTrack(root,root.val);
+           return allSum;
+   
+       }
+   
+       /**
+        * 回溯
+        * @param node
+        * @param sum
+        */
+       private void backTrack(TreeNode node,int sum){
+           if(null == node.left && null ==node.right){
+               allSum+=sum;
+           }
+           if(null !=node.left){
+               backTrack(node.left, sum*10+node.left.val);
+           }
+           if(null !=node.right){
+               backTrack(node.right,sum*10+node.right.val);
+           }
+   
+       }
+   
+   }
+   ```
+   
    
 
 #### 二叉平衡树
@@ -1383,8 +1387,24 @@ class Solution {
 
 - 确定DP的填充思路
 
-首先，动态规划问题的一般形式就是求最值。动态规划其实是运筹学的一种最优化方法，只不过在计算机问题上应用比较多，比如说让你求最长递增子序列呀，最小编辑距离呀等等。
+首先，动态规划问题的一般形式就是求最值。动态规划其实是运筹学的一种最优化方法，只不过在计算机问题上应用比较多，比如说让你求最长递增子序列呀，最小编辑距离呀等等。/*
+        if(nums1.length>nums2.length)//取短的数组开始
+            return intersect(nums2,nums1);
+        Map<Integer,Integer> map =new HashMap<>();//用于记录短数组每个数字出现的次数
+        int[] result = new int[nums1.length];
+        for(int i:nums1){
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
 
+        int index=0;
+        for(int i:nums2){
+            int count=map.getOrDefault(i,0);
+            if(count>0) {//当小于0，就不再添加
+                result[index++]=i;
+                map.put(i,map.get(i)-1);
+            }
+        }
+        return Arrays.copyOfRange(result,0,index);*/
 既然是要求最值，核心问题是什么呢？求解动态规划的核心问题是穷举。因为要求最值，肯定要把所有可行的答案穷举出来，然后在其中找最值呗。
 动态规划这么简单，就是穷举就完事了？我看到的动态规划问题都很难啊！
 
@@ -2264,5 +2284,20 @@ class Solution{
 | [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/) | 2020/12/24     | 2020/12/24  | 链表                     | 1    |
 | [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/) | 2020/12/24     | 2020/12/24  | 链表                     | 1    |
 | [202. 快乐数](https://leetcode-cn.com/problems/happy-number/) | 2020/12/25     | 2020/12/25  | 数组，快慢指针（哈希表） | 1    |
-| [349. 两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays/) | 2020/12/25     | 2020/12/25  | 数组，哈希表             |      |
+| [349. 两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays/) | 2020/12/25     | 2020/12/25  | 数组，哈希表             | 1    |
+| [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/) | 2020/12/25     | 2020/12/25  | 数组，哈希表             | 1    |
+| [129. 求根到叶子节点数字之和](https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/) | 2020/12/27     | 2020/12/27  | 二叉树，dfs              | 1    |
+| [110. 平衡二叉树](https://leetcode-cn.com/problems/balanced-binary-tree/) | 2020/12/27     | 2020/12/27  | 平衡二叉树               | 1    |
+| [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/) | 2020/12/27     | 2020/12/27  | 二叉树的前序遍历         | 1    |
+| [145. 二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/) | 2020/12/27     | 2020/12/27  | 二叉树的后序遍历         | 1    |
+| [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) | 2020/12/27     | 2020/12/27  | bfs                      | 1    |
+| [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) | 2020/12/27     | 2020/12/27  | 动态规划                 | 1    |
+| [344. 反转字符串](https://leetcode-cn.com/problems/reverse-string/) | 2020/12/28     | 2020/12/28  | 双指针                   | 1    |
+| [541. 反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/) | 2020/12/28     | 2020/12/28  | 双指针                   | 1    |
+| 剑指offer05                                                  | 2020/12/28     | 2020/12/28  | 太简单  啥都没用         | 1    |
+| 斐波那契数列                                                 | 2021/1/4       | 2021/1/4    | 斐波那契数列             | 1    |
+| [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 2021/1/4       | 2021/1/4    | 中序遍历                 | 1    |
+| [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/) | 2021/1/4       | 2021/1/4    | 利用二叉搜索树的中序遍历 | 1    |
+|                                                              |                |             |                          |      |
+|                                                              |                |             |                          |      |
 

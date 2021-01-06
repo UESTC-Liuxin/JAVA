@@ -29,6 +29,8 @@ package leetcode.editor.cn;
 // 👍 50 👎 0
 
 
+import leetcode.editor.cn.utils.treeNode.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -48,12 +50,6 @@ public class CongShangDaoXiaDaYinErChaShuLcof {
  * }
  */
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}
 class Solution {
     public int[] levelOrder(TreeNode root) {
         Queue<TreeNode> queue=new LinkedList<>();

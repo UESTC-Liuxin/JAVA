@@ -40,6 +40,8 @@ package leetcode.editor.cn;
 // 👍 100 👎 0
 
 
+import leetcode.editor.cn.utils.treeNode.TreeNode;
+
 public class DuiChengDeErChaShuLcof {
     public static void main(String[] args) {
         Solution solution = new DuiChengDeErChaShuLcof().new Solution();
@@ -54,12 +56,6 @@ public class DuiChengDeErChaShuLcof {
  *     TreeNode(int x) { val = x; }
  * }
  */
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}
 
 
 class Solution {

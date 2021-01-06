@@ -35,6 +35,8 @@ package leetcode.editor.cn;
 // 👍 486 👎 0
 
 
+import leetcode.editor.cn.utils.treeNode.TreeNode;
+
 public class LowestCommonAncestorOfABinarySearchTree {
     public static void main(String[] args) {
         Solution solution = new LowestCommonAncestorOfABinarySearchTree().new Solution();
@@ -45,12 +47,6 @@ public class LowestCommonAncestorOfABinarySearchTree {
 /**
  * Definition for a binary tree node.
 */
-
-public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;TreeNode(int x) { val = x; }
-}
 
 
 class Solution {

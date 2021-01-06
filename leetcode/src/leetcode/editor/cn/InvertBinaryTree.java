@@ -27,6 +27,8 @@ package leetcode.editor.cn;
 // 👍 688 👎 0
 
 
+import leetcode.editor.cn.utils.treeNode.TreeNode;
+
 public class InvertBinaryTree {
     public static void main(String[] args) {
         Solution solution = new InvertBinaryTree().new Solution();
@@ -41,12 +43,6 @@ public class InvertBinaryTree {
  *     TreeNode(int x) { val = x; }
  * }
  */
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}
 
 class Solution {
     public TreeNode invertTree(TreeNode root) {

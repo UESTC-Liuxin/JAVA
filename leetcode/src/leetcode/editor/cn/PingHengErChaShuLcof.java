@@ -45,6 +45,8 @@ package leetcode.editor.cn;
 // 👍 83 👎 0
 
 
+import leetcode.editor.cn.utils.treeNode.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -56,12 +58,6 @@ public class PingHengErChaShuLcof {
 /**
  * Definition for a binary tree node.
 */
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}
 class Solution {
     public boolean isBalanced(TreeNode root) {
         return recur(root)==-1?false:true;

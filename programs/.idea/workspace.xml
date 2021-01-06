@@ -23,57 +23,117 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f20e41f9-4e48-48d5-9167-01373434900d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../leetcode/src/indi/bags/Bags01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../leetcode/src/indi/sort/MergeSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../leetcode/src/indi/sort/MergeSortIterion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/utils/listNode/ListNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/utils/listNode/ListNodeUitls.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/CloneTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/EqualsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/InnerClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Date/DateTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Date/DateTest2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Demical/DecimalFormatTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Integer/Integer2int2String.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Integer/IntegerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Integer/IntegerTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Random/RandomTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest06.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest07.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArraysTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/BinarySearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/Bubble.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/MyStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/SelectSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/arrays/ArraysTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/collection/CollectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/collection/CollectionTest2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/CustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest05.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest06.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/myenum/EnumTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaNote/src/uestc/javase/string/StringTest01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/utils/treeNode/TreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/interview/network/socket/TCPClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/interview/network/socket/TCPServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/interview/network/socket/UDPClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/interview/network/socket/UDPServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Map/HashMapTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Map/MapTest01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Map/TreeSetTest01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/ArrayListTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/ContatinsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/GenericTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/GenericTest01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/LinkedListTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/ListTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/RemoveTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/VectorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collections/CollectionsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/inner/StaticInnerClassTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/BufferedReaderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/BufferedReaderTest01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/CopyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/DataOutputStreamTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/FileInputStreamTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/FileInputStreamTest01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/FileInputStreamTest02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/FileOutputStreamTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/FileOutputStreamTest01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/FileReaderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/FileTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/FileTest02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/PrintStreamTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/PropertiesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/Serialize_DeserializeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/io/copyDirTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/polymorphism/polymorphismTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/DeadLockTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/ThreadSafeTest01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/ThreadTest01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/ThreadTest02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/ThreadTest03.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/ThreadTest04.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/ThreadTest05.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/ThreadTest06.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/ThreadTest07.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/ThreadTest08.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/threads/TimerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaNote/userinfo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JAVA笔记/java进阶.md" beforeDir="false" afterPath="$PROJECT_DIR$/../JAVA笔记/java进阶.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/.idea/leetcode/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/.idea/leetcode/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/Leetcode笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/Leetcode笔记.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/out/production/leetcode/leetcode/editor/cn/all.json" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/out/production/leetcode/leetcode/editor/cn/all.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/out/production/leetcode/leetcode/editor/cn/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/out/production/leetcode/leetcode/editor/cn/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/NextPermutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/NextPermutation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/RemoveElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/RemoveElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/SmallestKLcci.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/CongShangDaoXiaDaYinErChaShuIiLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/CongShangDaoXiaDaYinErChaShuIiLcof.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/CongShangDaoXiaDaYinErChaShuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/CongShangDaoXiaDaYinErChaShuLcof.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/DecodeWays.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/DecodeWays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/DuiChengDeErChaShuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/DuiChengDeErChaShuLcof.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/ErChaShuDeShenDuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/ErChaShuDeShenDuLcof.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/IntersectionOfTwoArraysIi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/IntersectionOfTwoArraysIi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/InvertBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/InvertBinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/LowestCommonAncestorOfABinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/LowestCommonAncestorOfABinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/MinimumDepthOfBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/MinimumDepthOfBinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/PingHengErChaShuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/PingHengErChaShuLcof.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/ReverseString.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/ReverseString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/UniqueBinarySearchTreesIi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/UniqueBinarySearchTreesIi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/ZhongJianErChaShuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/ZhongJianErChaShuLcof.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/all.json" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/all.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/src/leetcode/editor/cn/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaNote/src/ObstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/ObstractTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/com/test/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/CloneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/clone/CloneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/EqualsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/equalsTest/EqualsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/FinalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/finalTest/FinalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/HelloWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/Inherit.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/inner/Inherit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/InnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/inner/InnerClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/InterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/interfaceTest/InterfaceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/InterfaceTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/interfaceTest/InterfaceTest2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/ObstractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/abstractTest/ObstractTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/OverrideTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/inherit/OverrideTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/functionSignature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Date/DateTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Date/DateTest01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Date/DateTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Date/DateTest2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Demical/DecimalFormatTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Demical/DecimalFormatTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Integer/Integer2int2String.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Integer/Integer2int2String.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Integer/IntegerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Integer/IntegerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Integer/IntegerTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Integer/IntegerTest01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/Random/RandomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/Random/RandomTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/ArrayTest01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest03.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/ArrayTest03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest04.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/ArrayTest04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest06.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/ArrayTest06.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArrayTest07.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/ArrayTest07.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/ArraysTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/ArraysTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/BinarySearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/Bubble.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/Bubble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/MyStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/MyStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/array/SelectSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/array/SelectSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/arrays/ArraysTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/arrays/ArraysTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/collection/CollectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/CollectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/collection/CollectionTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/collection/CollectionTest2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/CustomException.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/exception/CustomException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/exception/ExceptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/exception/ExceptionTest01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest03.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/exception/ExceptionTest03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest04.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/exception/ExceptionTest04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest05.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/exception/ExceptionTest05.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/exception/ExceptionTest06.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/exception/ExceptionTest06.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/myenum/EnumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/myenum/EnumTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaNote/src/uestc/javase/string/StringTest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaNote/src/com/javase/string/StringTest01.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,17 +182,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/JavaNote/src/com/javase/io" />
       <recent name="$PROJECT_DIR$/JavaNote/src" />
       <recent name="$PROJECT_DIR$/JavaNote" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CollectionTest2">
-    <configuration name="CollectionTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uestc.javase.collection.CollectionTest2" />
+  <component name="RunManager" selected="Application.ThreadTest08">
+    <configuration name="DeadLockTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.javase.threads.DeadLockTest" />
       <module name="JavaNote" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uestc.javase.collection.*" />
+          <option name="PATTERN" value="com.javase.threads.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,12 +201,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomExceptionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uestc.javase.exception.CustomExceptionTest" />
+    <configuration name="ThreadSafeTest01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.javase.threads.ThreadSafeTest01" />
       <module name="JavaNote" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uestc.javase.exception.*" />
+          <option name="PATTERN" value="com.javase.threads.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -153,13 +214,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExceptionTest04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uestc.javase.exception.ExceptionTest04" />
+    <configuration name="ThreadTest06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.javase.threads.ThreadTest06" />
       <module name="JavaNote" />
-      <option name="VM_PARAMETERS" value="-Dfile.encoding=UTF-8" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uestc.javase.exception.*" />
+          <option name="PATTERN" value="com.javase.threads.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -167,12 +227,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExceptionTest05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uestc.javase.exception.ExceptionTest05" />
+    <configuration name="ThreadTest08" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.javase.threads.ThreadTest08" />
       <module name="JavaNote" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uestc.javase.exception.*" />
+          <option name="PATTERN" value="com.javase.threads.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -180,44 +240,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExceptionTest06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uestc.javase.exception.ExceptionTest06" />
+    <configuration name="TimerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.javase.threads.TimerTest" />
       <module name="JavaNote" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uestc.javase.exception.*" />
+          <option name="PATTERN" value="com.javase.threads.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ExceptionTest04" />
-      <item itemvalue="Application.ExceptionTest05" />
-      <item itemvalue="Application.ExceptionTest06" />
-      <item itemvalue="Application.CustomExceptionTest" />
-      <item itemvalue="Application.CollectionTest2" />
+      <item itemvalue="Application.ThreadSafeTest01" />
+      <item itemvalue="Application.DeadLockTest" />
+      <item itemvalue="Application.ThreadTest06" />
+      <item itemvalue="Application.TimerTest" />
+      <item itemvalue="Application.ThreadTest08" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CollectionTest2" />
-        <item itemvalue="Application.CustomExceptionTest" />
-        <item itemvalue="Application.ExceptionTest06" />
-        <item itemvalue="Application.ExceptionTest05" />
-        <item itemvalue="Application.ExceptionTest04" />
+        <item itemvalue="Application.ThreadTest08" />
+        <item itemvalue="Application.TimerTest" />
+        <item itemvalue="Application.ThreadTest06" />
+        <item itemvalue="Application.DeadLockTest" />
+        <item itemvalue="Application.ThreadSafeTest01" />
       </list>
     </recent_temporary>
   </component>
@@ -266,6 +315,12 @@
       <workItem from="1608692778718" duration="6112000" />
       <workItem from="1608721874106" duration="19000" />
       <workItem from="1608873240498" duration="10861000" />
+      <workItem from="1608954487706" duration="10085000" />
+      <workItem from="1609138190352" duration="4323000" />
+      <workItem from="1609154311991" duration="4848000" />
+      <workItem from="1609242512159" duration="82109000" />
+      <workItem from="1609684226149" duration="16346000" />
+      <workItem from="1609768887491" duration="16000" />
     </task>
     <servers />
   </component>
@@ -294,12 +349,16 @@
     </state>
     <state x="2143" y="59" width="1089" height="765" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604845350544" />
     <state x="2199" y="27" width="1362" height="1053" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608692691674" />
-    <state x="2558" y="148" width="575" height="602" key="#com.intellij.ide.util.MemberChooser" timestamp="1608699528206">
+    <state x="2554" y="346" width="642" height="421" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609661152774">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2554" y="346" width="642" height="421" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609661152774" />
+    <state x="2558" y="148" width="575" height="623" key="#com.intellij.ide.util.MemberChooser" timestamp="1609765247712">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="511" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602536613744" />
     <state x="2431" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604848467419" />
-    <state x="2558" y="148" width="575" height="602" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608699528206" />
+    <state x="2558" y="148" width="575" height="623" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609765247712" />
     <state x="683" y="171" width="374" height="602" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/67.27.1853.1053@67.27.1853.1053" timestamp="1605664221697" />
     <state x="2551" y="263" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1605194206857">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -310,65 +369,65 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="544" y="301" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602480892782" />
-    <state x="2606" y="219" width="424" height="491" key="FileChooserDialogImpl" timestamp="1608902293282">
+    <state x="2606" y="219" width="424" height="491" key="FileChooserDialogImpl" timestamp="1609768902000">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1603714282366" />
     <state x="2469" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1607921592081" />
-    <state x="2606" y="219" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608902293282" />
+    <state x="2606" y="219" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609768902000" />
     <state x="729" y="241" key="FileChooserDialogImpl/1920.0.1920.1080/67.27.1853.1053@67.27.1853.1053" timestamp="1605700198638" />
-    <state width="1866" height="240" key="GridCell.Tab.0.bottom" timestamp="1608902294149">
+    <state width="1866" height="227" key="GridCell.Tab.0.bottom" timestamp="1609768822807">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1492" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602812516391" />
     <state width="1492" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604884871559" />
-    <state width="1866" height="240" key="GridCell.Tab.0.bottom/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608902294149" />
+    <state width="1866" height="227" key="GridCell.Tab.0.bottom/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609768822807" />
     <state width="1799" height="267" key="GridCell.Tab.0.bottom/1920.0.1920.1080/67.27.1853.1053@67.27.1853.1053" timestamp="1605700199368" />
-    <state width="1866" height="240" key="GridCell.Tab.0.center" timestamp="1608902294149">
+    <state width="1866" height="227" key="GridCell.Tab.0.center" timestamp="1609768822807">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1492" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602812516391" />
     <state width="1492" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604884871559" />
-    <state width="1866" height="240" key="GridCell.Tab.0.center/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608902294149" />
+    <state width="1866" height="227" key="GridCell.Tab.0.center/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609768822807" />
     <state width="1799" height="267" key="GridCell.Tab.0.center/1920.0.1920.1080/67.27.1853.1053@67.27.1853.1053" timestamp="1605700199368" />
-    <state width="1866" height="240" key="GridCell.Tab.0.left" timestamp="1608902294149">
+    <state width="1866" height="227" key="GridCell.Tab.0.left" timestamp="1609768822807">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1492" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602812516391" />
     <state width="1492" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604884871559" />
-    <state width="1866" height="240" key="GridCell.Tab.0.left/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608902294149" />
+    <state width="1866" height="227" key="GridCell.Tab.0.left/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609768822807" />
     <state width="1799" height="267" key="GridCell.Tab.0.left/1920.0.1920.1080/67.27.1853.1053@67.27.1853.1053" timestamp="1605700199368" />
-    <state width="1866" height="240" key="GridCell.Tab.0.right" timestamp="1608902294149">
+    <state width="1866" height="227" key="GridCell.Tab.0.right" timestamp="1609768822807">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1492" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602812516391" />
     <state width="1492" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604884871559" />
-    <state width="1866" height="240" key="GridCell.Tab.0.right/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608902294149" />
+    <state width="1866" height="227" key="GridCell.Tab.0.right/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609768822807" />
     <state width="1799" height="267" key="GridCell.Tab.0.right/1920.0.1920.1080/67.27.1853.1053@67.27.1853.1053" timestamp="1605700199368" />
-    <state width="1866" height="319" key="GridCell.Tab.1.bottom" timestamp="1608119766799">
+    <state width="1866" height="305" key="GridCell.Tab.1.bottom" timestamp="1609684213799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1492" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602696460212" />
     <state width="1492" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603544289930" />
-    <state width="1866" height="319" key="GridCell.Tab.1.bottom/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608119766799" />
-    <state width="1866" height="319" key="GridCell.Tab.1.center" timestamp="1608119766799">
+    <state width="1866" height="305" key="GridCell.Tab.1.bottom/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609684213799" />
+    <state width="1866" height="305" key="GridCell.Tab.1.center" timestamp="1609684213799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1492" height="261" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602696460212" />
     <state width="1492" height="261" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603544289929" />
-    <state width="1866" height="319" key="GridCell.Tab.1.center/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608119766799" />
-    <state width="1866" height="319" key="GridCell.Tab.1.left" timestamp="1608119766799">
+    <state width="1866" height="305" key="GridCell.Tab.1.center/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609684213799" />
+    <state width="1866" height="305" key="GridCell.Tab.1.left" timestamp="1609684213799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1492" height="261" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602696460212" />
     <state width="1492" height="261" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603544289929" />
-    <state width="1866" height="319" key="GridCell.Tab.1.left/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608119766799" />
-    <state width="1866" height="319" key="GridCell.Tab.1.right" timestamp="1608119766799">
+    <state width="1866" height="305" key="GridCell.Tab.1.left/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609684213799" />
+    <state width="1866" height="305" key="GridCell.Tab.1.right" timestamp="1609684213799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1492" height="261" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1602696460212" />
     <state width="1492" height="261" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603544289929" />
-    <state width="1866" height="319" key="GridCell.Tab.1.right/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608119766799" />
+    <state width="1866" height="305" key="GridCell.Tab.1.right/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609684213799" />
     <state x="2258" y="73" width="1037" height="737" key="SettingsEditor" timestamp="1608692649269">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -386,20 +445,25 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="2384" y="168" key="refactoring.ChangeSignatureDialog/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603513366844" />
-    <state x="2459" y="190" width="840" height="889" key="search.everywhere.popup" timestamp="1608105323048">
+    <state x="2544" y="251" key="run.anything.popup" timestamp="1609332130183">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2544" y="251" key="run.anything.popup/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609332130183" />
+    <state x="2459" y="190" width="840" height="889" key="search.everywhere.popup" timestamp="1609766858901">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2351" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1603519694155" />
-    <state x="2459" y="190" width="840" height="889" key="search.everywhere.popup/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1608105323048" />
+    <state x="2459" y="190" width="840" height="889" key="search.everywhere.popup/1920.0.1920.1080/67.27.1853.1053@1920.0.1920.1080" timestamp="1609766858901" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="nodeRalation[i][j]" />
-        <watch expression="inputs.length()" />
-        <watch expression="inputs.substring(i,inputs.length())" />
-        <watch expression="(x2.ly-x1.ly)" />
-      </configuration>
-    </watches-manager>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/JavaNote/src/com/javase/collection/VectorTest.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

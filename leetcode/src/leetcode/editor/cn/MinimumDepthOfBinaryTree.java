@@ -32,6 +32,8 @@ package leetcode.editor.cn;
 // Related Topics 树 深度优先搜索 广度优先搜索
 // 👍 398 👎 0
 
+import leetcode.editor.cn.utils.treeNode.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -42,19 +44,6 @@ public class MinimumDepthOfBinaryTree {
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 
-//    Definition for a binary tree node.
-class TreeNode {
-   int val;
-   TreeNode left;
-   TreeNode right;
-   TreeNode() {}
-   TreeNode(int val) { this.val = val; }
-   TreeNode(int val, TreeNode left, TreeNode right) {
-       this.val = val;
-       this.left = left;
-       this.right = right;
-   }
-}
 class Solution {
     public int minDepth(TreeNode root) {
         if(root==null) return 0;

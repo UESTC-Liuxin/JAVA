@@ -36,6 +36,8 @@ package leetcode.editor.cn;
 // 👍 64 👎 0
 
 
+import leetcode.editor.cn.utils.treeNode.TreeNode;
+
 import java.util.*;
 
 public class CongShangDaoXiaDaYinErChaShuIiLcof {
@@ -43,21 +45,8 @@ public class CongShangDaoXiaDaYinErChaShuIiLcof {
         Solution solution = new CongShangDaoXiaDaYinErChaShuIiLcof().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}
+
+
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         Queue<TreeNode> queue=new LinkedList<>();

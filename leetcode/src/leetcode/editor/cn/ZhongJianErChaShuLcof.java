@@ -30,6 +30,8 @@ package leetcode.editor.cn;
 // 👍 253 👎 0
 
 
+import leetcode.editor.cn.utils.treeNode.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,13 +44,6 @@ public class ZhongJianErChaShuLcof {
 /**
  * Definition for a binary tree node.
  */
-
-public class TreeNode {
-    int val;
-   TreeNode left;
-   TreeNode right;
-    TreeNode(int x) { val = x; }
-}
 
 class Solution {
     //建立一个hash表，储存中序遍历序列与前序遍历序列的对应
