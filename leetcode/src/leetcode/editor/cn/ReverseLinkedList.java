@@ -29,39 +29,21 @@ public class ReverseLinkedList {
  * }
  */
 class Solution {
-    ListNode dummyNode;//声明拟头结点，方便函数内赋值
     public ListNode reverseList(ListNode head) {
-        this.dummyNode =new ListNode(0);//建立新的虚拟头结点
-        if(head==null) return null;
-        recurAdd(head);
-        head.next=null;
-        return this.dummyNode.next;
-    }
+        if(head ==null || head.next ==null) return head;
+        ListNode pre =null;//记录前一个节点
+        ListNode cur = head;//记录当前节点
+        ListNode next = head.next;//记录下一个节点
 
-    /**递归思路
-     * 原本的链表序
-     * head--->node1--->node2--->node3--->node4--->null
-     * 到了尾结点，把尾结点赋给dummyNode.next，并返回node4.next,这个时候node4还指向的是null
-     * head--->node1--->node2--->node3--->node4(dummyNode.next)--->null
-     * 返回上一层递归后，要将返回的node4.next重新指向node3,这个时候node3和node4相互连接
-     * head--->node1--->node2--->node3<--->node4(dummyNode.next)
-     * 再返回上一层时，node3.next又改为指向node2...
-     * head--->node1--->node2<--->node3<---node4(dummyNode.next)
-     * .....
-     * 到了最后返回的时候的指向情况
-     * head<--->node1--->node2<---node3<---node4(dummyNode.next)
-     * 这个时候还不能直接返回，需要把head.next指向null才行
-     * @param searchNode
-     * @return
-     */
-    public ListNode recurAdd(ListNode searchNode){
-        if(searchNode.next==null){//触底反弹
-            dummyNode.next=searchNode;
-            return dummyNode.next;
+        //每次循环都将当前节点的下一个节点指向pre并且往后移
+        while(next!=null){
+            cur.next = pre;
+            pre=cur;
+            cur = next;
+            next =next.next;
         }
-        ListNode cur=recurAdd(searchNode.next);//返回的是新链表序的最后一个节点的地址
-        cur.next=searchNode;//把此链表的下一个节点重新赋值为当前节点
-        return cur.next; //返回下一个节点
+        cur.next=pre;
+        return cur;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

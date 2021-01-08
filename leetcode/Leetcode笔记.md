@@ -2245,7 +2245,7 @@ class Solution{
 | [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/) | 2020/11/4      | 2020/11/4   | 动态规划                 | 1    |
 | [198.打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 2020/11/8      | 2020/11/8   | 动态规划                 | 1    |
 | [322.零钱兑换](https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/) | 2020/11/10     | 2020/11/10  | 动态规划                 | 1    |
-| [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 2020/11/11     | 2020/11/11  | BFS                      | 1    |
+| [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 2020/11/11     | 2021/1/5    | BFS                      | 1    |
 | [752. 打开转盘锁](https://leetcode-cn.com/problems/open-the-lock/) | 2020/11/12     | 2020/11/12  | BFS                      | 1    |
 | [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | 2020/11/12     | 2020/11/12  | 二叉搜索树               | 1    |
 | [17.电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 2020/10/1之前  | 2020/11/13  | BFS                      | 2    |
@@ -2298,6 +2298,10 @@ class Solution{
 | 斐波那契数列                                                 | 2021/1/4       | 2021/1/4    | 斐波那契数列             | 1    |
 | [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 2021/1/4       | 2021/1/4    | 中序遍历                 | 1    |
 | [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/) | 2021/1/4       | 2021/1/4    | 利用二叉搜索树的中序遍历 | 1    |
-|                                                              |                |             |                          |      |
-|                                                              |                |             |                          |      |
+| [830 较大分组的位置](https://leetcode-cn.com/problems/positions-of-large-groups/) | 2021/1/5       | 2021/1/5    | 双指针                   | 1    |
+| [ 77 组合](https://leetcode-cn.com/problems/combinations/)   | 2021/1/5       | 2021/1/5    | 回溯                     | 1    |
+| [216 组合总和 III](https://leetcode-cn.com/problems/combination-sum-iii/) | 2021/1/5       | 2021/1/5    | 回溯                     | 1    |
+| [111 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 2021/1/6       | 2021/1/6    | 树，递归                 | 1    |
+| [131 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 2021/1/6       | 2021/1/6    | 回溯，动态规划           | 1    |
+| [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/) | 2021/1/7       | 2021/1/7    | 头插法，双指针           | 1    |
 

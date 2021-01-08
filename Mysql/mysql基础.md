@@ -155,5 +155,86 @@ where
             is null
             
 */
+#查询工资大于12000的员工
+select 
+	*
+from
+	employees
+where
+	salary>12000;
+    
+#查询部门编号不等于90的员工名和部门编号
+select 
+	last_name,department_id
+from
+	employees
+where
+	department_id <> 90;
+    
+#查询部门编码不是在90到110之间，或者工资高于15000的员工信息
+select 
+	*
+from
+	employees
+where
+	not (department_id >= 90 and department_id <= 110)
+or 
+	salary >15000;
+    
+    
+#模糊查询
+# 查询员工名中包含字符a的员工信息
+select
+	*
+from
+	employees
+where
+	last_name like '%a%';
+```
+
+通配符
+
+- % 任意多个字符a的员工
+- _任意单个字符
+
+```mysql
+#查询员工名中第三个字符为n，第五个字符为l的员工名和工资
+select
+	last_name,
+    salary
+from
+	employees
+where
+	last_name like '__n_l%';
+    
+#字符转义
+select
+	last_name
+from
+	employees
+where
+	last_name like '_\_%';
+    
+#可以指定转义字符
+select
+	last_name
+from
+	employees
+where
+	last_name like '_$_%' escape '$'
+```
+
+between...and..左闭右闭
+
+in(列表)
+
+```mysql
+#in的使用
+select
+	*
+from
+	employees
+where
+	job_id in('AD_PRES','AD_VP');
 ```
 
