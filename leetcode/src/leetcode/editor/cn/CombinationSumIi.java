@@ -63,6 +63,7 @@ class Solution {
         }
         int pre=-1;
         for(int i=startIndex;i<this.candidates.length;i++){
+            //在这里剔除掉相同的元素
             if(pre==this.candidates[i])
                 continue;
             pre=this.candidates[i];

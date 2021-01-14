@@ -19,9 +19,11 @@ public class TCPClient {
         //
         String content = new String(buff,0,ch);
         System.out.println(content);
+
+        socket.close();
+        Thread.sleep(1000);
         is.close();
         os.close();
-        socket.close();
     }
 }
 

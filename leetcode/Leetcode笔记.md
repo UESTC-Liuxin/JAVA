@@ -1317,6 +1317,37 @@ class Solution {
 }                                                                                                                                                       
 ```
 
+### 图
+
+#### 欧拉图(一笔画问题)
+
+欧拉图的定义：
+
+- 通过图中所有边恰好一次且行遍所有顶点的通路称为欧拉通路。
+
+- 通过图中所有边恰好一次且行遍所有顶点的回路称为欧拉回路。
+
+- 具有欧拉回路的无向图称为欧拉图。
+
+- 具有欧拉通路但不具有欧拉回路的无向图称为半欧拉图。
+
+欧拉图判定定理：
+
+判别这张图是否是欧拉图或者半欧拉图，具体地：
+
+- 对于无向图 G，G是欧拉图当且仅当 G 是连通的且没有奇度顶点。
+
+- 对于无向图 G，G是半欧拉图当且仅当 G 是连通的且 G 中恰有 2 个奇度顶点。
+
+- 对于有向图 G，G 是欧拉图当且仅当 G的所有顶点属于同一个强连通分量且每个顶点的入度和出度相同。
+
+- 对于有向图 G，G是半欧拉图当且仅当 G 的所有顶点属于同一个强连通分量且
+  - 恰有一个顶点的出度与入度差为 1；
+  - 恰有一个顶点的入度与出度差为 1；
+  - 所有其他顶点的入度和出度相同。
+
+
+
 
 
 
@@ -1369,11 +1400,186 @@ class Solution {
   }
   ```
 
-  **「这份模板很重要，后面做回溯法的题目都靠它了！」**
+### 组合问题
 
-  如果从来没有学过回溯算法的录友们，看到这里会有点懵，后面开始讲解具体题目的时候就会好一些了，已经做过回溯法题目的录友，看到这里应该会感同身受了。
+[ 77 组合](https://leetcode-cn.com/problems/combinations/)
 
-  
+组合问题是考虑元素的去重问题的，因此，组合不能重复，如果输入当中没有重复的元素，那么只需要在一棵子树的路径当中，不产生重复的元素就好。
+
+![图片](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/640.webp)
+
+利用模板，进行有效的剪枝就行了。
+
+[组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii) 
+
+对于输入本来就存在重复的元素，需要保证同一层不能选取相同的元素，可以先对输入进行排序，记录前一个选取的值，当遇到与前一个值相同的值时，直接跳过，避免组合出现重复。
+
+![图片](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/640.png)
+
+代码：
+
+```java
+public class CombinationSumIi {
+    public static void main(String[] args) {
+        Solution solution = new CombinationSumIi().new Solution();
+        solution.combinationSum2(new int[]{10,1,2,7,6,1,5},8);
+    }
+    //leetcode submit region begin(Prohibit modification and deletion)
+class Solution {
+    int[] candidates;
+    List<List<Integer>> combines;
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        this.candidates=candidates;
+        this.combines= new LinkedList<List<Integer>>();
+        backTrace(0,0,target,new LinkedList<Integer>());
+        return this.combines;
+    }
+
+    public void backTrace(int startIndex,int sum,int target,List<Integer> combine){
+        if (target<sum) return;
+        if (target==sum){
+            this.combines.add(new LinkedList<>(combine));
+            return;
+        }
+        int pre=-1;
+        for(int i=startIndex;i<this.candidates.length;i++){
+            //在这里剔除掉相同的元素
+            if(pre==this.candidates[i])
+                continue;
+            pre=this.candidates[i];
+            combine.add(pre);
+            backTrace(i+1,sum+pre,target,combine);
+            combine.remove(combine.size()-1);
+        }
+    }
+}
+```
+
+### 子集问题
+
+组合问题和子集问题都可以看作是一棵树，与组合问题不同的地方在于，组合保存的是叶节点（或者说是只在到了叶节点的时候才保存），但是子集是对整个树的节点进行保存。
+
+[78. 子集](https://leetcode-cn.com/problems/subsets/)
+
+![图片](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/640-1610201398536.png)
+
+[90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)
+
+这道题和组合类似，在排序的基础上进行重复值的剔除、
+
+[491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/)
+
+做了上到题，再做这道题，就很容易掉入其设置的陷阱，原因是上面我们是用排序的方法实现去重，但是现在我们不能去排序，排序了所有的子集都会变成递增子序列，为了保证不在同一层使用相同的数，所以用hash表来存下这一层使用过的元素。
+
+![图片](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/640-1610205357791.png)
+
+```java
+class Solution {
+    List<List<Integer>> allSets;
+    public List<List<Integer>> findSubsequences(int[] nums) {
+        allSets = new ArrayList<>();
+        List<Integer> subSet = new ArrayList<>();
+        if (nums.length < 2) return allSets;
+        backTracking(subSet, 0,nums);
+        return allSets;
+
+    }
+
+    private void backTracking(List<Integer> subSet, int startIndex,
+                              int[] nums) {
+        if (startIndex >= nums.length) return;
+        //用于记录这一层已经用过的值
+        Set used = new HashSet();
+        int subMax = (subSet.size()==0)?
+                Integer.MIN_VALUE:subSet.get(subSet.size()-1);
+        for (int i = startIndex; i < nums.length; i++) {
+            //重复值和降序列跳过
+            if (used.contains(nums[i]) || nums[i]<subMax) continue;
+            used.add(nums[i]);
+            subSet.add(nums[i]);
+            if(subSet.size()>=2)
+                allSets.add(new ArrayList<>(subSet));
+            backTracking(subSet, i + 1,nums);
+            subSet.remove(subSet.size() - 1);
+        }
+    }
+}
+```
+
+### 排列问题
+
+排列与组合问题和子集问题的区别在于，由于后者不需要注意顺序，一颗子树，其节点的值是随着深度单调递增的，不会取到根节点前面的值，比如只能有1，2，3，4的取法，不会存在2，1，3，4的取法，因为与1，2，3，4是同一个组合。但是排列问题，选取不同的点为起始点，其点前面位置的点也是需要取一边的，1，2，3，4与2，1，3，4是不同的。
+
+在组合中我们按照每次向后取的方式，同一条路出现重复使用一个点的情况，但是在排列中，每次都要从数组的开头进行遍历，利用单独的容器对这条路用过的点进行记录。==集合太慢，建议用数组的方式记录。==
+
+[46. 全排列](https://leetcode-cn.com/problems/permutations/)
+
+由于无重复，所以不用担心在排列的同一个位置上出现同样的数造成重复。
+
+![图片](image/640-1610291271141.png)
+
+利用数组记录已经取到的点，并参与回溯过程：
+
+```java
+class Solution {
+    List<List<Integer>> allCombination;
+    public List<List<Integer>> permute(int[] nums) {
+        allCombination = new ArrayList<>();
+        List<Integer> combination = new ArrayList<>();
+        //这里用数组的效率要远远高于用set
+        int[] visited=new int[nums.length];
+        backTracking(combination,visited,nums);
+        return allCombination;
+    }
+    private void backTracking(List<Integer> combination,int[] visited,int[] nums) {
+        if(combination.size()==nums.length) {
+            allCombination.add(new ArrayList<>(combination));
+        }
+        for(int i=0;i<nums.length;i++) {
+            if(visited[i]==1) continue;
+            visited[i]=1;
+            combination.add(nums[i]);
+            backTracking(combination,visited,nums);
+            visited[i]=0;
+            combination.remove(combination.size()-1);
+        }
+    }
+}
+```
+
+[47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/)
+
+这里由于输入重复，可以利用提前排序的方式，记录同一个位置已经遍历过的点。
+
+```java
+class Solution {
+    List<List<Integer>> allCombination;
+    public List<List<Integer>> permute(int[] nums) {
+        allCombination = new ArrayList<>();
+        List<Integer> combination = new ArrayList<>();
+        //这里用数组的效率要远远高于用set
+        int[] visited=new int[nums.length];
+        backTracking(combination,visited,nums);
+        return allCombination;
+    }
+    private void backTracking(List<Integer> combination,int[] visited,int[] nums) {
+        if(combination.size()==nums.length) {
+            allCombination.add(new ArrayList<>(combination));
+        }
+        for(int i=0;i<nums.length;i++) {
+            if(visited[i]==1) continue;
+            visited[i]=1;
+            combination.add(nums[i]);
+            backTracking(combination,visited,nums);
+            visited[i]=0;
+            combination.remove(combination.size()-1);
+        }
+    }
+}
+```
+
+
 
 ## 动态规划
 
@@ -2245,7 +2451,7 @@ class Solution{
 | [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/) | 2020/11/4      | 2020/11/4   | 动态规划                 | 1    |
 | [198.打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 2020/11/8      | 2020/11/8   | 动态规划                 | 1    |
 | [322.零钱兑换](https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/) | 2020/11/10     | 2020/11/10  | 动态规划                 | 1    |
-| [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 2020/11/11     | 2020/11/11  | BFS                      | 1    |
+| [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 2020/11/11     | 2021/1/5    | BFS                      | 1    |
 | [752. 打开转盘锁](https://leetcode-cn.com/problems/open-the-lock/) | 2020/11/12     | 2020/11/12  | BFS                      | 1    |
 | [235. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | 2020/11/12     | 2020/11/12  | 二叉搜索树               | 1    |
 | [17.电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 2020/10/1之前  | 2020/11/13  | BFS                      | 2    |
@@ -2298,6 +2504,19 @@ class Solution{
 | 斐波那契数列                                                 | 2021/1/4       | 2021/1/4    | 斐波那契数列             | 1    |
 | [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | 2021/1/4       | 2021/1/4    | 中序遍历                 | 1    |
 | [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/) | 2021/1/4       | 2021/1/4    | 利用二叉搜索树的中序遍历 | 1    |
-|                                                              |                |             |                          |      |
-|                                                              |                |             |                          |      |
+| [830 较大分组的位置](https://leetcode-cn.com/problems/positions-of-large-groups/) | 2021/1/5       | 2021/1/5    | 双指针                   | 1    |
+| [ 77 组合](https://leetcode-cn.com/problems/combinations/)   | 2021/1/5       | 2021/1/5    | 回溯                     | 1    |
+| [216 组合总和 III](https://leetcode-cn.com/problems/combination-sum-iii/) | 2021/1/5       | 2021/1/5    | 回溯                     | 1    |
+| [111 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/) | 2021/1/6       | 2021/1/6    | 树，递归                 | 1    |
+| [131 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 2021/1/6       | 2021/1/6    | 回溯，动态规划           | 1    |
+| [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/) | 2021/1/7       | 2021/1/7    | 头插法，双指针           | 1    |
+| [93 复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses/) | 2021/1/7       | 2021/1/7    | 回溯法                   | 1    |
+| [189 旋转数组](https://leetcode-cn.com/problems/rotate-array/) | 2021/1/8       | 2021/1/8    | 数组                     | 1    |
+| [617 合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/) | 2021/1/8       | 2021/1/8    | 二叉树，递归             | 1    |
+| [78. 子集](https://leetcode-cn.com/problems/subsets/)        | 2021/1/9       | 2021/1/9    | 回溯，求子集             | 1    |
+| [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)  | 2021/1/9       | 2021/1/9    | 回溯，求子集             | 1    |
+| [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences/) | 2021/1/9       | 2021/1/9    | 回溯，求子集             | 1    |
+| [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 2021/1/10      | 2021/1/10   | 回溯，无重复排列问题     | 1    |
+| [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) | 2021/1/10      | 2021/1/10   | 回溯，有重复排列问题     | 1    |
+| [332. 重新安排行程](https://leetcode-cn.com/problems/reconstruct-itinerary/) | 2021/1/12      | 2021/1/12   | 回溯，优先队列，贪心算法 | 1    |
 
