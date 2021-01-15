@@ -1531,6 +1531,10 @@ SELECT t_id,tName,tGender FROM t_ua WHERE tGender='male';
 
 ```
 
+## 语法总结
+
+![image-20210115165019235](upload/image-20210115165019235.png)
+
 # DML语言
 
 数据操作语言：
@@ -1688,14 +1692,323 @@ WHERE bo.boyName='黄晓明'
 TRUNCATE table boys;
 
 
-delete与truncate的区别
-1.truncate是清空不能加where
-2.truncate效率更高
-3.对于自增长列来说，如果用delete删除后再插入数据，自增长列的值从断电开始，而truncate删除后，
-再插入数据，自增长列的值从1开始。
-4.truncate删除没有返回值
-5.truncate删除不能回滚，delete删除可以回滚
+
 ```
 
+delete与truncate的区别：
+
+1.truncate是清空不能加where
+
+2.truncate效率更高
+
+3.对于自增长列来说，如果用delete删除后再插入数据，自增长列的值从断电开始，而truncate删除后，
+再插入数据，自增长列的值从1开始。
+
+4.truncate删除没有返回值
+
+5.truncate删除不能回滚，delete删除可以回滚
+
 # DDL
+
+```mysql
+#DDL
+
+/*
+数据定义语言
+库和表的管理
+
+一、库的管理
+创建、修改、删除
+二、表的管理
+创建、修改、删除
+
+
+创建：create
+修改：alter
+删除：drop
+
+*/
+
+#一、库的管理
+#1.库的创建
+/*
+语法：
+create database 库名;
+*/
+
+#案例：创建库Books
+CREATE DATABASE IF NOT EXISTS books;
+
+#2、库的修改
+#更改库的字符集
+ALTER DATABASE books CHARACTER SET utf8;
+
+#库的删除
+
+DROP DATABASE IF EXISTS books;
+
+#二、表的管理
+#1.表的创建★
+/*
+语法：
+create table 表名(
+		列名 列的类型【(长度) 约束】,
+		列名 列的类型【(长度) 约束】,
+		...
+)
+*/
+USE books;
+#案例：创建表book
+CREATE TABLE book(
+		id INT,#编号
+		bName VARCHAR(20),#图书名（最多20哥字符，不是字节）
+		price DOUBLE,#价格
+		authorId INT,#作者编号
+		publishDate DATETIME#出版日期
+);
+
+DESC book;
+
+#案例：创建表
+CREATE TABLE author(
+	id INT,
+	auth_name VARCHAR(20) CHARACTER SET utf8,
+	nation VARCHAR(10)
+)
+
+#2.表的修改
+/*
+alter TABLE 表名 add|modify|change COLUMN 列名 【列类型|约束】
+
+*/
+#①修改列名
+ALTER TABLE book CHANGE COLUMN publishdate pubDate DATETIME;
+#②修改列的类型或约束
+ALTER TABLE book MODIFY COLUMN pubdate TIMESTAMP;
+#③添加新列
+ALTER TABLE author ADD COLUMN annual DOUBLE;
+#④删除列
+ALTER TABLE author DROP COLUMN annual;
+
+#⑤修改表名
+ALTER TABLE author RENAME TO book_author;
+
+DESC book;
+DESC author;
+
+
+#3.表的删除
+DROP TABLE IF EXISTS author;
+
+SHOW TABLES;
+
+#4.表的复制
+
+INSERT INTO author VALUES
+(1,'村上春树','日本'),
+(2,'莫言','中国'),
+(3,'冯唐','中国'),
+(4,'金庸','中国');
+
+#5.修改表名
+
+
+
+#1.仅仅复制表的结构
+
+CREATE TABLE copy LIKE author;
+#2.复制表的结构+数据
+CREATE TABLE copy2
+SELECT * FROM author;
+
+#3.按条件复制
+CREATE TABLE copy3
+SELECT * FROM author WHERE nation='中国';
+
+
+DESC author
+
+
+# 创建dept1
+CREATE TABLE dept1(
+	id INT(7),
+	name VARCHAR(25) CHARACTER SET utf8
+);
+
+DESC dept1;
+
+#将表departments中的数据插入新表dept2中
+use myemployees;
+
+CREATE TABLE dept2
+SELECT * from departments;
+
+SELECT * from dept2;
+```
+
+# 数据类型
+
+```mysql
+#常见的数据类型
+/*
+数值型：
+		整数
+		小数：
+字符型:
+		较短的文本：char,VARCHAR
+		较长的文本：text、blob（较长的二进制数据）
+日期型：
+		
+*/
+#一、整型
+/*
+分类：
+tinyint、smallint、mediumint、int/INTEGER、bigint
+特点：
+①如果不设置无符号还是有符号，默认是有符号的，如果想设置无符号，需要添加unsigned关键字
+②如果插入的数值超出了整型的范围，会报out of range异常，并且插入临界值
+③如果不设置长度，会有默认的长度（此默认长度为显示出来的长度，并不能控制数值范围）
+长度代表了显示的最大宽度，如果不够用会用0在左边填充，但必须搭配zerofill使用。
+*/
+
+#1.如何设置无符号和有符号
+CREATE TABLE tab_int(
+	t1 INT
+);
+
+DESC tab_int;
+INSERT INTO tab_int VALUES(-123456);
+SELECT * FROM tab_int;
+
+DROP TABLE IF EXISTS tab_int;
+CREATE TABLE tab_int(
+	t1 INT UNSIGNED
+);
+
+DESC tab_int;
+
+
+INSERT INTO tab_int VALUES(123456);#我这里会报错
+SELECT * FROM tab_int;
+
+#二、小数
+/*
+1.浮点型
+float(M,D)
+double(M,D)
+2.定点型
+dec(M,D)
+decimal(M,D)
+
+特点：
+①M和D：M表示整数位数长度（超了会报错）,D表示小数的位数长度（超了会四舍五入）
+②M和D都可以省略
+如果是decimal，则M默认为10，D默认为0
+如果是float和double，则会随着插入的数值的精度来决定精度
+③定点型的精确度较高，如果要求插入数值的精度较高如货币运算等则考虑定点型
+*/
+
+
+#测试M和D:
+CREATE TABLE tab_float(
+		f1 FLOAT(5,2),
+		f2 DOUBLE(5,2),
+		f3 DECIMAL(5,2)
+);
+SELECT * FROM tab_float;
+INSERT INTO tab_float VALUES(123.45,123.45,123.45);
+INSERT INTO tab_float VALUES(123.456,123.456,123.456);
+INSERT INTO tab_float VALUES(123.45678,123.45678,123.45678);
+INSERT INTO tab_float VALUES(12345.45678,12356.45678,12334.45678);
+
+
+#原则：
+/*
+所选择的类型越简单越好，能保存数值的类型越小越好
+*/
+
+#三、字符型
+/*
+较短的文本：
+CHAR（不可变长度）
+VARCHAR（可变长度）
+
+较长的文本：
+text
+blob(较大的二进制)
+
+其他：
+BINARY和varbinary用于保存较短的二进制
+enum用于保存枚举
+set用于保存集合
+
+
+特点：
+			    写法        M的意思        特点							空间的耗费  效率
+char      char(M)     最大的字符数   固定长度的字符   比较耗费 		高
+VARCHAR   VARCHAR(M)  最大的字符数	 可变长度的字符		比较节省		低
+
+*/
+CREATE TABLE tab_char(
+			c1 enum('a','b','c')
+);
+DESC tab_char;
+SELECT * FROM tab_char;
+#插入enum
+INSERT INTO tab_char VALUES('a');
+INSERT INTO tab_char VALUES('b');
+
+
+#大小写不敏感
+INSERT INTO tab_char VALUES('A');
+
+INSERT INTO tab_char VALUES('d');#1265错误
+
+
+#集合
+CREATE TABLE tab_set(
+	s1 SET('a','b','c','d')
+);
+
+DESC tab_set;
+SELECT * from tab_set;
+
+#插入集合
+INSERT INTO tab_set VALUES('a,b');
+
+
+#四、日期型
+/*
+分类：
+date只保存日期
+time保存时间
+year保存年
+
+datetime保存日期+时间
+timesample保存日期+时间
+
+特点：
+				  字节				范围 				时区
+datetime   8          1000-9999   不受
+timesample 4          1970-2038   受
+
+*/
+CREATE TABLE tab_date(
+		t1 DATETIME,
+		t2 TIMESTAMP
+);
+DESC tab_date;
+select * FROM tab_date;
+
+INSERT INTO tab_date VALUES(NOW(),NOW());
+
+SHOW VARIABLES LIKE 'time_zone';
+SET time_zone = '+9:00';
+#设置后，t2比t1早了一个小时。
+
+```
+
+![image-20210115163056498](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20210115163056498.png)
+
+![image-20210115163223572](upload/image-20210115163223572.png)
 

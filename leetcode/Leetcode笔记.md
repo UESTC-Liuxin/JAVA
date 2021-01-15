@@ -1346,7 +1346,73 @@ class Solution {
   - 恰有一个顶点的入度与出度差为 1；
   - 所有其他顶点的入度和出度相同。
 
+#### 并查集
 
+并查集定义：
+
+1. 并查集是一种树型的数据结构，用于处理一些不相交集合（disjoint sets）的合并及查询问题。
+
+2. 并查集通常包含两种操作：
+
+- **查找(Find)：查询两个元素是否在同一个集合中**
+- **合并(Union)：把两个不相交的集合合并为一个集合**
+
+这里有篇文章写得非常好：https://blog.csdn.net/weixin_38279101/article/details/112546053
+
+并查集完整代码（数组版）：
+
+```java
+class DsuPathCompress{
+    final static int MAXN=100;
+    int[] parents=new int[MAXN];
+    int[] rank =new int[MAXN];
+    public DsuPathCompress(int n) {
+        init(n);
+    }
+    //初始化并查集
+    void init(int n){
+        for(int i=0;i<n;i++){
+            parents[i]=i; //最开始的时候，各自是自己父节点
+            rank[i]=1;  //最初的时候，设置每个子树（最初只有一个节点）的秩为1
+        }
+    }
+
+    //查询根节点,一层一层的找，根节点的父节点就是自己
+    //在查找过程中，顺带把路径上的点的父节点也设置为根节点
+    int find(int x){
+        if(parents[x]==x)
+            return x;
+        else{
+            parents[x]=find(parents[x]);//时每一个节点都指向父节点
+            return parents[x];
+        }
+    }
+
+    //合并，直接父节点进行合并
+    void merge(int i,int j){
+        //先找到两个节点的父节点
+        int x=find(i);
+        int y=find(j);
+
+        //先判断是否是同一个根节点，如果是就不用合并
+        //先判断是否是同一个根节点，如果是就不用合并
+        if(x==y)
+            return;
+        //将秩小的树合并到秩更大的树
+        if(rank[x]>=rank[y]){
+            parents[y]=x;
+        }
+        else{
+            parents[x]=y;
+        }
+        //如果两个的秩相同，合并后，x的秩会加一
+        if(rank[x]==rank[y]){
+            rank[x]++;
+        }
+
+    }
+}
+```
 
 
 
@@ -2155,7 +2221,7 @@ public int bfsFramework(String start,String target){
 
 ### 回文子串问题
 
-## 图
+
 
 
 
@@ -2383,6 +2449,8 @@ class Solution{
 
   具体代码：
 
+  
+  
   ```java
   public class MergeSortIterion {
       public static void main(String[] args) {
@@ -2433,9 +2501,9 @@ class Solution{
           for(int i=left;i<=right;i++)
               srcArr[i]=backupArr[i];
       }
-  }
+}
   ```
-
+  
   
 
 ## 基数排序
@@ -2519,4 +2587,7 @@ class Solution{
 | [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 2021/1/10      | 2021/1/10   | 回溯，无重复排列问题     | 1    |
 | [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) | 2021/1/10      | 2021/1/10   | 回溯，有重复排列问题     | 1    |
 | [332. 重新安排行程](https://leetcode-cn.com/problems/reconstruct-itinerary/) | 2021/1/12      | 2021/1/12   | 回溯，优先队列，贪心算法 | 1    |
+| [1018. 可被 5 整除的二进制前缀](https://leetcode-cn.com/problems/binary-prefix-divisible-by-5/) | 2021/1/14      | 2021/1/14   | 太简单                   | 1    |
+| [52. N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/) | 2021/1/14      | 2021/1/14   | dfs（其实不配为困难）    | 1    |
+| [51. N 皇后](https://leetcode-cn.com/problems/n-queens/)     | 2021/14        | 2021/1/14   | dfs                      | 1    |
 
