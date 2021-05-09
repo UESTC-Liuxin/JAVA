@@ -23,61 +23,54 @@ package leetcode.editor.cn;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MinimumWindowSubstring{
+public class MinimumWindowSubstring {
     public static void main(String[] args) {
         Solution solution = new MinimumWindowSubstring().new Solution();
-        String result=solution.minWindow("ADOBECODEBANC","ABC");
+        String result = solution.minWindow("a", "aa");
         System.out.println(result);
     }
 
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public String minWindow(String s, String t) {
-        //建立一个表，储存t中每个字符的频次
-        Map<Character,Integer> tMap=new HashMap<Character, Integer>();
-        Map<Character,Integer> slideWinMap=new HashMap<Character, Integer>();
-        //统计滑窗中满足了t中的频次的字符个数
-        int count=0;
-        for(int i=0;i<t.length();i++){//填充表
-            int temp=0;
-            if(tMap.containsKey(t.charAt(i))){
-                temp=tMap.get(t.charAt(i));//查看滑窗中t中的某个字符的个数
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public String minWindow(String s, String t) {
+            //建立一个表，储存t中每个字符的频次
+            HashMap<Character, Integer> destMap = new HashMap<>();
+            HashMap<Character, Integer> curMap = new HashMap<>();
+            for (int i = 0; i < t.length(); i++) {
+                destMap.put(t.charAt(i), destMap.getOrDefault(t.charAt(i), 0) + 1);
             }
-            tMap.put(t.charAt(i),temp+1);
-            slideWinMap.put(t.charAt(i),0);
-        }
 
-        String minString="";
-        int left=0;//记录滑窗的左端点
-        int minLength=s.length();
-        for(int right=0;right<s.length();right++){
-            if(slideWinMap.containsKey(s.charAt(right))){//发现t中字符
-                int temp=slideWinMap.get(s.charAt(right));//查看滑窗中t中的某个字符的个数
-                slideWinMap.put(s.charAt(right), temp+1);//将计数值加1
-                if(temp+1==tMap.get(s.charAt(right))){//如果出现此字符的频次满足了t中频次,如果继续增加了，就不再计数
-                    count++;
-                }
-            }
-            while(count==tMap.size()) {//记录最小并且left向右收缩
-                if(minLength>=right-left+1){
-                    minString = s.substring(left, right + 1);
-                    minLength=right-left+1;
-                }
-                if (slideWinMap.containsKey(s.charAt(left))) {//发现t中字符
-                    int temp = slideWinMap.get(s.charAt(left));//查看滑窗中t中的某个字符的个数
-                    slideWinMap.put(s.charAt(left), temp - 1);//将计数值减1
-                    if (temp-1<tMap.get(s.charAt(left))) {//经过删除后，已经不满足最低频次
-                        count--;//计数减1
+            int left = 0; //
+            int cur = 0;
+            int ansLen = Integer.MAX_VALUE;
+            int ansL = 0;
+            while (cur < s.length()) {
+                curMap.put(s.charAt(cur), curMap.getOrDefault(s.charAt(cur), 0) + 1);
+
+                while (check(destMap, curMap) && left <= cur) {//如果已经满足条件，就要收缩窗口
+                    if (ansLen > cur - left + 1){
+                        ansL = left;
+                        ansLen = cur - left + 1;
                     }
+                    curMap.put(s.charAt(left), curMap.get(s.charAt(left)) - 1);
+                    left++;
                 }
-                left++;
+                cur++;
             }
-
+            if(ansLen == Integer.MAX_VALUE)
+                return "";
+            return s.substring(ansL,ansL+ansLen);
 
         }
-        return minString;
+
+        private boolean check(HashMap<Character, Integer> destMap, HashMap<Character, Integer> curMap) {
+            for (Character c : destMap.keySet()) {
+                if (destMap.get(c) > curMap.getOrDefault(c, 0))
+                    return false;
+            }
+            return true;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

@@ -1317,6 +1317,120 @@ class Solution {
 }                                                                                                                                                       
 ```
 
+### 堆与优先级队列
+
+堆分为小根堆，大根堆
+
+![image-20210403224648816](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20210403224648816.png)
+
+堆是实现优先级队列最高效的一种数据结构。堆是基于完全二叉树的（只是说起结构是树的结构，但是储存形式一般用数组，下标代表树的节点序号，值代表关键码。）
+
+下面以小根堆作为样例进行学习
+
+首先，看一下一个小根堆的下滑操作，就是现在有一个节点序号，我需要知道这个节点是否能做为其所有子女的根。（前提是，其所有子女树是满足小根堆定义的。）
+
+![image-20210403231822432](https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20210403231822432.png)
+
+比如这个点，其序号为0，下滑操作就是把其放到这颗子树合适的位置。但这颗子树的其余地方，都必须满足小根堆的定义。
+
+下滑操作的代码如下：
+
+```java
+//下滑操作从start开始调整，到最后一个结点为止。
+// 结束条件为什么要加上temp<heap[j],因为默认下面的都已经变成小根堆了
+private void shiftDown(int start, int m) {
+  int i = start;
+  int j = 2 * start + 1; //先找到其左子女j
+  int temp = heap[i];    //保存需要调换的顶点的关键码，否则需要在后续下滑操作中要进行持续的交换
+  while (j <= m) {
+    if (j < m && heap[j] > heap[j + 1]) //让j指向两子女中的小者
+      j += 1;
+    if (temp <= heap[j]) break;  //小则不做调整
+    else {                       //否则将小的那个变成当前的根
+      heap[i] = heap[j];
+      i = j;
+      j = 2 * i + 1;    //往下走，继续检查是否还需要下滑
+    }
+  }
+  heap[i] = temp;
+
+}
+```
+
+上滑操作：
+
+上滑操作就是相反的，就是不断寻找其父节点进行比较更新。
+
+```java
+//对于小根堆而言，上滑操作的目的地都是最顶点，所以不用设定一个end点
+private void shiftUp(int start) {  
+  int j = start;
+  int i = (j - 1) / 2;//找到父节点
+  int temp = heap[j]; //保留子节点
+  while (j > 0) {
+    if (heap[i] < temp) break;//如果父节点小于子节点，结束
+    else {                    //否者，证明当前节点比父节点小，那么就要把父节点的关键码与当前节点的关键码互换一下。
+      heap[j] = heap[i];
+      j = i;								 //把当前节点上升为父节点
+      i = (i - 1) / 2;       //重新找到当前节点新的父节点
+    }
+  }
+  heap[j] = temp;
+}
+```
+
+插入操作：
+
+对于小根堆而言，插入操作就是把插入的点放在最后，然后不断检查，上滑，直到0
+
+```java
+public void insert(int x) {
+  if (count == heap.length - 1) {
+  	heap = Arrays.copyOf(heap, heap.length << 2);
+  }
+  heap[count] = x;
+  shiftUp(count);
+  count++;
+}
+```
+
+删除操作：
+
+对于小根堆，删除操作就是把当前的小根堆的顶点删除，具体操作为，把最后一个点换到顶点，然后下滑到最后一个点。
+
+```java
+public int pop(){
+  int x = heap[0];
+  heap[0] = heap[count-1];
+  count--;
+  shiftDown(0,count);
+  return x;
+}
+```
+
+[215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
+
+这道题用小根堆或者优先级队列就会非常简单。想象一个排序好的数组，其第K大的数，是不是就是倒数第K个。
+
+那么定义一个小根堆，这个小根堆的大小限制在k，那么最顶上的节点不就是第K大的数了吗？
+
+哪怕一直添加数，反正删除的都是比当前第K大的数更小的数。
+
+```java
+public int findKthLargest(int[] nums, int k) {
+  PriorityQueue<Integer> minHeap = new PriorityQueue<>(nums.length);
+  for (int num : nums) {
+  minHeap.add(num);
+  }
+  while (minHeap.size() > k){
+  minHeap.poll();
+  }
+  return minHeap.peek();
+}
+```
+
+
+
 ### 图
 
 #### 欧拉图(一笔画问题)
@@ -1345,6 +1459,8 @@ class Solution {
   - 恰有一个顶点的出度与入度差为 1；
   - 恰有一个顶点的入度与出度差为 1；
   - 所有其他顶点的入度和出度相同。
+
+邻接矩阵与邻接表
 
 #### 并查集
 
@@ -1413,6 +1529,127 @@ class DsuPathCompress{
     }
 }
 ```
+
+[785. 判断二分图](https://leetcode-cn.com/problems/is-graph-bipartite/)
+
+1. 上色（dfs，bfs）
+
+   二分图就是要求相邻的两个点不能上同一种颜色，因此可以通过上色的方式来判断。
+
+   建立一个颜色表，只要结点上色冲突就可以判定不是二分图。
+
+   ```java
+       class Solution {
+           private int[] color_code;
+           boolean valid = true;
+   
+           public boolean isBipartite(int[][] graph) {
+               int N = graph.length;
+               color_code = new int[N];
+               for (int i = 0; i < N && valid; i++) {
+                   if (color_code[i] == 0) {
+                       color_code[i] = 1;
+                       dfs(i, 1, graph);
+                   }
+               }
+               return valid;
+           }
+   
+           private void dfs(int node, int color, int[][] gragh) {
+               color_code[node] = color;
+               int cNei = color == 1 ? 2 : 1;
+               for (int nerghbor : gragh[node]) {
+                   if (color_code[nerghbor] == 0) {
+                       dfs(nerghbor, cNei, gragh);
+                       if(!valid)
+                           return;
+                   } else if (color_code[nerghbor] != cNei) {
+                       valid = false;
+                       return;
+                   }
+               }
+   
+           }
+       }
+   ```
+
+   2.  并查集
+
+      相邻点连在一个集合内，不与顶点相连。并查集又一个好处是，集合只会越来越大，并且同一个顶点不可能出现在两个集合中。
+
+      ```java
+          class Solution {
+              //判断二分图的方式还有：邻点属于同一个集合，且不与原点属于同一个集合
+              public boolean isBipartite(int[][] graph) {
+                  //初始化并查集
+                  DSU dsu = new DSU(graph.length);
+                  for (int i = 0; i < graph.length; i++) {
+                      for (int neighbor : graph[i]){
+                          if(dsu.isConnect(i,neighbor))
+                              return false;
+                          else {
+                              dsu.merge(graph[i][0],neighbor);
+                          }
+                      }
+                  }
+                  return true;
+              }
+      
+              class DSU {
+                  int[] parents;
+                  int N;
+                  int[] rank;
+      
+                  public DSU(int N) {
+                      this.N = N;
+                      parents = new int[N];
+                      rank = new int[N];
+                      for (int i = 0; i < N; i++) {
+                          parents[i] = i;
+                      }
+                  }
+      
+                  public void merge(int a, int b) {
+                      int pa = find(a);
+                      int pb = find(b);
+                      if (pa == pb) {
+                          return;
+                      } else if (rank[pa] > rank[pb]) {
+                          parents[pb] = pa;
+                      } else if (rank[pa] == rank[pb]) {
+                          parents[pb] = pa;
+                          rank[pa] += 1;
+                      } else {
+                          parents[pa] = parents[pb];
+                      }
+                  }
+      
+                  public int find(int a) {
+                      if (parents[a] == a) {
+                          return a;
+                      } else {
+                          return find(parents[a]);
+                      }
+                  }
+      
+                  public boolean isConnect(int a, int b) {
+                      return find(a) == find(b);
+                  }
+              }
+          }
+      ```
+
+   [684. 冗余连接](https://leetcode-cn.com/problems/redundant-connection/)
+
+   这道题本来我是本来考虑到有可能出现这种情况：
+
+   <img src="https://piggo1996.oss-cn-beijing.aliyuncs.com/img/image-20210329233010025.png" alt="image-20210329233010025" style="zoom:50%;" />
+
+   也就是说可能会有两个连通域的情况，要用DFS去比避免这种情况。但是实际上，这道题有一个隐形条件：边的数量=点的数量，且有且仅有一条冗余边。那么实际边就是N-1条，N个顶点。树的个数=顶点树-边数，因此，不会出现两个树的情况。不用考虑。
+
+   
+
+#### 匈牙利匹配
 
 
 
@@ -2010,6 +2247,8 @@ class Solution {
 }
 ```
 
+
+
 ## BFS
 
 问题的本质就是让你在一幅「图」中找到从起点start到终点target的最近距离。
@@ -2501,7 +2740,7 @@ class Solution{
           for(int i=left;i<=right;i++)
               srcArr[i]=backupArr[i];
       }
-}
+  }
   ```
   
   
@@ -2590,4 +2829,8 @@ class Solution{
 | [1018. 可被 5 整除的二进制前缀](https://leetcode-cn.com/problems/binary-prefix-divisible-by-5/) | 2021/1/14      | 2021/1/14   | 太简单                   | 1    |
 | [52. N皇后 II](https://leetcode-cn.com/problems/n-queens-ii/) | 2021/1/14      | 2021/1/14   | dfs（其实不配为困难）    | 1    |
 | [51. N 皇后](https://leetcode-cn.com/problems/n-queens/)     | 2021/14        | 2021/1/14   | dfs                      | 1    |
+| [785. 判断二分图](https://leetcode-cn.com/problems/is-graph-bipartite/) | 2021/3/27      | 2021/3/27   | 图，dfs，并查集          | 1    |
+| [703. 数据流中的第 K 大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/) | 2021/4/04      | 2021/4/04   | topk，最小堆，优先级队列 | 1    |
+| [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 2021/4/04      | 2021/4/04   | topk，最小堆，优先级队列 | 1    |
+|                                                              |                |             |                          |      |
 

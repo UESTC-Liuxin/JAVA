@@ -20,17 +20,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe71764e-ff20-4b53-9970-67a9d99ccdc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/disjoint_set_union/Introduce1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/disjoint_set_union/Introduce2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Mysql/mysql基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Mysql/mysql基础.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graph/Hungary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/indi/sort/QuickSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/Ali/Ali_1st.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/Ali/Main2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/meituan/BeautifulSubStr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/meituan/Main1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/meituan/UnhappyNumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/tencent/MaxValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/tencent/PerfectTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/wangyi/Main1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/wangyi/Main2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interview/wangyi/Main3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/StaticTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/utils/heap/Heap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/summary/dp/MaxContinuSubSum1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/summary/dp/MaxContinuSubSum2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/summary/dp/MaxContinuSubSum3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/summary/dp/MaxContinuSubSum4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/leetcode/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Leetcode笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/Leetcode笔记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/leetcode/leetcode/editor/cn/all.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/leetcode/leetcode/editor/cn/all.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/leetcode/leetcode/editor/cn/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/leetcode/leetcode/editor/cn/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/BinaryPrefixDivisibleBy5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/BinaryPrefixDivisibleBy5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/MinimumWindowSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/MinimumWindowSubstring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/ZhongJianErChaShuLcof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/ZhongJianErChaShuLcof.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/all.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/all.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/leetcode/editor/cn/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/editor/cn/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../programs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programs/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,21 +67,53 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1msf661PjQeaxw4RXt6zeVKhQT9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/leetcode/leetcode/editor" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="leetcode.id" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.NQueens">
-    <configuration name="BinaryPrefixDivisibleBy5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.BinaryPrefixDivisibleBy5" />
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="summary.dp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Hungary">
+    <configuration name="Hungary" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="graph.Hungary" />
+      <module name="leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KthLargestElementInAnArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.KthLargestElementInAnArray" />
       <module name="leetcode" />
       <extension name="coverage">
         <pattern>
@@ -73,12 +125,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IncreasingSubsequences" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.IncreasingSubsequences" />
+    <configuration name="Main1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="interview.wangyi.Main1" />
       <module name="leetcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="leetcode.editor.cn.*" />
+          <option name="PATTERN" value="interview.wangyi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -86,12 +138,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NQueens" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.NQueens" />
+    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="interview.wangyi.Main2" />
       <module name="leetcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="leetcode.editor.cn.*" />
+          <option name="PATTERN" value="interview.wangyi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,21 +151,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Permutations" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.Permutations" />
-      <module name="leetcode" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="leetcode.editor.cn.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReconstructItinerary" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.ReconstructItinerary" />
+    <configuration name="MinimumWindowSubstring" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.editor.cn.MinimumWindowSubstring" />
       <module name="leetcode" />
       <extension name="coverage">
         <pattern>
@@ -140,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NQueens" />
-        <item itemvalue="Application.BinaryPrefixDivisibleBy5" />
-        <item itemvalue="Application.ReconstructItinerary" />
-        <item itemvalue="Application.Permutations" />
-        <item itemvalue="Application.IncreasingSubsequences" />
+        <item itemvalue="Application.Hungary" />
+        <item itemvalue="Application.Main2" />
+        <item itemvalue="Application.Main1" />
+        <item itemvalue="Application.KthLargestElementInAnArray" />
+        <item itemvalue="Application.MinimumWindowSubstring" />
       </list>
     </recent_temporary>
   </component>
@@ -165,6 +204,15 @@
       <workItem from="1610607074914" duration="16000" />
       <workItem from="1610626453598" duration="13503000" />
       <workItem from="1610715327559" duration="5850000" />
+      <workItem from="1616510004824" duration="15652000" />
+      <workItem from="1617382395961" duration="46859000" />
+      <workItem from="1618050011734" duration="11245000" />
+      <workItem from="1619448568514" duration="275000" />
+      <workItem from="1619531413317" duration="261000" />
+      <workItem from="1619531705284" duration="190000" />
+      <workItem from="1619787080969" duration="3656000" />
+      <workItem from="1620316581990" duration="12878000" />
+      <workItem from="1620446674618" duration="11415000" />
     </task>
     <servers />
   </component>
@@ -183,50 +231,33 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="489" y="134" key="FileChooserDialogImpl" timestamp="1610607089158">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state x="489" y="134" key="FileChooserDialogImpl/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610607089158" />
-    <state width="1373" height="235" key="GridCell.Tab.0.bottom" timestamp="1610685492545">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state width="1373" height="235" key="GridCell.Tab.0.bottom/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610685492545" />
-    <state width="1373" height="235" key="GridCell.Tab.0.center" timestamp="1610685492545">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state width="1373" height="235" key="GridCell.Tab.0.center/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610685492545" />
-    <state width="1373" height="235" key="GridCell.Tab.0.left" timestamp="1610685492545">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state width="1373" height="235" key="GridCell.Tab.0.left/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610685492545" />
-    <state width="1373" height="235" key="GridCell.Tab.0.right" timestamp="1610685492545">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state width="1373" height="235" key="GridCell.Tab.0.right/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610685492545" />
-    <state width="1373" height="235" key="GridCell.Tab.1.bottom" timestamp="1610685492546">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state width="1373" height="235" key="GridCell.Tab.1.bottom/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610685492546" />
-    <state width="1373" height="235" key="GridCell.Tab.1.center" timestamp="1610685492545">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state width="1373" height="235" key="GridCell.Tab.1.center/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610685492545" />
-    <state width="1373" height="235" key="GridCell.Tab.1.left" timestamp="1610685492545">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state width="1373" height="235" key="GridCell.Tab.1.left/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610685492545" />
-    <state width="1373" height="235" key="GridCell.Tab.1.right" timestamp="1610685492546">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state width="1373" height="235" key="GridCell.Tab.1.right/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610685492546" />
-    <state x="10" y="24" width="1211" height="710" key="SettingsEditor" timestamp="1610627454826">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state x="10" y="24" width="1211" height="710" key="SettingsEditor/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610627454826" />
-    <state x="371" y="80" width="672" height="678" key="search.everywhere.popup" timestamp="1610630281237">
-      <screen x="0" y="0" width="1418" height="759" />
-    </state>
-    <state x="371" y="80" width="672" height="678" key="search.everywhere.popup/0.0.1418.759/-1920.0.1418.759@0.0.1418.759" timestamp="1610630281237" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/utils/heap/Heap.java</url>
+          <line>74</line>
+          <properties class="editor.cn.utils.heap.Heap" method="insert">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/interview/meituan/UnhappyNumer.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/editor/cn/MinimumWindowSubstring.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/leetcode$UnhappyNumer.ic" NAME="UnhappyNumer Coverage Results" MODIFIED="1617505150347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>interview.meituan.*</FILTER>
+    </SUITE>
   </component>
 </project>

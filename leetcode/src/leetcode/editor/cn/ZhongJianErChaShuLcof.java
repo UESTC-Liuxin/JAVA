@@ -46,32 +46,15 @@ public class ZhongJianErChaShuLcof {
  */
 
 class Solution {
-    //建立一个hash表，储存中序遍历序列与前序遍历序列的对应
-    //key=前序遍历数字 ，value=此数字在中序遍历中的index
-    Map<Integer,Integer> map =new HashMap<>();
-
-    int[] preorder;
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-
-        this.preorder=preorder;
-        for(int i=0;i<preorder.length;i++){
-            map.put(inorder[i],i);//记录每个数字在中序列表的索引，方便以根节点的值找到其中序的位置
-        }
-        return recur(0,0,inorder.length-1);
-
-    }
-
-    public TreeNode recur(int root,int left,int right){
-        //说明已经没有了子节点
-        if(left>right)
-            return null;
-        TreeNode node=new TreeNode(preorder[root]);
-        //取根结点在中序遍历中的位置
-        int i=map.get(preorder[root]);
-        node.left=recur(root+1,left,i-1);
-        node.right=recur(i-left+root+1,i+1,right);
-        return node;
-    }
+//    //建立一个hash表，储存中序遍历序列与前序遍历序列的对应
+//    //key=前序遍历数字 ，value=此数字在中序遍历中的index
+//    Map<Integer,Integer> map =new HashMap<>();
+//
+//    int[] preorder;
+//    public TreeNode buildTree(int[] preorder, int[] inorder) {
+//
+//
+//    }
 
 }
 //leetcode submit region end(Prohibit modification and deletion)
